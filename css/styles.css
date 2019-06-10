@@ -1,0 +1,67 @@
+
+/* 55px is the height of the top navbar */
+body {
+  margin-top: 60px;
+}
+main {
+  margin-bottom: 4rem;
+  padding: 1rem;
+}
+
+/* Make inside links apear below header */
+h2::before {
+  display: block;
+  content: " ";
+  margin-top: -55px;
+  height: 55px;
+  visibility: hidden;
+  pointer-events: none;
+}
+ul.flex-column {
+  margin-top: 1rem;
+}
+
+table.table tr td{
+  padding: 0.1rem 1rem;
+
+}
+
+code {
+  display: inline-block;
+
+}
+
+pre {
+  width: 40rem;
+  box-shadow: 1px 5px 5px #888888;
+
+}
+
+/* Dynamic page navigation */
+#myScrollSpy {
+  overflow-y: auto;
+}
+
+ul#myScrollSpy li a{
+  font-size: 1rem;
+  margin: 0.2rem 0;
+  padding: 0.4rem;
+  max-width: 12rem;
+  background-color: transparent;
+  color: #17a2b8;
+}
+
+ul#myScrollSpy li a.active{
+  background-color: #17a2b8;
+  color: white;
+}
+
+a:hover > h2 {
+  color: white;
+}
+
+.card {
+  max-width: 20rem;
+
+}
+

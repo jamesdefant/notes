@@ -3,16 +3,8 @@ session_start();
 
 require_once 'src/includes.php';
 
-$isDebug = false;
-
-$rootFile = 'index';
-$path = 'src/pages/';
-
-// Course => Topic => Module => Section
-
-$currentCourse = '';
-$currentTopic = '';
-$currentModule = '';
+$path = 'src/courses/';
+$isDebug = true;
 
 
 // Instantiate the site object with a path to the index.php file

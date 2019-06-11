@@ -28,78 +28,78 @@ MAINHEADING;
     public function getContent() : string
     {
       return <<< 'CONTENT'
-          <h2>PHP</h2>
-          <p>Free, open source, Iterpreted, Server-Side scripting</p>
-          <p>Can be embedded in HTML of External File</p>
-          <pre><code>&lt;?php   This is some code  ?&gt;</code></pre>
-          <h3>Why PHP?</h3>
-          <ul>
-            <li>Easy to learn</li>
-            <li>PHP code is hidden</li>
-            <li>HTML/CSS/JavaScript limitations</li>
-            <li>Need for dynamic generation</li>
-            <li>Complex data needs (can connect to several DBs)</li>
-          </ul>
-          <hr>
-          
-          <h2>Syntax</h2>
-          <pre><code>
+<h2>PHP</h2>
+<p>Free, open source, Iterpreted, Server-Side scripting</p>
+<p>Can be embedded in HTML of External File</p>
+<pre><code>&lt;?php   This is some code  ?&gt;</code></pre>
+<h3>Why PHP?</h3>
+<ul>
+  <li>Easy to learn</li>
+  <li>PHP code is hidden</li>
+  <li>HTML/CSS/JavaScript limitations</li>
+  <li>Need for dynamic generation</li>
+  <li>Complex data needs (can connect to several DBs)</li>
+</ul>
+<hr>
+
+<h2>Syntax</h2>
+<pre><code>
 &lt;body&gt; 
 &lt;?php
   echo 'This will be printed to the body tag';
 ?&gt;   
 &lt;/body&gt;   
-          </code></pre>
-          <hr>
-          
-          <h2>Running PHP</h2>
-          <ol>
-            <p>You can run the interpreter by either of two ways:</p>
-            <li>At the command line: (ie. <code>c:/xampp/htdocs/website/php index.php</code> )</li>
-            <li>Or through a browser: (ie. <code>localhost:8080/website/index.php</code> )</li>
-          </ol>
-          <hr>
-          
-          <h2>What do you need?</h2>
-          <ol>
-            <li>Webserver</li>
-            <li>PHP</li>
-            <li>MySQL</li>
-            <li>Text Editor</li>
-          </ol>
-          
-          <h3>Webservers</h3>
-          <ul>
-            <li>LAMP - Linux, Apache HTTP Server, MySQL, CPRG210</li>
-            <li>MAMP - MacOS, Apache, MySQL, CPRG210</li>
-            <li>WAMP - Windows, APache, MySQL, CPRG210</li>
-            <li>XAMPP - Apache, MariaDB, CPRG210 & Perl Interpreters</li>
-          </ul>
-          <hr>
-          
-          <h2>Comments</h2>
-          <p>Use // for single line comments</p>
-          <p>Use /*  */ for multiline comments</p>
-          <hr>
-          
-          <h2>Output statements</h2>
-          <p>Basic statements: echo() and print() - Almost the same</p>
-          <p>Both can display/output data</p>
-          <p>Difference: print() returns 1 and echo has no return</p>
-          <p>Difference: print() takes </p>
-          <hr>
-          
-          <h2>Escape Sequences/Characters</h2>
-          <p>Used for escaping special characters in a string</p>
-          <hr>
-          
-          <h2>Variables</h2>
-          <p>Memory location holding a value that can be changed</p>
-          <p>In CPRG210, no declaration</p>
-          <p>Standard data types: integer, float, string, boolean</p>
-          <p>Name starts with $ then a letter or _ then alpha or numeric characters, Case sensitive, <strong>no spaces</strong>, descriptive</p>
-          <h3>Assignment</h3>
-          <pre><code>
+</code></pre>
+<hr>
+
+<h2>Running PHP</h2>
+<ol>
+  <p>You can run the interpreter by either of two ways:</p>
+  <li>At the command line: (ie. <code>c:/xampp/htdocs/website/php index.php</code> )</li>
+  <li>Or through a browser: (ie. <code>localhost:8080/website/index.php</code> )</li>
+</ol>
+<hr>
+
+<h2>What do you need?</h2>
+<ol>
+  <li>Webserver</li>
+  <li>PHP</li>
+  <li>MySQL</li>
+  <li>Text Editor</li>
+</ol>
+
+<h3>Webservers</h3>
+<ul>
+  <li>LAMP - Linux, Apache HTTP Server, MySQL, CPRG210</li>
+  <li>MAMP - MacOS, Apache, MySQL, CPRG210</li>
+  <li>WAMP - Windows, APache, MySQL, CPRG210</li>
+  <li>XAMPP - Apache, MariaDB, CPRG210 & Perl Interpreters</li>
+</ul>
+<hr>
+
+<h2>Comments</h2>
+<p>Use // for single line comments</p>
+<p>Use /*  */ for multiline comments</p>
+<hr>
+
+<h2>Output statements</h2>
+<p>Basic statements: echo() and print() - Almost the same</p>
+<p>Both can display/output data</p>
+<p>Difference: print() returns 1 and echo has no return</p>
+<p>Difference: print() takes </p>
+<hr>
+
+<h2>Escape Sequences/Characters</h2>
+<p>Used for escaping special characters in a string</p>
+<hr>
+
+<h2>Variables</h2>
+<p>Memory location holding a value that can be changed</p>
+<p>In CPRG210, no declaration</p>
+<p>Standard data types: integer, float, string, boolean</p>
+<p>Name starts with $ then a letter or _ then alpha or numeric characters, Case sensitive, <strong>no spaces</strong>, descriptive</p>
+<h3>Assignment</h3>
+<pre><code>
 $NumberHours  = 45;
 $WorkersFirstName = "Jim";        
 $counter = $counter + 1;

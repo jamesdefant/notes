@@ -77,13 +77,16 @@ namespace J\ClassNotes {
       }
     }
 
-    private function readFolder( $path )
+    private function readFolder( $path, $depth )
     {
       // Remove . and ..
-      $files  = array_diff(scandir($path), array('.', '..'));
+
+//        $files = array_diff(scandir($path), array('.', '..'));
+        $files = scandir(($path)) ? array_diff(scandir($path), array('.', '..')) : null;
+
 //      $files = scandir($this->path);
 
-      echo '<pre>';
+      echo '<h2>Contents of '. $path .'</h2><pre>';
       print_r( $files );
       echo '</pre>';
 
@@ -100,16 +103,52 @@ namespace J\ClassNotes {
 */
       $count = 0;
       foreach ($files as $file) {
-        if( is_file(  $this->path . '/' . $file )) {
-          echo $count++ . ' | Site readFolder() |  ' . $file . ' is a file' . '<br>';
+
+        $filePath = $path . $file;
+        echo 'filePath = ' . $filePath . '<br>';
+
+        if( is_file(  $filePath )) {
+          echo $count++ . ' | Site readFolder() |  ' . $filePath . ' is a file with a depth of ' . $depth . '<br>';
+          array_push( $this->modules, $filePath );
+
         }
-        elseif( is_dir(  $this->path . '/' . $file )) {
-          echo $count++ . ' | Site readFolder() |  ' . $file . ' is a directory' . '<br>';
-          $this->readFolder( $this->path . '/' . $file );
+        elseif( is_dir(  $filePath )) {
+          echo $count++ . ' | Site readFolder() |  ' . $filePath . ' is a directory with a depth of ' . $depth . '<br>';
+
+
+
+          switch ($depth) {
+
+            // Is a course
+            case 0:
+              array_push( $this->courses, $filePath );
+              break;
+
+            // Is a Topic
+            case 1:
+              array_push( $this->topics, $filePath );
+              break;
+          }
+          echo '<br>$filePath = ' . $filePath;
+          $this->readFolder( $filePath . '/', $this->directoryLevel + 1 );
         }
       }
     }
 
+    function readArrays()
+    {
+      echo '<h2>Courses</h2><pre>';
+      print_r( $this->courses );
+      echo '</pre>';
+
+      echo '<h2>Topics</h2><pre>';
+      print_r( $this->topics );
+      echo '</pre>';
+
+      echo '<h2>Modules</h2><pre>';
+      print_r( $this->modules );
+      echo '</pre>';
+    }
     // Function that gets all the filenames from the pages folder
     // ..instantiates it's class and adds it to an array
     private function fillFilesArray()
@@ -121,7 +160,8 @@ namespace J\ClassNotes {
 
       if($this->isDebug) {
 //        $this->testFileArray( $files );
-        $this->readFolder( $this->path );
+        $this->readFolder( $this->path, $this->directoryLevel );
+        $this->readArrays();
         return;
       }
 

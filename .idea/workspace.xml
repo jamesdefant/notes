@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="003bdd2c-ace6-434a-b648-537a1bb2fb02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/includes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/includes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/BS4_Card.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/BS4_Card.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PROJ_03_Methodologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PROJ_03_Methodologies.php" afterDir="false" />
-    </list>
+    <list default="true" id="003bdd2c-ace6-434a-b648-537a1bb2fb02" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +143,7 @@
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="1664" />
     <option name="y" value="-130" />
     <option name="width" value="1536" />
@@ -277,12 +269,12 @@
       <updated>1560174944499</updated>
       <workItem from="1560174947197" duration="10979000" />
       <workItem from="1560220606178" duration="4463000" />
-      <workItem from="1560261167632" duration="10571000" />
+      <workItem from="1560261167632" duration="11162000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26013000" />
+    <option name="totallyTimeSpent" value="26604000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1664" y="-130" width="1536" height="1057" extended-state="0" />

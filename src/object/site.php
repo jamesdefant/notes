@@ -30,8 +30,14 @@ namespace J\ClassNotes {
       // Set debug variable from calling code
       $this->isDebug = $isDebug;
 
+      if($this->isDebug) {
+        $this->path = 'src/courses/';
+      }
+      else {
+        $this->path = $path;
+      }
 //      $this->path = 'src/pages/';
-      $this->path = $path;
+
 
       $this->fillFilesArray();
 /*
@@ -135,7 +141,7 @@ namespace J\ClassNotes {
       }
     }
 
-    function readArrays()
+    private function readArrays()
     {
       echo '<h2>Courses</h2><pre>';
       print_r( $this->courses );
@@ -149,6 +155,7 @@ namespace J\ClassNotes {
       print_r( $this->modules );
       echo '</pre>';
     }
+
     // Function that gets all the filenames from the pages folder
     // ..instantiates it's class and adds it to an array
     private function fillFilesArray()
@@ -158,6 +165,7 @@ namespace J\ClassNotes {
 //      $this->path = 'src/pages';
       $files = scandir($this->path);
 
+      // If debug flag is set, divert to printing arrays in courses folder
       if($this->isDebug) {
 //        $this->testFileArray( $files );
         $this->readFolder( $this->path, $this->directoryLevel );
@@ -172,6 +180,7 @@ namespace J\ClassNotes {
         array_push($this->files, $file);
       }
 
+      // Instantiate all page classes and store them in array
       foreach($this->files as $file) {
 
         // Check if the file should be ignored

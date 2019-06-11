@@ -2,21 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="003bdd2c-ace6-434a-b648-537a1bb2fb02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/courses/PROJ216_A/Planning/PROJ_02_Initiation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/courses/PROJ216_A/Planning/PROJ_03_Methodologies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/courses/CPRG210/PHP/PHP_07_Fundamentals.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/courses/CPRG210/PHP/PHP_07_Fundamentals.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/includes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/includes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/BS4_Card.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/BS4_Card.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/nav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/object/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PHP_07_Fundamentals.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PHP_07_Math.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/courses/CPRG210/PHP/PHP_07_Math.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PHP_08_Regex.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PHP_09_Inclusion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/courses/CPRG210/PHP/PHP_09_Inclusion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PHP_10_Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/courses/CPRG210/PHP/PHP_10_Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PHP_11_Forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/courses/CPRG210/PHP/PHP_11_Forms.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PHP_12_Cookies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/courses/CPRG210/PHP/PHP_12_Cookies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PHP_13_OOP.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/courses/CPRG210/PHP/PHP_13_OOP.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PHP_14_OOPEx.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/courses/CPRG210/PHP/PHP_14_OOPEx.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PHP_15_BS_JSON_Tests.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/courses/CPRG210/PHP/PHP_15_BS_JSON_Tests.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/PROJ_03_Methodologies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PROJ_03_Methodologies.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,12 +26,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/object/site.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="148" column="29" selection-start-line="148" selection-start-column="29" selection-end-line="148" selection-end-column="29" />
+            <state relative-caret-position="349">
+              <caret line="33" column="37" lean-forward="true" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
               <folding>
-                <element signature="e#655#1012#0#PHP" />
+                <element signature="n#printPageFiles#0;n#Site#0;n#!!block;n#ClassNotes#0;n#!!top" />
                 <element signature="n#testFileArray#0;n#Site#0;n#!!block;n#ClassNotes#0;n#!!top" />
-                <element signature="e#2181#2338#0#PHP" />
+                <element signature="n#readFolder#0;n#Site#0;n#!!block;n#ClassNotes#0;n#!!top" />
+                <element signature="n#readArrays#0;n#Site#0;n#!!block;n#ClassNotes#0;n#!!top" />
+                <element signature="n#getPage#0;n#Site#0;n#!!block;n#ClassNotes#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -48,22 +42,83 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+            <state relative-caret-position="136">
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/courses/PROJ216/Presentation/PROJ_01_Concepts.php">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/pages/PROJ_03_Methodologies.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="68" column="42" selection-start-line="68" selection-start-column="42" selection-end-line="68" selection-end-column="42" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/object/BS4_Card.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/includes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/template.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/PROJ_07_UML.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="114" column="5" lean-forward="true" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/PROJ_06_Objects.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="107" column="5" lean-forward="true" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/object/nav.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="500">
+              <caret line="67" column="83" selection-start-line="67" selection-start-column="83" selection-end-line="67" selection-end-column="83" />
+              <folding>
+                <element signature="e#86#201#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/courses/PROJ216/ProjectPlan/PROJ_04_Agenda.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
-              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+              <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -81,9 +136,14 @@
         <option value="$PROJECT_DIR$/src/pages/PROJ_05_TeamsClients.php" />
         <option value="$PROJECT_DIR$/src/variables.php" />
         <option value="$PROJECT_DIR$/src/courses/CPRG210/PHP/PHP_07_Fundamentals.php" />
+        <option value="$PROJECT_DIR$/src/object/nav.php" />
         <option value="$PROJECT_DIR$/src/includes.php" />
-        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/src/pages/PROJ_06_Objects.php" />
         <option value="$PROJECT_DIR$/src/object/site.php" />
+        <option value="$PROJECT_DIR$/src/pages/PROJ_07_UML.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/src/pages/PROJ_03_Methodologies.php" />
+        <option value="$PROJECT_DIR$/src/object/BS4_Card.php" />
       </list>
     </option>
   </component>
@@ -91,24 +151,11 @@
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/notes.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/deployment.xml" />
-        <option value="$PROJECT_DIR$/.idea/webServers.xml" />
-        <option value="$PROJECT_DIR$/.idea/php.xml" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="321" />
-    <option name="y" value="141" />
-    <option name="width" value="1344" />
-    <option name="height" value="925" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="1664" />
+    <option name="y" value="-130" />
+    <option name="width" value="1536" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -146,14 +193,6 @@
               <item name="notes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="courses" type="462c0819:PsiDirectoryNode" />
-              <item name="CPRG210" type="462c0819:PsiDirectoryNode" />
-              <item name="PHP" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="notes" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="courses" type="462c0819:PsiDirectoryNode" />
               <item name="PROJ216" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -184,12 +223,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="notes" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="PROJ" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -200,24 +233,24 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/courses/PROJ216/ProjectPlan" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PROJ216_BCDC" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\WORKSPACE\WEBSITE\_SITES\notes\src\courses\PROJ216\ProjectPlan" />
-      <recent name="C:\WORKSPACE\WEBSITE\_SITES\notes\src\courses\PROJ216\Presentation" />
-      <recent name="C:\WORKSPACE\WEBSITE\_SITES\notes\src\pages" />
-      <recent name="C:\WORKSPACE\WEBSITE\_SITES\notes\src\courses\PROJ216_A\Planning" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\WORKSPACE\WEBSITE\_SITES\notes\src\pages" />
       <recent name="C:\WORKSPACE\WEBSITE\_SITES\notes\src\courses\CPRG210\PHP" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\WORKSPACE\WEBSITE\_SITES\notes\src\pages" />
+      <recent name="C:\WORKSPACE\WEBSITE\_SITES\notes\src\courses\PROJ216\ProjectPlan" />
+      <recent name="C:\WORKSPACE\WEBSITE\_SITES\notes\src\courses\PROJ216\Presentation" />
+      <recent name="C:\WORKSPACE\WEBSITE\_SITES\notes\src\courses\PROJ216_A\Planning" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -244,17 +277,19 @@
       <updated>1560174944499</updated>
       <workItem from="1560174947197" duration="10979000" />
       <workItem from="1560220606178" duration="4463000" />
+      <workItem from="1560261167632" duration="10571000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15442000" />
+    <option name="totallyTimeSpent" value="26013000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="321" y="141" width="1344" height="925" extended-state="0" />
+    <frame x="1664" y="-130" width="1536" height="1057" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2554517" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22560975" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
@@ -282,13 +317,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -320,39 +348,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/includes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/object/site.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="148" column="29" selection-start-line="148" selection-start-column="29" selection-end-line="148" selection-end-column="29" />
-          <folding>
-            <element signature="e#655#1012#0#PHP" />
-            <element signature="n#testFileArray#0;n#Site#0;n#!!block;n#ClassNotes#0;n#!!top" />
-            <element signature="e#2181#2338#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/courses/PROJ216/Presentation/PROJ_01_Concepts.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/courses/PROJ216/ProjectPlan/PROJ_04_Agenda.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/object/nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="67" column="83" selection-start-line="67" selection-start-column="83" selection-end-line="67" selection-end-column="83" />
+          <folding>
+            <element signature="e#86#201#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/includes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/PROJ_06_Objects.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="107" column="5" lean-forward="true" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/object/site.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="33" column="37" lean-forward="true" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+          <folding>
+            <element signature="n#printPageFiles#0;n#Site#0;n#!!block;n#ClassNotes#0;n#!!top" />
+            <element signature="n#testFileArray#0;n#Site#0;n#!!block;n#ClassNotes#0;n#!!top" />
+            <element signature="n#readFolder#0;n#Site#0;n#!!block;n#ClassNotes#0;n#!!top" />
+            <element signature="n#readArrays#0;n#Site#0;n#!!block;n#ClassNotes#0;n#!!top" />
+            <element signature="n#getPage#0;n#Site#0;n#!!block;n#ClassNotes#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/PROJ_07_UML.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="114" column="5" lean-forward="true" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/PROJ_03_Methodologies.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="68" column="42" selection-start-line="68" selection-start-column="42" selection-end-line="68" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/object/BS4_Card.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
         </state>
       </provider>
     </entry>

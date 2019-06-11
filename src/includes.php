@@ -1,7 +1,7 @@
 <?php
 
 
-$rootFile = 'index';
+
 
 // Course => Topic => Module => Section
 
@@ -15,9 +15,9 @@ $paths = [
     "/object"
 ];
 
-loadObjects( $paths );
+requireObjects( $paths );
 
-function loadObjects( array $paths )
+function requireObjects( array $paths )
 {
   // Loop through each folder and require all files inside it
   foreach($paths as $path) {

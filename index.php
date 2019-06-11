@@ -3,21 +3,17 @@ session_start();
 
 require_once 'src/includes.php';
 
-$path = 'src/courses/';
-$isDebug = true;
+$rootFile = 'index';
+$path = 'src/pages/';
+
+$isDebug = false;
 
 
 // Instantiate the site object with a path to the index.php file
 $site = new J\ClassNotes\Site( $rootFile, $path, $isDebug );
 
-// Set a default value for the current page
-$currentPage = '';
-
-// Get GET variable 'page'
-if(isset( $_GET['page'] )) {
-  $currentPage = $_GET['page'];
-//  echo "<br><br><br><br><br>index.php | currentPage =" . $currentPage;
-}
+// Assign either the get variable or an empty string to $currentPage
+$currentPage = isset( $_GET['page'] ) ? $_GET['page'] : '';
 
 if( !$isDebug ) {
   echo $site->buildPage($currentPage);

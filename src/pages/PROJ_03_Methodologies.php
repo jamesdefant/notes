@@ -65,8 +65,8 @@ CONTENT;
   <figcaption>Throwaway Prototyping</figcaption>
 </figure>
 */
-//      $waterfall = new \BS4_Card("img/PROJ_216_A/WaterfallDevelopment.png", "Waterfall Development", "");
-//    $returnValue .=
+      $waterfall = new \BS4_Card("img/PROJ_216_A/WaterfallDevelopment.png", "Waterfall Development", "");
+    $returnValue .= $waterfall->getCard();
 
     $returnValue .= <<< 'CONTENT'
     

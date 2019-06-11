@@ -24,12 +24,21 @@ class BS4_Card
   public function getCard() : string
   {
     $returnValue = '
-<div class="card">
-  <img class="card-img-top img-fluid" src="'. $this->imageSrc .'" />
-  <div class="card-body">
+<div class="card">  
+  <div class="card-header">
     <h4 class="card-title">'. $this->title .'</h4>
   </div>
-  <div class="card-footer">'. $this->caption .'</div>
+  <div class="card-body">
+    <img class="img-fluid" src="'. $this->imageSrc .'" />
+  </div>
+  ';
+
+    if($this->caption != '') {
+    $returnValue .= '    
+  <div class="card-footer">'. $this->caption .'</div>';
+  }
+
+    $returnValue .= '  
 </div>
 
 ';

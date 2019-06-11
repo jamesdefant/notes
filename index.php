@@ -1,9 +1,12 @@
 <?php
+session_start();
+
 require_once 'src/includes.php';
 
-$isDebug = true;
+$isDebug = false;
 
 $rootFile = 'index';
+$path = 'src/pages/';
 
 // Course => Topic => Module => Section
 
@@ -13,7 +16,7 @@ $currentModule = '';
 
 
 // Instantiate the site object with a path to the index.php file
-$site = new J\ClassNotes\Site( $rootFile, $isDebug );
+$site = new J\ClassNotes\Site( $rootFile, $path, $isDebug );
 
 // Set a default value for the current page
 $currentPage = '';

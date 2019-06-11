@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d606531f-4808-4ec5-8a8b-ad439632d416" name="local testing" url="http://localhost:8080/notes">
+        <fileTransfer port="0" mountedRoot="C:\WORKSPACE\WEBSITE\_SITES\notes" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

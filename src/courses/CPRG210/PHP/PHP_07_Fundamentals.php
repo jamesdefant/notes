@@ -28,14 +28,14 @@ MAINHEADING;
     public function getContent() : string
     {
       return <<< 'CONTENT'
-          <h2>CPRG210</h2>
+          <h2>PHP</h2>
           <p>Free, open source, Iterpreted, Server-Side scripting</p>
           <p>Can be embedded in HTML of External File</p>
           <pre><code>&lt;?php   This is some code  ?&gt;</code></pre>
-          <h3>Why CPRG210?</h3>
+          <h3>Why PHP?</h3>
           <ul>
             <li>Easy to learn</li>
-            <li>CPRG210 code is hidden</li>
+            <li>PHP code is hidden</li>
             <li>HTML/CSS/JavaScript limitations</li>
             <li>Need for dynamic generation</li>
             <li>Complex data needs (can connect to several DBs)</li>
@@ -52,7 +52,7 @@ MAINHEADING;
           </code></pre>
           <hr>
           
-          <h2>Running CPRG210</h2>
+          <h2>Running PHP</h2>
           <ol>
             <p>You can run the interpreter by either of two ways:</p>
             <li>At the command line: (ie. <code>c:/xampp/htdocs/website/php index.php</code> )</li>
@@ -63,7 +63,7 @@ MAINHEADING;
           <h2>What do you need?</h2>
           <ol>
             <li>Webserver</li>
-            <li>CPRG210</li>
+            <li>PHP</li>
             <li>MySQL</li>
             <li>Text Editor</li>
           </ol>

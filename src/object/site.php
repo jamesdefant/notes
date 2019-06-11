@@ -16,16 +16,22 @@ namespace J\ClassNotes {
     // nav HTML element
     private $nav;
 
+
+    private $directoryLevel = 0;
+    private $courses = [];
+    private $modules = [];
+    private $topics = [];
+
     private $isDebug;
 
     // Object constructor
-    function __construct( $indexFile, $isDebug )
+    function __construct( $indexFile, $path, $isDebug )
     {
       // Set debug variable from calling code
       $this->isDebug = $isDebug;
 
-      $this->path = 'src/courses/';
-
+//      $this->path = 'src/pages/';
+      $this->path = $path;
 
       $this->fillFilesArray();
 /*
@@ -102,7 +108,6 @@ namespace J\ClassNotes {
           $this->readFolder( $this->path . '/' . $file );
         }
       }
-
     }
 
     // Function that gets all the filenames from the pages folder
@@ -158,13 +163,6 @@ namespace J\ClassNotes {
       }
     }
 
-    private function buildNav()
-    {
-      foreach($this->pages as $page) {
-
-
-      }
-    }
 
     public function buildPage(string $pageName = "") : string
     {
@@ -259,11 +257,6 @@ namespace J\ClassNotes {
   </body>  
 </html>        
       ';
-
-
-
     }
-
-
   }
 }

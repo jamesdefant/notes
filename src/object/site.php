@@ -78,8 +78,12 @@ namespace J\ClassNotes {
 
       $count = 0;
       foreach ($fileArray as $file) {
-        if( is_file(  $this->path . '/' . $file )) { echo $count++ . ' | Site testFilesArray() |  ' . $file . ' is a file' . '<br>'; }
-        if( is_dir(  $this->path . '/' . $file )) { echo $count++ . ' | Site testFilesArray() |  ' . $file . ' is a directory' . '<br>'; }
+        if( is_file(  $this->path . '/' . $file )) {
+          echo $count++ . ' | Site testFilesArray() |  ' . $file . ' is a file' . '<br>';
+        }
+        if( is_dir(  $this->path . '/' . $file )) {
+          echo $count++ . ' | Site testFilesArray() |  ' . $file . ' is a directory' . '<br>';
+        }
       }
     }
 
@@ -115,6 +119,8 @@ namespace J\ClassNotes {
 
         if( is_file(  $filePath )) {
           echo $count++ . ' | Site readFolder() |  ' . $filePath . ' is a file with a depth of ' . $depth . '<br>';
+
+          // Add the file to the modules array
           array_push( $this->modules, $filePath );
 
         }
@@ -127,11 +133,15 @@ namespace J\ClassNotes {
 
             // Is a course
             case 0:
+
+              // Add the directory path to the courses array
               array_push( $this->courses, $filePath );
               break;
 
             // Is a Topic
             case 1:
+
+              // Add the directory path to the topics array
               array_push( $this->topics, $filePath );
               break;
           }
@@ -156,6 +166,27 @@ namespace J\ClassNotes {
       echo '</pre>';
     }
 
+    private function stripClassFromFilePath( $filePath )
+    {
+      // Strip the directories off the filename
+      $filePathArray = explode(
+          '/',
+          $filePath
+      );
+
+
+      $filename = $filePathArray[count($filePathArray - 1)];
+
+      echo 'Filename: ' . $filename;
+
+      $class = explode(
+          $filename,
+          "."
+      );
+
+      echo 'Class: ' . $class;
+
+    }
     // Function that gets all the filenames from the pages folder
     // ..instantiates it's class and adds it to an array
     private function fillFilesArray()
@@ -212,7 +243,7 @@ namespace J\ClassNotes {
       }
     }
 
-    private function instantiateClass( $pageFilePath ) : Page
+    private function instantiateClass( $pageFilePath ) //: Page
     {
       // Strip the directories off the filename
       $filePathArray = explode(
@@ -223,12 +254,18 @@ namespace J\ClassNotes {
 
       $filename = $filePathArray[count($filePathArray - 1)];
 
+      echo 'Filename: ' . $filename;
+
       $class = explode(
-          $filePathArray,
+          $filename,
           "."
       );
 
-      $newPage = new $class($classNameArray[0]);
+      echo 'Class: ' . $class;
+
+      // Instantiate the class with the filePath as param
+
+ //     $newPage = new $class($classNameArray[0]);
     }
 
     public function buildPage(string $pageName = "") : string

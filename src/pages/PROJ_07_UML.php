@@ -27,7 +27,7 @@ MAINHEADING;
     /* CONTENT  <main> */
     public function getContent() : string
     {
-      return <<< 'CONTENT'
+      $returnValue =  <<< 'CONTENT'
 <h2>UML Books</h2>
 <ul>
   <li><strong>Sam's teach yourself UML in 24 Hours</strong><br>by Joseph Schmuller</li>
@@ -123,8 +123,74 @@ MAINHEADING;
   <li>Generalization</li>
 </ul>
 <p>Relationships between two actors do not exist (irrelevant outside of the system)</p>
+<hr>
+
+<h2>Classes</h2>
+<p>Finding and documenting classes</p>
+<ul>
+  <li>Informal description</li>
+  <ul>
+    <li>Identify nouns (objects) and verbs (operations) in written problem description</li>
+    <li>CRC cards</li>  
+  </ul>
+  
+  <li>Structured analysis</li>
+  <ul>
+    <li>Model the problem - dataflow diagrams, etc</li>
+    <li>Analyze data elements for potential objects</li>
+  </ul>
+</ul>
+<hr>
+
+<h2>Class Diagrams</h2>
+<p>Symbols</p>
+<ul>
+  <li>Class</li>
+  <li>Association</li>
+  <ul>
+    <li>Cardinality</li>
+    <li>Association classes</li>
+  </ul>
+  <li>Aggregation</li>
+  <li>Generalization</li>
+</ul>
 
 CONTENT;
+
+      $returnValue .= \WriteHTML::getClassDiagram(
+          "public ClassName",
+          array("+ PublicProperty1", "+ PublicProperty2", "+ PublicProperty3"),
+          array("+ PublicMethod()", "# ProtectedMethod( param1 ) : string")
+      ) .
+          \WriteHTML::getClassDiagram(
+              "<em>abstract ClassName</em>",
+              array("+ PublicProperty : int", "# ProtectedProperty : string", "- privateProperty : float = defaultValue", ""),
+              array("+ PublicMethod()", "# ProtectedMethod( param1 ) : string")
+          );
+  /*
+<div class="class_diagram">
+  <div class="class_diagram_head">
+    Employee
+  </div>
+  <div class="class_diagram_body">
+    <p>firstName</p>
+    <p>lastName</p>
+    <p>address</p>
+    <p>city</p>
+  </div>
+  <div class="class_diagram_footer">
+    <p>calculatePay(double)</p>
+    <p>printMailingList() : string</p>
+  </div>
+</div>
+<hr>
+*/
+    $returnValue .=  <<< 'CONTENT'
+<h2>Association Relationship</h2>
+CONTENT;
+
+    return $returnValue;
+
     }
 
   }

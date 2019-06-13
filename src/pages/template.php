@@ -27,9 +27,11 @@ MAINHEADING;
     /* CONTENT  <main> */
     public function getContent() : string
     {
-      return <<< 'CONTENT'
+      $returnValue = <<< 'CONTENT'
 
 CONTENT;
+
+      return $returnValue;
     }
 
   }

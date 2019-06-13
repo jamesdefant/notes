@@ -212,6 +212,24 @@ namespace J\ClassNotes {
       }
     }
 
+    private function instantiateClass( $pageFilePath ) : Page
+    {
+      // Strip the directories off the filename
+      $filePathArray = explode(
+          '/',
+          $pageFilePath
+      );
+
+
+      $filename = $filePathArray[count($filePathArray - 1)];
+
+      $class = explode(
+          $filePathArray,
+          "."
+      );
+
+      $newPage = new $class($classNameArray[0]);
+    }
 
     public function buildPage(string $pageName = "") : string
     {

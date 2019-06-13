@@ -1,0 +1,6 @@
+# ignore all files in idea folder
+.idea/*
+
+# except 
+# !.idea/php.xml
+# !.dea/webServers.xml

@@ -19,8 +19,9 @@ namespace J\ClassNotes {
 
     private $directoryLevel = 0;
     private $courses = [];
-    private $modules = [];
     private $topics = [];
+    private $modules = [];
+    private $modulesAssoc = [];
 
     private $isDebug;
 
@@ -115,13 +116,17 @@ namespace J\ClassNotes {
       foreach ($files as $file) {
 
         $filePath = $path . $file;
-        echo 'filePath = ' . $filePath . '<br>';
+        echo 'readFolder() | filePath = ' . $filePath . '<br>';
 
         if( is_file(  $filePath )) {
           echo $count++ . ' | Site readFolder() |  ' . $filePath . ' is a file with a depth of ' . $depth . '<br>';
 
+          $className = $this->stripClassNameFromFilePath( $filePath );
+
           // Add the file to the modules array
           array_push( $this->modules, $filePath );
+
+          $this->modulesAssoc[ $className ] = $filePath;
 
         }
         elseif( is_dir(  $filePath )) {
@@ -145,7 +150,8 @@ namespace J\ClassNotes {
               array_push( $this->topics, $filePath );
               break;
           }
-          echo '<br>$filePath = ' . $filePath;
+          echo '<br>$filePath = ' . $filePath . '<hr>';
+
           $this->readFolder( $filePath . '/', $this->directoryLevel + 1 );
         }
       }
@@ -164,27 +170,42 @@ namespace J\ClassNotes {
       echo '<h2>Modules</h2><pre>';
       print_r( $this->modules );
       echo '</pre>';
+
+      echo '<h2>Modules (Associative)</h2><pre>';
+      print_r( $this->modulesAssoc );
+      echo '</pre>';
     }
 
-    private function stripClassFromFilePath( $filePath )
+    private function stripClassNameFromFilePath( $filePath )
     {
-      // Strip the directories off the filename
+      // Break the filePath into an array on the '/'
       $filePathArray = explode(
           '/',
           $filePath
       );
 
+      // Get the last element from the filePath array ( the filename )
+      $filename = $filePathArray[ count($filePathArray) - 1 ];
 
-      $filename = $filePathArray[count($filePathArray - 1)];
+      if($this->isDebug) {
+        echo 'stripClassFromFilePath() | Filename: ' . $filename . '<br>';
+      }
 
-      echo 'Filename: ' . $filename;
+      // Break the filename into an array on the '.'
+      $classNameArray = explode(
+          ".",
+          $filename
 
-      $class = explode(
-          $filename,
-          "."
       );
 
-      echo 'Class: ' . $class;
+      // Get the first element from the filename array ( the class name )
+      $className = $classNameArray[0];
+
+      if($this->isDebug) {
+        echo 'stripClassFromFilePath() | Class: ' . $className . '<br><hr>';
+      }
+
+      return $className;
 
     }
     // Function that gets all the filenames from the pages folder
@@ -243,7 +264,7 @@ namespace J\ClassNotes {
       }
     }
 
-    private function instantiateClass( $pageFilePath ) //: Page
+    private function instantiateClass( $pageFilePath ) : Page
     {
       // Strip the directories off the filename
       $filePathArray = explode(
@@ -252,7 +273,7 @@ namespace J\ClassNotes {
       );
 
 
-      $filename = $filePathArray[count($filePathArray - 1)];
+      $filename = $filePathArray[count($filePathArray) - 1];
 
       echo 'Filename: ' . $filename;
 
@@ -265,7 +286,9 @@ namespace J\ClassNotes {
 
       // Instantiate the class with the filePath as param
 
- //     $newPage = new $class($classNameArray[0]);
+      $newPage = new $class( '' );
+
+      return $newPage;
     }
 
     public function buildPage(string $pageName = "") : string

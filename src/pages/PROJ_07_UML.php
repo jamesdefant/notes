@@ -123,6 +123,7 @@ MAINHEADING;
   <li>Generalization</li>
 </ul>
 <p>Relationships between two actors do not exist (irrelevant outside of the system)</p>
+<p>Relationships between two use cases cannot be an association</p>
 <hr>
 
 <h2>Classes</h2>

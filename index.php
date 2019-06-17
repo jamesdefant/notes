@@ -6,7 +6,7 @@ require_once 'src/includes.php';
 $rootFile = 'index';
 $path = 'src/pages/';
 
-$isDebug = true;
+$isDebug = false;
 
 
 // Instantiate the site object with a path to the index.php file

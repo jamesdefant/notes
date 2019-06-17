@@ -30,6 +30,7 @@ namespace J\ClassNotes {
     {
       // Set debug variable from calling code
       $this->isDebug = $isDebug;
+      $this->indexFile = $indexFile;
 
       if($this->isDebug) {
         $this->path = 'src/courses/';
@@ -55,7 +56,7 @@ namespace J\ClassNotes {
 */
       // Build the nav
 //      $this->nav = new Nav($this->pages, $this->currentPage);
-      $this->nav = new Nav( $indexFile );
+//      $this->nav = new Nav1( $indexFile );
     }
 
 
@@ -132,8 +133,6 @@ namespace J\ClassNotes {
         elseif( is_dir(  $filePath )) {
           echo $count++ . ' | Site readFolder() |  ' . $filePath . ' is a directory with a depth of ' . $depth . '<br>';
 
-
-
           switch ($depth) {
 
             // Is a course
@@ -174,6 +173,9 @@ namespace J\ClassNotes {
       echo '<h2>Modules (Associative)</h2><pre>';
       print_r( $this->modulesAssoc );
       echo '</pre>';
+
+      echo '<h2>Current Page:<br>' . $this->currentPage . '</h2>';
+//      $this->buildPage( $this->modules[0] );
     }
 
     private function stripClassNameFromFilePath( $filePath )
@@ -266,12 +268,17 @@ namespace J\ClassNotes {
 
     private function instantiateClass( $pageFilePath ) : Page
     {
+      // If there is no $Session set
+      if($pageFilePath == '') {
+
+
+      }
+
       // Strip the directories off the filename
       $filePathArray = explode(
           '/',
           $pageFilePath
       );
-
 
       $filename = $filePathArray[count($filePathArray) - 1];
 
@@ -284,15 +291,16 @@ namespace J\ClassNotes {
 
       echo 'Class: ' . $class;
 
-      // Instantiate the class with the filePath as param
+      // Instantiate the class with the filePath ( eg.  )as param
 
-      $newPage = new $class( '' );
+      $newPage = new $class( $class );
 
       return $newPage;
     }
 
     public function buildPage(string $pageName = "") : string
     {
+
 //      echo "<br><br><br><br>Site | currentPage = " . $pageName;
       // If no page passed to function, load the first page in array
       if($pageName == "") {
@@ -308,6 +316,9 @@ namespace J\ClassNotes {
         }
       }
 
+//      $this->currentPage = $this->instantiateClass($pageName);
+
+      $this->nav = new Nav( $this->indexFile );
       // Set up the nav
       $this->nav->buildNav($this->pages, $this->currentPage);
 

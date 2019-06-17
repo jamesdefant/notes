@@ -2,11 +2,16 @@
 
 namespace J\ClassNotes {
 
-  class Site
+  use J\Util;
+
+  class Site2
   {
     // Array of Page objects
     private $pages = array();
     private $currentPage;
+    private $curentCourse;
+    private $curentTopic;
+    private $curentModule;
 
 
     private $path;
@@ -21,27 +26,45 @@ namespace J\ClassNotes {
     private $courses = [];
     private $topics = [];
     private $modules = [];
+    private $coursesPath = [];
+    private $topicsPath = [];
+    private $modulesPath = [];
     private $modulesAssoc = [];
+
+    private $structure = [];
 
     private $isDebug;
 
     // Object constructor
-    function __construct( $indexFile, $path, $isDebug )
+    function __construct( $isDebug )
     {
       // Set debug variable from calling code
       $this->isDebug = $isDebug;
-      $this->indexFile = $indexFile;
 
+      $this->indexFile = 'index';
+
+      $this->path = 'src/courses/';
+/*
       if($this->isDebug) {
         $this->path = 'src/courses/';
       }
       else {
-        $this->path = $path;
+        $this->path = 'src/pages/';
       }
+*/
 //      $this->path = 'src/pages/';
 
+      $this->readFolder( $this->path, 'Courses', $this->directoryLevel );
+//      $this->buildArray();
+      $this->printArrays();
 
-      $this->fillFilesArray();
+      // If SESSION [ page ] not set, default to first in list
+      if(!isset($_SESSION['page'])) {
+        echo '<h2>SESSION-page not set</h2>';
+//        $_SESSION['page'] = array_key_first( $this->modulesAssoc );
+      }
+      Util::printSession();
+//      echo $this->buildPage( $_SESSION['page'] );
 /*
       // Select first page as default or create a dummy page if none are found in array
       if(count($this->pages) == 0) {
@@ -69,6 +92,26 @@ namespace J\ClassNotes {
     }
 
 
+    private function buildArray()
+    {
+      foreach ($this->modulesPath as $modulePath) {
+
+        // Break the path into pieces
+
+        // Remove the extension
+        $pathArray = explode(".", $modulePath);
+        $path = $pathArray[0];
+
+        $nodesArray = explode("/", $path);
+        $module = $nodesArray[4];
+        $topic = $nodesArray[3];
+        $course = $nodesArray[2];
+
+
+
+      }
+    }
+
     // Test an array of files to see what they are
     private function testFileArray( array $fileArray )
     {
@@ -89,7 +132,7 @@ namespace J\ClassNotes {
       }
     }
 
-    private function readFolder( $path, $depth )
+    private function readFolder( $path, $parent,  $depth )
     {
       // Remove . and ..
 
@@ -98,10 +141,11 @@ namespace J\ClassNotes {
 
 //      $files = scandir($this->path);
 
-      echo '<h2>Contents of '. $path .'</h2><pre>';
-      print_r( $files );
-      echo '</pre>';
-
+      if($this->isDebug) {
+        echo '<h2>Contents of ' . $path . '</h2><pre>';
+        print_r($files);
+        echo '</pre>';
+      }
 
       if( $files == null ) {
         return;
@@ -117,21 +161,14 @@ namespace J\ClassNotes {
       foreach ($files as $file) {
 
         $filePath = $path . $file;
-        echo 'readFolder() | filePath = ' . $filePath . '<br>';
-
-        if( is_file(  $filePath )) {
-          echo $count++ . ' | Site readFolder() |  ' . $filePath . ' is a file with a depth of ' . $depth . '<br>';
-
-          $className = $this->stripClassNameFromFilePath( $filePath );
-
-          // Add the file to the modules array
-          array_push( $this->modules, $filePath );
-
-          $this->modulesAssoc[ $className ] = $filePath;
-
+        if($this->isDebug) {
+          echo 'readFolder() | filePath = ' . $filePath . '<br>';
         }
-        elseif( is_dir(  $filePath )) {
-          echo $count++ . ' | Site readFolder() |  ' . $filePath . ' is a directory with a depth of ' . $depth . '<br>';
+
+        if( is_dir(  $filePath )) {
+          if($this->isDebug) {
+            echo $count++ . ' | Site readFolder() |  ' . $filePath . ' is a directory with a depth of ' . $depth . '<br>';
+          }
 
           switch ($depth) {
 
@@ -139,46 +176,95 @@ namespace J\ClassNotes {
             case 0:
 
               // Add the directory path to the courses array
-              array_push( $this->courses, $filePath );
+   //           array_push( $this->coursesPath, $filePath );
+              array_push( $this->courses, $this->stripClassNameFromFilePath( $filePath ) );
+
+//              array_push( $_SESSION[ 'courses' ], array ($this->stripClassNameFromFilePath( $filePath )) );
+
+              //             $_SESSION[ $parent ] = $this->stripClassNameFromFilePath( $filePath );
+
+
+              $this->structure[$parent][$this->stripClassNameFromFilePath( $filePath, true )] = array();
+
               break;
 
             // Is a Topic
             case 1:
 
               // Add the directory path to the topics array
-              array_push( $this->topics, $filePath );
+//              array_push( $this->topicsPath, $filePath );
+              array_push( $this->topics, $this->stripClassNameFromFilePath( $filePath ) );
+//              $_SESSION[ $parent ] = $this->stripClassNameFromFilePath( $filePath );
+
+              $this->structure[ 'Courses' ][$parent][$this->stripClassNameFromFilePath( $filePath, true )] = array();
+
               break;
           }
-          echo '<br>$filePath = ' . $filePath . '<hr>';
+          if($this->isDebug) {
+            echo '<br>$filePath = ' . $filePath . '<hr>';
+          }
 
-          $this->readFolder( $filePath . '/', $this->directoryLevel + 1 );
+          $this->readFolder( $filePath . '/', $this->stripClassNameFromFilePath( $filePath, true ),$this->directoryLevel + 1 );
+        }
+        elseif( is_file(  $filePath )) {
+          if($this->isDebug) {
+            echo $count++ . ' | Site readFolder() |  ' . $filePath . ' is a file with a depth of ' . $depth . '<br>';
+          }
+
+          $className = $this->stripClassNameFromFilePath( $filePath );
+
+          // Add the file to the modules array
+//          array_push( $this->modulesPath, $filePath );
+
+          array_push( $this->modules, $className );
+
+          $node = $this->findNode($this->structure, $parent);
+          array_push( $node, $className );
+
+//          $this->findNode($this->structure, $parent) = $this->stripClassNameFromFilePath( $filePath, true );
+
+          $this->modulesAssoc[ $className ] = $filePath;
+//          $_SESSION[ $parent ] = $className;
         }
       }
     }
 
-    private function readArrays()
+    private function findNode( array $array, $nodeName ) : array
     {
-      echo '<h2>Courses</h2><pre>';
-      print_r( $this->courses );
-      echo '</pre>';
+      if(count($array) > 0) {
+        if (array_key_exists($nodeName, $array)) {
+          return $array[$nodeName];
+        }
+        else {
+          foreach ($array as $item) {
+            $this->findNode($item, $nodeName);
+          }
+        }
+      }
+    }
+    
+    private function printArrays()
+    {
+      foreach ( $this->modulesAssoc as $key => $value ) {
 
-      echo '<h2>Topics</h2><pre>';
-      print_r( $this->topics );
-      echo '</pre>';
+      }
 
-      echo '<h2>Modules</h2><pre>';
-      print_r( $this->modules );
-      echo '</pre>';
+      Util::printArray($this->courses, 'courses');
+      Util::printArray($this->topics, 'topics');
+      Util::printArray($this->modules, 'modules');
+      Util::printArray($this->modulesAssoc, 'modulesAssoc');
 
-      echo '<h2>Modules (Associative)</h2><pre>';
-      print_r( $this->modulesAssoc );
-      echo '</pre>';
+      Util::printArray($this->coursesPath, 'coursesPath');
+      Util::printArray($this->topicsPath, 'topicsPath');
+      Util::printArray($this->modulesPath, 'modulesPath');
 
-      echo '<h2>Current Page:<br>' . $this->currentPage . '</h2>';
+      Util::printArray($this->structure, 'Structure');
+
+
 //      $this->buildPage( $this->modules[0] );
     }
 
-    private function stripClassNameFromFilePath( $filePath )
+    private function stripClassNameFromFilePath( $filePath, $ext = false )
     {
       // Break the filePath into an array on the '/'
       $filePathArray = explode(
@@ -189,6 +275,11 @@ namespace J\ClassNotes {
       // Get the last element from the filePath array ( the filename )
       $filename = $filePathArray[ count($filePathArray) - 1 ];
 
+      // If ext bool set, return filename with extension
+      if($ext) {
+        return $filename;
+      }
+
       if($this->isDebug) {
         echo 'stripClassFromFilePath() | Filename: ' . $filename . '<br>';
       }
@@ -197,7 +288,6 @@ namespace J\ClassNotes {
       $classNameArray = explode(
           ".",
           $filename
-
       );
 
       // Get the first element from the filename array ( the class name )
@@ -282,45 +372,43 @@ namespace J\ClassNotes {
 
       $filename = $filePathArray[count($filePathArray) - 1];
 
-      echo 'Filename: ' . $filename;
+      if($this->isDebug) {
+        echo 'Filename: ' . $filename . '<br>';
+      }
 
       $class = explode(
-          $filename,
-          "."
+          ".",
+          $filename
+
       );
 
-      echo 'Class: ' . $class;
-
+      if($this->isDebug) {
+        echo 'Class: ' . $class[0] . '<br>';
+        echo $this->modulesAssoc[$_SESSION['page']] . '<br>';
+        echo 'J\\ClassNotes\\' . $this->stripClassNameFromFilePath($this->modulesAssoc[$_SESSION['page']], true) . '<br>';
+      }
       // Instantiate the class with the filePath ( eg.  )as param
 
-      $newPage = new $class( $class );
+      $className = 'J\\ClassNotes\\' . $class[0];
+
+      require_once $this->modulesAssoc[ $_SESSION[ 'page' ] ];
+      $newPage = new $className( $this->stripClassNameFromFilePath($this->modulesAssoc[ $_SESSION[ 'page' ]], true ));
+
 
       return $newPage;
     }
 
-    public function buildPage($pageName = "") : string
+    public function buildPage(string $pageName = "") : string
     {
+      $this->currentPage = $this->instantiateClass($_SESSION[ 'page' ]);
 
-//      echo "<br><br><br><br>Site | currentPage = " . $pageName;
-      // If no page passed to function, load the first page in array
-      if($pageName == "") {
-        $this->currentPage = $this->pages[0];
+      if($this->isDebug) {
+        echo '<h2>Current Page:<br>' . $this->currentPage->getTitle() . '</h2>';
       }
-      else {  // ...otherwise open the appropriate page
-        foreach($this->pages as $page) {
-          if ($page->getFilename() == $pageName) {
-//            echo "<br><br><br><br><br>Site Match | PageFilename = " . $page->getFilename();
-
-            $this->currentPage = $page;
-          }
-        }
-      }
-
-//      $this->currentPage = $this->instantiateClass($pageName);
 
       $this->nav = new Nav( $this->indexFile );
       // Set up the nav
-      $this->nav->buildNav($this->pages, $this->currentPage);
+      $this->nav->buildNav($this->modulesAssoc, $this->currentPage);
 
       return $this->getPage();
     }

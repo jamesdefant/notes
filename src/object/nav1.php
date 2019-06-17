@@ -109,7 +109,7 @@ namespace J\ClassNotes {
 
     }
     // Return an anchor element wrapped in a list-item element
-    private function createLink(string $linkName, string $url, string $badge = '', $isActive = false): string
+    private function createLink(string $linkName, string $url, $badge = '', $isActive = false): string
     {
       $returnValue = '
           <li class="nav-item">

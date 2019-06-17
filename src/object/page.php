@@ -9,6 +9,7 @@ namespace J\ClassNotes {
     protected $mainHeading;
     protected $content;
 
+
     function __construct( $filename )
     {
       $this->filename = $filename;

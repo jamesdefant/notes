@@ -1,4 +1,7 @@
 FLOW
 
 
-    - from index.php, instantiate the site object
+- from index.php, instantiate the site object
+    - the site object will, if there isn't a SESSION variable,
+        read the files in the src/courses folder, build the arrays
+        and set one

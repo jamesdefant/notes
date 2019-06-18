@@ -10,7 +10,7 @@ namespace J\ClassNotes {
     public function getTitle() : string
     {
       return <<< 'TITLE'
-Object-Oriented CPRG210
+OOP PHP
 TITLE;
     }
 

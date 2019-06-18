@@ -10,7 +10,7 @@ namespace J\ClassNotes {
     public function getTitle() : string
     {
       return <<< 'TITLE'
-CPRG210 DBs
+PHP DBs
 TITLE;
     }
 

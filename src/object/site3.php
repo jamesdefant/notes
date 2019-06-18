@@ -56,6 +56,15 @@ class Site3
         $_SESSION['module'] = $this->stripExtFromFile($this->treeStruct[$_SESSION['course']][$_SESSION['topic']][0]);
       }
     }
+    if(isset($_GET[ 'topic' ])) {
+
+      $_SESSION[ 'topic' ] = $_GET[ 'topic' ];
+      if (count($this->treeStruct[$_SESSION['course']][$_SESSION['topic']]) > 0) {
+        $_SESSION['module'] = $this->stripExtFromFile($this->treeStruct[$_SESSION['course']][$_SESSION['topic']][0]);
+      }
+    }
+
+
     // If SESSION [ page ] not set, default to first in list
     if (!isset($_SESSION['course'])) {
 //      echo '<h2>SESSION-page not set</h2>';
@@ -378,9 +387,9 @@ class Site3
     
     <div class="container-fluid">
       <div class="row">
-              
+             
         <div class="col-lg-2 col-md-3">' .
-//          $this->nav->createSideBarTopic( $this->sidebarTopicArray, $_SESSION[ 'topic' ] ) .
+          $this->nav->createSideBarTopic( $this->sidebarTopicArray, $_SESSION[ 'topic' ] ) .
         '</div>
 
         <div class="col-lg-8 col-md-6">

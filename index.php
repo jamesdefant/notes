@@ -8,7 +8,7 @@ $path = 'src/pages/';
 
 $isDebug = false;
 
-
+//unset($_SESSION);
 
 //$_SESSION['page'] = isset( $_GET['page'] ) ? $_GET['page'] : '';
 

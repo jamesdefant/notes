@@ -10,7 +10,7 @@ namespace J\ClassNotes {
     public function getTitle() : string
     {
       return <<< 'TITLE'
-BS-JSON-Testing
+BS-JSON
 TITLE;
     }
 

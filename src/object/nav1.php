@@ -114,7 +114,7 @@ namespace J\ClassNotes {
       ';
         }
     */
-    // Dynamically add courses to navba dropdown
+    // Dynamically add courses to navbar dropdown
     /*
 <div class="dropdown">
   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -129,7 +129,7 @@ namespace J\ClassNotes {
      */
 
     /*
-     <nav class="navbar navbar-expand-sm fixed-top bg-primary navbar-dark" >
+     <nav class="nav nav-pills flex-column position-fixed" >
       <ul class="navbar-nav">
 
         <li class="nav-item">
@@ -146,8 +146,7 @@ namespace J\ClassNotes {
     public function createSideBarTopic( array $topicArray, $currentTopic )
     {
       $returnValue = '
-      <nav class="navbar navbar-expand-sm fixed-top bg-primary navbar-dark" >
-      <ul class="navbar-nav">
+      <ul class="nav nav-pills flex-column position-fixed">
       ';
 
       foreach ($topicArray as $topic) {
@@ -169,7 +168,6 @@ namespace J\ClassNotes {
 
       $returnValue .= '
       </ul>
-    </nav>
       ';
 
       return $returnValue;

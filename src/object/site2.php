@@ -1,6 +1,6 @@
 <?php
 
-namespace J\ClassNotes {
+namespace J\ClassNotes;
 
   use J\Tree;
   use J\Util;
@@ -33,6 +33,9 @@ namespace J\ClassNotes {
     private $modulesAssoc = [];
 
     private $structure = [];
+    private $treeStruct = [];
+
+    private $navbarArray = [];
 
     private $isDebug;
 
@@ -45,42 +48,35 @@ namespace J\ClassNotes {
       $this->indexFile = 'index';
 
       $this->path = 'src/courses/';
-/*
-      if($this->isDebug) {
-        $this->path = 'src/courses/';
-      }
-      else {
-        $this->path = 'src/pages/';
-      }
-*/
-//      $this->path = 'src/pages/';
 
       $this->readFolder( $this->path, 'Courses', $this->directoryLevel );
 //      $this->buildArray();
-      $this->printArrays();
+
+
+      $tree = new Tree();
+      $this->treeStruct = $tree->dirtree( "src/courses", "");
+
+      $_SESSION[ 'tree' ] = $this->treeStruct;
 
       // If SESSION [ page ] not set, default to first in list
-      if(!isset($_SESSION['page'])) {
+      if(!isset($_SESSION['course'])) {
         echo '<h2>SESSION-page not set</h2>';
-//        $_SESSION['page'] = array_key_first( $this->modulesAssoc );
+
+        if( count($this->treeStruct) > 0 ) {
+          $_SESSION['course'] = array_key_first($this->treeStruct);
+        }
+        if(count($this->treeStruct[$_SESSION['course']]) > 0 ) {
+          $_SESSION['topic'] = array_key_first($this->treeStruct[$_SESSION['course']]);
+        }
+        if(count($this->treeStruct[$_SESSION['course']][$_SESSION['topic']]) > 0 ) {
+          $_SESSION['module'] = $this->treeStruct[$_SESSION['course']][$_SESSION['topic']][0];
+        }
       }
+
+
+      $this->printArrays();
       Util::printSession();
 //      echo $this->buildPage( $_SESSION['page'] );
-/*
-      // Select first page as default or create a dummy page if none are found in array
-      if(count($this->pages) == 0) {
-
-        $this->currentPage = new GenericPage(
-            "Dummy Page",
-            "This is a dummy Page",
-            "You better believe it is, sucka!");
-      } else {
-        $this->currentPage = $this->pages[0];
-      }
-*/
-      // Build the nav
-//      $this->nav = new Nav($this->pages, $this->currentPage);
-//      $this->nav = new Nav1( $indexFile );
     }
 
 
@@ -95,6 +91,8 @@ namespace J\ClassNotes {
 
     private function buildArray()
     {
+
+ /*
       foreach ($this->modulesPath as $modulePath) {
 
         // Break the path into pieces
@@ -107,10 +105,8 @@ namespace J\ClassNotes {
         $module = $nodesArray[4];
         $topic = $nodesArray[3];
         $course = $nodesArray[2];
-
-
-
       }
+*/
     }
 
     // Test an array of files to see what they are
@@ -133,6 +129,32 @@ namespace J\ClassNotes {
       }
     }
 
+    private function createNavbarArray( $file )
+    {
+/*
+      // If not, require it to get it into the project
+      require_once  $file;
+
+      // Strip the extension off the filename
+      $classNameArray = explode(
+          '.',
+          $file
+      );
+
+      $className = $this->stripClassNameFromFilePath( $file );
+
+      $class = 'J\\ClassNotes\\' . $className;
+
+      $newPage = new $class($classNameArray[0]);
+*/
+
+      $newPage = $this->instantiateClass( $file );
+
+      // Add the object to the array
+      $this->navbarArray[ $newPage->getTitle() ] = $newPage->getFilename();
+
+    }
+
     private function readFolder( $path, $parent,  $depth )
     {
       // Remove . and ..
@@ -151,15 +173,12 @@ namespace J\ClassNotes {
       if( $files == null ) {
         return;
       }
-/*
+
       $count = 0;
       foreach ($files as $file) {
-        echo $count++ . ' | Site testFilesArray() |  ' . $file . '<br>';
-      }
-      echo '<hr>';
-*/
-      $count = 0;
-      foreach ($files as $file) {
+
+        // Instantiate classes and store their filenames and titles in an array
+
 
         $filePath = $path . $file;
         if($this->isDebug) {
@@ -219,15 +238,13 @@ namespace J\ClassNotes {
 
           array_push( $this->modules, $className );
 
+          $this->createNavbarArray( $filePath );
+/*
           $node = $this->findNode($this->structure, 'Courses');
           echo 'Parent = ' . $parent . '<br>';
           Util::printArray( $node, "Node" );
+*/
 
-
-          $tree = new Tree();
-          $treeStruct = $tree->dirtree( "src/courses", "");
-
-          Util::printArray( $treeStruct, 'Tree struct' );
 //          array_push( $node, $className );
 
 //          $this->findNode($this->structure, $parent) = $this->stripClassNameFromFilePath( $filePath, true );
@@ -268,9 +285,25 @@ namespace J\ClassNotes {
       Util::printArray($this->modulesPath, 'modulesPath');
 
       Util::printArray($this->structure, 'Structure');
+      Util::printArray($this->treeStruct, 'Structure');
+
+      Util::printArray($this->navbarArray, 'Navbar');
+
+
 
 
 //      $this->buildPage( $this->modules[0] );
+    }
+
+    // Return a filename without it's extension
+    private function stripExtFromFile( $filename ) : string
+    {
+      $class = explode(
+          ".",
+          $filename
+
+      );
+      return $class[0];
     }
 
     private function stripClassNameFromFilePath( $filePath, $ext = false )
@@ -369,8 +402,6 @@ namespace J\ClassNotes {
     {
       // If there is no $Session set
       if($pageFilePath == '') {
-
-
       }
 
       // Strip the directories off the filename
@@ -394,14 +425,17 @@ namespace J\ClassNotes {
       if($this->isDebug) {
         echo 'Class: ' . $class[0] . '<br>';
         echo $this->modulesAssoc[$_SESSION['page']] . '<br>';
-        echo 'J\\ClassNotes\\' . $this->stripClassNameFromFilePath($this->modulesAssoc[$_SESSION['page']], true) . '<br>';
+        echo 'J\\ClassNotes\\' . $this->stripClassNameFromFilePath($this->modulesAssoc[$_SESSION['module']], true) . '<br>';
       }
       // Instantiate the class with the filePath ( eg.  )as param
 
       $className = 'J\\ClassNotes\\' . $class[0];
 
-      require_once $this->modulesAssoc[ $_SESSION[ 'page' ] ];
-      $newPage = new $className( $this->stripClassNameFromFilePath($this->modulesAssoc[ $_SESSION[ 'page' ]], true ));
+ //     $filepath =  $this->stripClassNameFromFilePath([ $_SESSION[ 'module' ]] );
+
+      require_once $this->modulesAssoc[  $this->stripExtFromFile($_SESSION[ 'module' ]) ];
+
+      $newPage = new $className( $_SESSION[ 'module' ] );
 
 
       return $newPage;
@@ -409,7 +443,7 @@ namespace J\ClassNotes {
 
     public function buildPage(string $pageName = "") : string
     {
-      $this->currentPage = $this->instantiateClass($_SESSION[ 'page' ]);
+      $this->currentPage = $this->instantiateClass($_SESSION[ 'module' ]);
 
       if($this->isDebug) {
         echo '<h2>Current Page:<br>' . $this->currentPage->getTitle() . '</h2>';
@@ -494,4 +528,3 @@ namespace J\ClassNotes {
       ';
     }
   }
-}

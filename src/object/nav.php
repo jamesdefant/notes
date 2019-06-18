@@ -26,6 +26,7 @@ namespace J\ClassNotes {
     public function buildNav(array $pages, $currentPage)
     {
 //      echo "Nav{} | Current Page = " . $currentPage.tostring();
+
       $this->nav = '
 <nav class="navbar navbar-expand-sm fixed-top bg-info navbar-dark" id="nav">            
   <div class="container-fluid navbar-header">
@@ -39,7 +40,7 @@ namespace J\ClassNotes {
       <ul class="nav navbar-nav ml-auto">
   ';
 
-      foreach ($pages as $title => $filename) {
+      foreach ($pages as $filename => $title) {
 
         if($title === $currentPage) {
           $this->nav .= $this->createLink(

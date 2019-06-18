@@ -6,7 +6,7 @@ require_once 'src/includes.php';
 $rootFile = 'index';
 $path = 'src/pages/';
 
-$isDebug = true;
+$isDebug = false;
 
 
 
@@ -14,7 +14,14 @@ $isDebug = true;
 
 
 // Instantiate the site object with a path to the index.php file
-$site = new J\ClassNotes\Site2( $isDebug );
+$site = new J\ClassNotes\Site3( $isDebug );
+
+// Assign either the get variable or an empty string to $currentPage
+if(isset($_GET[ 'page' ])) {
+  $_SESSION[ 'module' ] = $_GET[ 'page' ];
+}
+
+
 
 if( !$isDebug ) {
   echo $site->buildPage();

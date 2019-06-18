@@ -2,6 +2,7 @@
 
 namespace J\ClassNotes {
 
+  use J\Tree;
   use J\Util;
 
   class Site2
@@ -218,8 +219,16 @@ namespace J\ClassNotes {
 
           array_push( $this->modules, $className );
 
-          $node = $this->findNode($this->structure, $parent);
-          array_push( $node, $className );
+          $node = $this->findNode($this->structure, 'Courses');
+          echo 'Parent = ' . $parent . '<br>';
+          Util::printArray( $node, "Node" );
+
+
+          $tree = new Tree();
+          $treeStruct = $tree->dirtree( "src/courses", "");
+
+          Util::printArray( $treeStruct, 'Tree struct' );
+//          array_push( $node, $className );
 
 //          $this->findNode($this->structure, $parent) = $this->stripClassNameFromFilePath( $filePath, true );
 
@@ -229,20 +238,20 @@ namespace J\ClassNotes {
       }
     }
 
-    private function findNode( array $array, $nodeName ) : array
+    private function findNode( array $array, $nodeName )
     {
       if(count($array) > 0) {
         if (array_key_exists($nodeName, $array)) {
           return $array[$nodeName];
         }
         else {
-          foreach ($array as $item) {
-            $this->findNode($item, $nodeName);
+          foreach ($array as $child) {
+            $this->findNode($child, $nodeName);
           }
         }
       }
     }
-    
+
     private function printArrays()
     {
       foreach ( $this->modulesAssoc as $key => $value ) {

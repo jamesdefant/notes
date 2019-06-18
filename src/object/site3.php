@@ -27,6 +27,7 @@ class Site3
 
   private $navbarArray = [];
   private $navbarPageArray = [];
+  private $sidebarTopicArray = [];
 
   private $isDebug;
 
@@ -57,7 +58,7 @@ class Site3
     }
     // If SESSION [ page ] not set, default to first in list
     if (!isset($_SESSION['course'])) {
-      echo '<h2>SESSION-page not set</h2>';
+//      echo '<h2>SESSION-page not set</h2>';
 
       if (count($this->treeStruct) > 0) {
         $_SESSION['course'] = array_key_first($this->treeStruct);
@@ -85,6 +86,8 @@ class Site3
       }
     }
 
+
+    $this->sidebarTopicArray = array_keys($_SESSION[ 'tree' ][$_SESSION[ 'course' ]]);
 
     if($this->isDebug) {
       $this->printArrays();
@@ -185,6 +188,8 @@ class Site3
 
     Util::printArray($this->navbarArray, 'Navbar');
     Util::printArray($this->navbarPageArray, 'navbarPageArray');
+    Util::printArray($this->sidebarTopicArray, 'sidebarTopicArray');
+
   }
   // Return a filename without it's extension
   private function stripExtFromFile( $filename ) : string
@@ -374,7 +379,11 @@ class Site3
     <div class="container-fluid">
       <div class="row">
               
-        <div class="col-lg-10 col-md-9">
+        <div class="col-lg-2 col-md-3">' .
+//          $this->nav->createSideBarTopic( $this->sidebarTopicArray, $_SESSION[ 'topic' ] ) .
+        '</div>
+
+        <div class="col-lg-8 col-md-6">
           <h1 class="text-center m-3">'. $this->currentPage->getMainHeading() .'</h1><hr>
           <main>
           '. $this->currentPage->getContent() .'

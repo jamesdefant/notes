@@ -8,12 +8,7 @@ namespace J\ClassNotes {
     private $path;
     private $courseList = [];
 
-/*
-    function __construct(array $pages, $currentPage)
-    {
-      $this->buildNav($pages, $currentPage);
-    }
-*/
+
     public function __construct( string $path, array $courseList )
     {
       $this->path = $path;
@@ -132,6 +127,53 @@ namespace J\ClassNotes {
   </div>
 </div>
      */
+
+    /*
+     <nav class="navbar navbar-expand-sm fixed-top bg-primary navbar-dark" >
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?topic='PHP'">PHP</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?topic='JS'">JS</a>
+        </li>
+
+      </ul>
+    </nav>
+     */
+    public function createSideBarTopic( array $topicArray, $currentTopic )
+    {
+      $returnValue = '
+      <nav class="navbar navbar-expand-sm fixed-top bg-primary navbar-dark" >
+      <ul class="navbar-nav">
+      ';
+
+      foreach ($topicArray as $topic) {
+
+        if($topic === $currentTopic) {
+          $returnValue .= $this->createLink(
+              $topic,
+              $this->path .'.php?topic=' . $topic,
+              "",
+              true
+          );
+        } else {
+          $returnValue .= $this->createLink(
+              $topic,
+              $this->path .'.php?topic=' . $topic,
+          );
+        }
+      }
+
+      $returnValue .= '
+      </ul>
+    </nav>
+      ';
+
+      return $returnValue;
+    }
     private function createDropDown( array $courseList )
     {
       $reuturnValue = '

@@ -112,16 +112,63 @@ compiled with the J-I-T (Just-In-Time) compiler to run on the platform.</p>
 <p><em>What are the benefits of prefixing names with </em><code>ux</code>? (ie uxClear)</p>
 <hr>
 
-<h2>C# Value Data Types</h2>
+<h2>C# Data Types</h2>
 <p><strong>Sample: </strong><code>dataType variableName;</code></p>
 <p><strong>For example: </strong><code>int daysWorked;</code></p>
+<p>Can be initialized at declaration</p>
+<p><strong>For example: </strong><code>int daysWorked;</code></p>
+<p>Two variables can be declared on the same line</p>
+<p><strong>For example: </strong><code>int dayOfWeek = 7, month = 2;</code></p>
+
 <ul>
   <li>int</li>
   <li>double</li>
   <li>float</li>
   <li>decimal</li>
   <li>char</li>
+  <li>string</li>
+  <li>bool</li>
 </ul>
+<hr>
+
+<h2>Syntax</h2>
+<p>Block Structure - statements reside in curly-braces</p>
+<p>Statements end in a semicolon</p>
+<p>C# is <strong>case sensitive</strong></p>
+<p>White-space is ignored</p>
+<pre><code>
+// Single line comment
+/*
+  Multi-line comment
+*/
+</code></pre>
+<pre><code>
+// Class declaration
+class MyClass
+{
+  // Member variable declaration
+  private int myInt;
+  public string myString;
+  
+  // Constructor declaration
+  public MyClass( int mInt, string mString )
+  {
+    // Initialize member variables from parameters of constructor
+    myInt = mInt;
+    myString = mString;
+    
+    // Call method
+    MyMethod();
+  }
+  
+  // Method declaration
+  private void MyMethod()
+  {
+    Console.WriteLine("My int = " + myInt + "\nMy string = " + myString);
+  } 
+}
+</code></pre>
+
 CONTENT;
 
       return $returnValue;

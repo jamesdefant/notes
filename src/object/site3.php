@@ -388,11 +388,11 @@ class Site3
     <div class="container-fluid">
       <div class="row">
              
-        <div class="col-lg-2 col-md-3">' .
+        <div class="col-md-2">' .
           $this->nav->createSideBarTopic( $this->sidebarTopicArray, $_SESSION[ 'topic' ] ) .
         '</div>
 
-        <div class="col-lg-8 col-md-6">
+        <div class="col-lg-8 col-md-7">
           <h1 class="text-center m-3">'. $this->currentPage->getMainHeading() .'</h1><hr>
           <main>
           '. $this->currentPage->getContent() .'

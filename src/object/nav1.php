@@ -25,7 +25,7 @@ namespace J\ClassNotes {
 //      echo "Nav{} | Current Page = " . $currentPage.tostring();
 
       $this->nav = '
-<nav class="navbar navbar-expand-sm fixed-top bg-info navbar-dark" id="nav">            
+<nav class="navbar navbar-expand-sm fixed-top" id="nav">            
   <div class="container-fluid navbar-header">
     <!--<a class="navbar-brand" href="index.php">Class Notes</a>-->' .
 
@@ -146,7 +146,7 @@ namespace J\ClassNotes {
     public function createSideBarTopic( array $topicArray, $currentTopic )
     {
       $returnValue = '
-      <ul class="nav nav-pills flex-column position-fixed">
+      <ul id="topics" class="nav flex-column position-fixed">
       ';
 
       foreach ($topicArray as $topic) {
@@ -172,18 +172,26 @@ namespace J\ClassNotes {
 
       return $returnValue;
     }
+
+    // Build the dropdown to select a different course
     private function createDropDown( array $courseList )
     {
       $reuturnValue = '
 <div class="dropdown">
-  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
     '. $_SESSION[ 'course' ] .'
   </button>
   <div class="dropdown-menu">
   ';
 
       foreach ( $courseList as $course ) {
-        $reuturnValue .= '<a class="dropdown-item" href="index.php?course=' . $course . '">' . $course . '</a>';
+        $reuturnValue .= '<a class="dropdown-item';
+
+        if($course == $_SESSION[ 'course' ]) {
+          $reuturnValue .= ' active';
+        }
+
+        $reuturnValue .= '" href="index.php?course=' . $course . '">' . $course . ' - '. Variables::$courses[ $course ] . '</a>';
 
       }
 

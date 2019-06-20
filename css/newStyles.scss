@@ -1,0 +1,122 @@
+$light-blue: #17a2b8;
+
+$light-purple: #ad74bc;
+
+$bg-color: $light-purple;
+$bg-lowlight: darken($bg-color, 20);
+$bg-hilight: lighten($bg-color, 20);
+
+body {
+  margin-top: 60px;
+  box-sizing: content-box;
+}
+main {
+  margin-bottom: 4rem;
+  padding: 1rem;
+}
+
+/* Make inside links apear below header */
+h2::before {
+  display: block;
+  content: " ";
+  margin-top: -55px;
+  height: 55px;
+  visibility: hidden;
+  pointer-events: none;
+}
+ul.flex-column {
+  margin-top: 1rem;
+}
+
+table.table tr td{
+  padding: 0.1rem 1rem;
+
+}
+
+
+/*--------------------------------*/
+/* Navbar */
+.navbar {
+  background-color: $bg-color;
+  a {
+    color: lightgrey;
+  }
+  a.active {
+    color: white;
+  }
+}
+button {
+  color: white;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+
+/*--------------------------------*/
+/* Dropdown */
+button.dropdown-toggle, button.dropdown-toggle:hover {
+
+  color: white;
+/*
+  border: 3px solid white;
+  border-radius: 5px;
+*/
+}
+div.dropdown-menu {
+  a {
+    color: $bg-color;
+  }
+  a.active {
+    color: white;
+    background-color: $bg-color;
+  }
+  a.active:hover {
+    color: $bg-hilight;
+    color: white;
+  }
+  a:hover {
+    color: $bg-lowlight;
+  }
+}
+  /*--------------------------------*/
+  /* Topics Nav */
+
+ul#topics {
+  margin: 1rem 15px;
+  li {
+    margin:  auto;
+    a {
+      background-color: transparent;
+      color: $bg-color;
+    }
+
+    a.active {
+      border: 3px solid $bg-color;
+      border-radius: 5px;
+    }
+  }
+}
+ul li{
+  a {
+    color: $bg-color;
+    text-align: center;
+  }
+  a.active {
+    color: white;
+    background-color: $bg-color;
+    border-radius: 25px;
+  }
+}
+
+/*--------------------------------*/
+/* Scrollspy Nav */
+
+ul#myScrollSpy li a:hover{
+  color: $bg-lowlight;
+}
+
+/*--------------------------------*/
+/* Code Highlighting */
+.hljs {
+  font-size: 0.9rem;
+}

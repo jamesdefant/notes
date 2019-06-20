@@ -191,7 +191,7 @@ namespace J\ClassNotes {
           $reuturnValue .= ' active';
         }
 
-        $reuturnValue .= '" href="index.php?course=' . $course . '">' . $course . ' - '. Variables::$courses[ $course ] . '</a>';
+        $reuturnValue .= '" href="index.php?course=' . $course . '">' . $course . ' - '. CourseList::$courses[ $course ] . '</a>';
 
       }
 

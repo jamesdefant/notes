@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes;
 
-class Variables
+class CourseList
 {
 
   public static $courses = [
@@ -10,4 +10,6 @@ class Variables
       "CPRG210" => "Web Dev",
       "PROJ216" => "Project Mgmt"
   ];
+
+
 }

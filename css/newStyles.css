@@ -1,0 +1,111 @@
+body {
+  margin-top: 60px;
+  box-sizing: content-box;
+}
+
+main {
+  margin-bottom: 4rem;
+  padding: 1rem;
+}
+
+/* Make inside links apear below header */
+h2::before {
+  display: block;
+  content: " ";
+  margin-top: -55px;
+  height: 55px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+ul.flex-column {
+  margin-top: 1rem;
+}
+
+table.table tr td {
+  padding: 0.1rem 1rem;
+}
+
+/*--------------------------------*/
+/* Navbar */
+.navbar {
+  background-color: #ad74bc;
+}
+.navbar a {
+  color: lightgrey;
+}
+.navbar a.active {
+  color: white;
+}
+
+button {
+  color: white;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+/*--------------------------------*/
+/* Dropdown */
+button.dropdown-toggle, button.dropdown-toggle:hover {
+  color: white;
+  /*
+    border: 3px solid white;
+    border-radius: 5px;
+  */
+}
+
+div.dropdown-menu a {
+  color: #ad74bc;
+}
+div.dropdown-menu a.active {
+  color: white;
+  background-color: #ad74bc;
+}
+div.dropdown-menu a.active:hover {
+  color: #d6b9dd;
+  color: white;
+}
+div.dropdown-menu a:hover {
+  color: #7a4288;
+}
+
+/*--------------------------------*/
+/* Topics Nav */
+ul#topics {
+  margin: 1rem 15px;
+}
+ul#topics li {
+  margin: auto;
+}
+ul#topics li a {
+  background-color: transparent;
+  color: #ad74bc;
+}
+ul#topics li a.active {
+  border: 3px solid #ad74bc;
+  border-radius: 5px;
+}
+
+ul li a {
+  color: #ad74bc;
+  text-align: center;
+}
+ul li a.active {
+  color: white;
+  background-color: #ad74bc;
+  border-radius: 25px;
+}
+
+/*--------------------------------*/
+/* Scrollspy Nav */
+ul#myScrollSpy li a:hover {
+  color: #7a4288;
+}
+
+/*--------------------------------*/
+/* Code Highlighting */
+.hljs {
+  font-size: 0.9rem;
+}
+
+/*# sourceMappingURL=newStyles.css.map */

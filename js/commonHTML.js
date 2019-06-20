@@ -14,7 +14,7 @@ function loadCommonHTML() {
   createScrollSpyNav( 
                       document.getElementById( "scrollSpyNav" ),
                       "myScrollSpy",
-                      [ "nav", "nav-pills", "flex-column", "position-fixed" ],
+                      [ "nav", "flex-column", "position-fixed" ],
                       getH2Links()
                     );
                     
@@ -201,6 +201,8 @@ function getH2Links() {
 
     // Grab the text held within
     var heading = h2_array[i].innerHTML;
+
+
     
     console.log(i + " | getH2Links() | " + heading);
    

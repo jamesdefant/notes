@@ -373,7 +373,7 @@ class Site3
 -->
   
 <!-- Custom css  --> 
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/newStyles.css">
   
 <!-- Load common HTML js -->  
   <script src="js/commonHTML.js" ></script> 

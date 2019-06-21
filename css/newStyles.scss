@@ -120,3 +120,26 @@ ul#myScrollSpy li a:hover{
 .hljs {
   font-size: 0.9rem;
 }
+
+/*--------------------------------*/
+/* Class Diagrams */
+div.class_diagram {
+  display: inline-block;
+  border: 1px solid black;
+  font-family: "Lucida Console", Monaco, monospace;
+  margin: 1rem 0;
+}
+div.class_diagram_head, div.class_diagram_body, div.class_diagram_footer {
+  padding: 0.6rem;
+  border: 1px solid black;
+}
+div.class_diagram_head {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background-color: #e5e5e5;
+}
+div.class_diagram_body, div.class_diagram_footer {
+  line-height: 0.5rem;
+
+}

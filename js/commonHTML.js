@@ -18,7 +18,7 @@ function loadCommonHTML() {
                       getH2Links()
                     );
                     
-  insertCodeTableCol();                      
+
 }
 
 function createNavbar1() {
@@ -167,7 +167,7 @@ function addLink( link_object, is_current ) {
   
   // Create a element
   var a = document.createElement( "a" );
-  a.classList.add( "nav-link" );
+  a.classList.add( "nav-link", "text-theme" );
   
   if(is_current == true) {
     a.classList.add( "active" );
@@ -228,10 +228,7 @@ function getH2Links() {
   return link_array;
 }
 
-function insertCodeTableCol() {
 
-  
-}
 
 /*---------------------------------------------------------------------------*/
 // Utility functions

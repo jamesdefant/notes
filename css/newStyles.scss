@@ -8,7 +8,21 @@ $bg-color: $red;
 $bg-low: darken($bg-color, 10);
 $bg-hi: lighten($bg-color, 30);
 
+/*
+  Things that are part of theme:
+    bg{
+      .navbar
+      div.dropdown-menu a
 
+    }
+    bg-hi {
+      .navbar a
+    }
+    bg-low {
+      .dropdown-item:active
+
+    }
+*/
 :root {
 
   --blue: #17a2b8;
@@ -50,13 +64,33 @@ table.table tr td{
 
 }
 
+.bg-theme, .bg-theme.active {
+  background-color: $bg-color;
+  color: white;
+}
+.text-theme {
+  color: $bg-color;
+}
+.text-theme:hover, .text-theme-hi:hover {
+  color: $bg-low;
+}
+.text-theme-hi {
+  color: $bg-hi;
+}
+.text-theme-low {
+  color: $bg-low;
+}
 
 /*--------------------------------*/
 /* Navbar */
 .navbar {
+/*
   background-color: $bg-color;
+*/
   a {
+/*
     color: $bg-hi;
+*/
   }
   a.active {
     color: white;
@@ -81,35 +115,50 @@ button.dropdown-toggle, button.dropdown-toggle:hover {
 }
 div.dropdown-menu {
   a {
+/*
     color: $bg-color;
+*/
   }
   .dropdown-item.active, .dropdown-item:active {
     color: white;
+  }
+  .dropdown-item.active{
     background-color: $bg-color;
   }
+
   .dropdown-item:active {
+
     background-color: $bg-low;
+
   }
   a.active:hover {
+/*
     color: $bg-hi;
+
     color: white;
+*/
   }
   a:hover {
+/*
     color: $bg-low;
+*/
   }
 
 }
   /*--------------------------------*/
   /* Topics Nav */
-
+/*
 ul#topics {
   margin: 1rem 15px;
   li {
     margin:  auto;
     a {
       background-color: transparent;
+
       color: $bg-color;
+
     }
+
 
     a.active {
       border: 3px solid $bg-color;
@@ -117,14 +166,20 @@ ul#topics {
     }
   }
 }
+*/
 ul li{
   a {
+/*
     color: $bg-color;
+*/
     text-align: center;
   }
-  a.active {
+  a.active, .dropdown-item:active {
+
     color: white;
+
     background-color: $bg-color;
+
     border-radius: 25px;
   }
 }

@@ -25,7 +25,7 @@ namespace J\ClassNotes {
 //      echo "Nav{} | Current Page = " . $currentPage.tostring();
 
       $this->nav = '
-<nav class="navbar navbar-expand-sm fixed-top" id="nav">            
+<nav class="navbar navbar-expand-sm fixed-top bg-theme" id="nav">            
   <div class="container-fluid navbar-header">
     <!--<a class="navbar-brand" href="index.php">Class Notes</a>-->' .
 
@@ -46,13 +46,16 @@ namespace J\ClassNotes {
           $this->nav .= $this->createLink(
               $title,
               $this->path .'.php?page=' . $filename,
-              "",
-              true
+              true,
+              "text-theme"
+
           );
         } else {
           $this->nav .= $this->createLink(
               $title,
-              $this->path .'.php?page=' . $filename
+              $this->path .'.php?page=' . $filename,
+              false,
+              "text-theme-hi"
           );
         }
       }
@@ -155,13 +158,16 @@ namespace J\ClassNotes {
           $returnValue .= $this->createLink(
               $topic,
               $this->path .'.php?topic=' . $topic,
-              "",
-              true
+              true,
+              "bg-theme"
+
           );
         } else {
           $returnValue .= $this->createLink(
               $topic,
               $this->path .'.php?topic=' . $topic,
+              false,
+              "text-theme"
           );
         }
       }
@@ -188,7 +194,10 @@ namespace J\ClassNotes {
         $reuturnValue .= '<a class="dropdown-item';
 
         if($course == $_SESSION[ 'course' ]) {
-          $reuturnValue .= ' active';
+          $reuturnValue .= ' active bg-theme';
+        }
+        else {
+          $reuturnValue .= ' text-theme';
         }
 
         $reuturnValue .= '" href="index.php?course=' . $course . '">' . $course . ' - '. CourseList::$courses[ $course ] . '</a>';
@@ -205,11 +214,11 @@ namespace J\ClassNotes {
 
     }
     // Return an anchor element wrapped in a list-item element
-    private function createLink(string $linkName, string $url, $badge = '', $isActive = false): string
+    private function createLink(string $linkName, string $url, $isActive = false, $a_classes = '', $badge = ''): string
     {
       $returnValue = '
           <li class="nav-item">
-            <a class="nav-link';
+            <a class="nav-link '. $a_classes ;
 
           // If this is the current page, attach an 'active' class to the anchor
           if( $isActive ) {

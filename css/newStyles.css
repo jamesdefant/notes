@@ -1,3 +1,18 @@
+/*
+  Things that are part of theme:
+    bg{
+      .navbar
+      div.dropdown-menu a
+
+    }
+    bg-hi {
+      .navbar a
+    }
+    bg-low {
+      .dropdown-item:active
+
+    }
+*/
 :root {
   --blue: #17a2b8;
   --green: #51a051;
@@ -40,13 +55,38 @@ table.table tr td {
   padding: 0.1rem 1rem;
 }
 
+.bg-theme, .bg-theme.active {
+  background-color: #cc584d;
+  color: white;
+}
+
+.text-theme {
+  color: #cc584d;
+}
+
+.text-theme:hover, .text-theme-hi:hover {
+  color: #b33e33;
+}
+
+.text-theme-hi {
+  color: #eec8c4;
+}
+
+.text-theme-low {
+  color: #b33e33;
+}
+
 /*--------------------------------*/
 /* Navbar */
 .navbar {
-  background-color: #cc584d;
+  /*
+    background-color: $bg-color;
+  */
 }
 .navbar a {
-  color: #eec8c4;
+  /*
+      color: $bg-hi;
+  */
 }
 .navbar a.active {
   color: white;
@@ -69,45 +109,61 @@ button.dropdown-toggle, button.dropdown-toggle:hover {
 }
 
 div.dropdown-menu a {
-  color: #cc584d;
+  /*
+      color: $bg-color;
+  */
 }
 div.dropdown-menu .dropdown-item.active, div.dropdown-menu .dropdown-item:active {
   color: white;
+}
+div.dropdown-menu .dropdown-item.active {
   background-color: #cc584d;
 }
 div.dropdown-menu .dropdown-item:active {
   background-color: #b33e33;
 }
 div.dropdown-menu a.active:hover {
-  color: #eec8c4;
-  color: white;
+  /*
+      color: $bg-hi;
+
+      color: white;
+  */
 }
 div.dropdown-menu a:hover {
-  color: #b33e33;
+  /*
+      color: $bg-low;
+  */
 }
 
 /*--------------------------------*/
 /* Topics Nav */
+/*
 ul#topics {
   margin: 1rem 15px;
-}
-ul#topics li {
-  margin: auto;
-}
-ul#topics li a {
-  background-color: transparent;
-  color: #cc584d;
-}
-ul#topics li a.active {
-  border: 3px solid #cc584d;
-  border-radius: 5px;
-}
+  li {
+    margin:  auto;
+    a {
+      background-color: transparent;
 
+      color: $bg-color;
+
+    }
+
+
+    a.active {
+      border: 3px solid $bg-color;
+      border-radius: 5px;
+    }
+  }
+}
+*/
 ul li a {
-  color: #cc584d;
+  /*
+      color: $bg-color;
+  */
   text-align: center;
 }
-ul li a.active {
+ul li a.active, ul li .dropdown-item:active {
   color: white;
   background-color: #cc584d;
   border-radius: 25px;

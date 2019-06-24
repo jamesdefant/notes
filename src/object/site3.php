@@ -376,9 +376,8 @@ class Site3
   <link rel="stylesheet" href="css/newStyles.css">
   
 <!-- Load common HTML js -->  
-  <script src="js/commonHTML.js" ></script> 
-  
-      
+  <script src="js/commonHTML.js" ></script>'
+. CourseList::getThemeStyle() .'      
   </head>
   
   <body data-spy="scroll" data-target="#myScrollSpy" data-offset="120" onload="loadCommonHTML()">

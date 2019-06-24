@@ -1,11 +1,17 @@
 <?php
 
+
+
 namespace J\ClassNotes;
+
+use Mexitek\PHPColors\Color;
 
 class Course
 {
   private $name;
-  private $Color;
+  private $color;
+  private $color_hi;
+  private $color_low;
   private $description;
 
   /**
@@ -14,11 +20,42 @@ class Course
    * @param $Color
    * @param $description
    */
-  public function __construct($name, $description)
+  public function __construct($name, $description, $color)
   {
     $this->name = $name;
 
     $this->description = $description;
+
+//    $this->color = $color;
+    $this->color = new Color($color);
+
+    $this->color_hi = $this->color->lighten(0.2);
+    $this->color_low = $this->color->darken(0.2);
+
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getColor()
+  {
+    return $this->Color;
+  }
+
+  /**
+   * @return string
+   */
+  public function getColorHi(): string
+  {
+    return $this->color_hi;
+  }
+
+  /**
+   * @return string
+   */
+  public function getColorLow(): string
+  {
+    return $this->color_low;
   }
 
   /**
@@ -29,13 +66,7 @@ class Course
     return $this->name;
   }
 
-  /**
-   * @return mixed
-   */
-  public function getColor()
-  {
-    return $this->Color;
-  }
+
 
   /**
    * @return mixed

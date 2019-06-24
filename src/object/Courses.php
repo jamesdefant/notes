@@ -13,7 +13,7 @@ class CourseList
   ];
 
   public static $courseList = [];
-  public static Course $currentCourse;
+  public static $currentCourse;
 
   // Constructor
   public function __construct()
@@ -21,10 +21,11 @@ class CourseList
     self::$currentCourse = $_SESSION[ 'course' ];
 
     foreach(self::$Courses as $course=>$value){
-      $courseList[$course] = new Course($course, $value[0], $value[1]);
+      $courseList[$course] = new Course($course, $value[0]);
+//      $courseList[$course] = new Course($course, $value[0], $value[1]);
     }
   }
-
+/*
 
   public static function getThemeStyle()
   {
@@ -54,4 +55,6 @@ class CourseList
 </style>    
     ';
   }
+
+  */
 }

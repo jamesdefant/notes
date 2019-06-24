@@ -1,11 +1,28 @@
-$light-blue: #17a2b8;
-$light-green: #17a2b8;
-$light-purple: #ad74bc;
+$blue: #17a2b8;
+$green: #51a051;
+$purple: #ad74bc;
+$red: #cc584d;
 
-$bg-color: $light-purple;
-$bg-lowlight: darken($bg-color, 20);
-$bg-hilight: lighten($bg-color, 20);
+$bg-color: $red;
 
+$bg-low: darken($bg-color, 10);
+$bg-hi: lighten($bg-color, 30);
+
+
+:root {
+
+  --blue: #17a2b8;
+  --green: #51a051;
+  --purple: #ad74bc;
+/*
+  --red: $red;
+*/
+  --bg: var(--green);
+/*
+  --bg-low: darken(var(--bg), 10);
+  --bg-hi: lighten(var(--bg), 30);
+*/
+}
 body {
   margin-top: 60px;
   box-sizing: content-box;
@@ -39,7 +56,7 @@ table.table tr td{
 .navbar {
   background-color: $bg-color;
   a {
-    color: lightgrey;
+    color: $bg-hi;
   }
   a.active {
     color: white;
@@ -66,17 +83,21 @@ div.dropdown-menu {
   a {
     color: $bg-color;
   }
-  a.active {
+  .dropdown-item.active, .dropdown-item:active {
     color: white;
     background-color: $bg-color;
   }
+  .dropdown-item:active {
+    background-color: $bg-low;
+  }
   a.active:hover {
-    color: $bg-hilight;
+    color: $bg-hi;
     color: white;
   }
   a:hover {
-    color: $bg-lowlight;
+    color: $bg-low;
   }
+
 }
   /*--------------------------------*/
   /* Topics Nav */
@@ -112,7 +133,7 @@ ul li{
 /* Scrollspy Nav */
 
 ul#myScrollSpy li a:hover{
-  color: $bg-lowlight;
+  color: $bg-low;
 }
 
 /*--------------------------------*/

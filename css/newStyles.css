@@ -1,3 +1,17 @@
+:root {
+  --blue: #17a2b8;
+  --green: #51a051;
+  --purple: #ad74bc;
+  /*
+    --red: $red;
+  */
+  --bg: var(--green);
+  /*
+    --bg-low: darken(var(--bg), 10);
+    --bg-hi: lighten(var(--bg), 30);
+  */
+}
+
 body {
   margin-top: 60px;
   box-sizing: content-box;
@@ -29,10 +43,10 @@ table.table tr td {
 /*--------------------------------*/
 /* Navbar */
 .navbar {
-  background-color: #ad74bc;
+  background-color: #cc584d;
 }
 .navbar a {
-  color: lightgrey;
+  color: #eec8c4;
 }
 .navbar a.active {
   color: white;
@@ -55,18 +69,21 @@ button.dropdown-toggle, button.dropdown-toggle:hover {
 }
 
 div.dropdown-menu a {
-  color: #ad74bc;
+  color: #cc584d;
 }
-div.dropdown-menu a.active {
+div.dropdown-menu .dropdown-item.active, div.dropdown-menu .dropdown-item:active {
   color: white;
-  background-color: #ad74bc;
+  background-color: #cc584d;
+}
+div.dropdown-menu .dropdown-item:active {
+  background-color: #b33e33;
 }
 div.dropdown-menu a.active:hover {
-  color: #d6b9dd;
+  color: #eec8c4;
   color: white;
 }
 div.dropdown-menu a:hover {
-  color: #7a4288;
+  color: #b33e33;
 }
 
 /*--------------------------------*/
@@ -79,27 +96,27 @@ ul#topics li {
 }
 ul#topics li a {
   background-color: transparent;
-  color: #ad74bc;
+  color: #cc584d;
 }
 ul#topics li a.active {
-  border: 3px solid #ad74bc;
+  border: 3px solid #cc584d;
   border-radius: 5px;
 }
 
 ul li a {
-  color: #ad74bc;
+  color: #cc584d;
   text-align: center;
 }
 ul li a.active {
   color: white;
-  background-color: #ad74bc;
+  background-color: #cc584d;
   border-radius: 25px;
 }
 
 /*--------------------------------*/
 /* Scrollspy Nav */
 ul#myScrollSpy li a:hover {
-  color: #7a4288;
+  color: #b33e33;
 }
 
 /*--------------------------------*/

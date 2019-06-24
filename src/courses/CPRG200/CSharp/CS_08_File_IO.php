@@ -103,6 +103,11 @@ catch(Exception ex)
 {
   MeassageBox.Show(ex.Message);
 }
+finally
+{
+  if(sr != null) { sr.Close(); }
+  if(fs != null) { fs.Close(); }
+}
 </code></pre>
 CONTENT;
 

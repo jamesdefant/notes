@@ -109,16 +109,23 @@ compiled with the J-I-T (Just-In-Time) compiler to run on the platform.</p>
     </tr>    
   </tbody>
 </table>
-<p><em>What are the benefits of prefixing names with </em><code>ux</code>? (ie uxClear)</p>
+<p><em>What are the benefits of prefixing names with </em><code>ux</code> (ux = user experience - ie uxClear)</p>
+<p>
+  When a Control is named after it's type (ie. txtName), any change made to the type of Control
+   - for instance, changing a TextBox to a ComboBox, necessitates changing the name to comply 
+   with convention. If the element is prefixed with <em>ux</em> and named by what it accomplishes
+    (ie. <code>uxName</code>)- not what kind of element it is, then there is no need to change it's variable name if one
+    were to change it's Control type (ie. TextBox => ComboBox)
+</p>
 <hr>
 
 <h2>C# Data Types</h2>
 <p><strong>Sample: </strong><code>dataType variableName;</code></p>
 <p><strong>For example: </strong><code>int daysWorked;</code></p>
 <p>Can be initialized at declaration</p>
-<p><strong>For example: </strong><code>int daysWorked;</code></p>
-<p>Two variables can be declared on the same line</p>
-<p><strong>For example: </strong><code>int dayOfWeek = 7, month = 2;</code></p>
+<p><strong>For example: </strong><code>int daysWorked = 5;</code></p>
+<p>Multiple variables can be declared on one line</p>
+<p><strong>For example: </strong><code>int dayOfWeek = 7, month = 2, year;</code></p>
 
 <ul>
   <li>int</li>
@@ -138,9 +145,12 @@ compiled with the J-I-T (Just-In-Time) compiler to run on the platform.</p>
 <p>White-space is ignored</p>
 <pre><code>
 // Single line comment
+
 /*
   Multi-line comment
 */
+
+
 </code></pre>
 <pre><code>
 // Class declaration

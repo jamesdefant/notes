@@ -7,11 +7,15 @@ class CourseList
 {
 
   public static $courses = [
+      "CPRG200" => "R.A.D. in C#",
+      "CPRG210" => "Web Dev",
+      "PROJ216" => "Project Mgmt"
+  ];
+  public static $courseObjects = [
       "CPRG200" => ["R.A.D. in C#", "#51a051"],
       "CPRG210" => ["Web Dev", "#17a2b8"],
       "PROJ216" => ["Project Mgmt", "#ad74bc"]
   ];
-
   public static $courseList = [];
   public static $currentCourse;
 
@@ -21,11 +25,11 @@ class CourseList
     self::$currentCourse = $_SESSION[ 'course' ];
 
     foreach(self::$Courses as $course=>$value){
-      $courseList[$course] = new Course($course, $value[0]);
-//      $courseList[$course] = new Course($course, $value[0], $value[1]);
+//      $courseList[$course] = new Course($course, $value[0]);
+      $courseList[$course] = new Course($course, $value[0], $value[1]);
     }
   }
-/*
+
 
   public static function getThemeStyle()
   {
@@ -56,5 +60,5 @@ class CourseList
     ';
   }
 
-  */
+  
 }

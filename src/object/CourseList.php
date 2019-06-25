@@ -16,7 +16,7 @@ class CourseList
   public static $courseObjects = [
       "CPRG200" => ["R.A.D. in C#", '51a051'],
       "CPRG210" => ["Web Dev", '17a2b8'],
-      "PROJ216" => ["Project Mgmt", 'ad74bc']
+      "PROJ216" => ["Project Mgmt", 'cc584d']
   ];
 
   public static $courseList = [];

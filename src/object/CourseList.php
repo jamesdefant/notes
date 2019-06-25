@@ -11,12 +11,15 @@ class CourseList
   public static $courses = [
       "CPRG200" => "R.A.D. in C#",
       "CPRG210" => "Web Dev",
-      "PROJ216" => "Project Mgmt"
+      "PROJ216" => "Project Mgmt",
+      "GIT" => "Version Control"
+
   ];
   public static $courseObjects = [
       "CPRG200" => ["R.A.D. in C#", '51a051'],
       "CPRG210" => ["Web Dev", '17a2b8'],
-      "PROJ216" => ["Project Mgmt", 'cc584d']
+      "PROJ216" => ["Project Mgmt", 'cc584d'],
+      "GIT" => ["Version Control", 'ad74bc']
   ];
 
   public static $courseList = [];
@@ -73,7 +76,13 @@ ul li a.active, .dropdown-item:active {
 ul li a:hover{
   color: '. $course->getColorLow() .';
 }
+ul#topics li a.active {
+  background-color: transparent;
+  color: '. $course->getColor() .';
+  border: 3px solid '. $course->getColor() .';
+  border-radius: 5px;
 
+}
 </style>    
     ';
   }

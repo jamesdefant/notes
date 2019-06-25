@@ -137,6 +137,16 @@ div.dropdown-menu a:hover {
 }
 
 /*--------------------------------*/
+/* Console Display */
+.console {
+  padding: 1rem;
+  background-color: black;
+}
+.console pre {
+  color: white;
+}
+
+/*--------------------------------*/
 /* Topics Nav */
 /*
 ul#topics {

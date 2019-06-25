@@ -147,8 +147,20 @@ div.dropdown-menu {
   }
 
 }
-  /*--------------------------------*/
-  /* Topics Nav */
+/*--------------------------------*/
+/* Console Display */
+.console {
+  padding: 1rem;
+  background-color: black;
+  pre {
+    color: white;
+
+  }
+}
+
+
+/*--------------------------------*/
+/* Topics Nav */
 /*
 ul#topics {
   margin: 1rem 15px;

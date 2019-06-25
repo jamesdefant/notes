@@ -78,7 +78,8 @@ compiled with the J-I-T (Just-In-Time) compiler to run on the platform.</p>
     <tr>
       <th>Control Type</th>
       <th>Prefix</th>
-      <th>For Example</th>
+      <th>Hungarian Notation</th>
+      <th>ux Prefix</th>
     </tr>
   </thead>
   <tbody>
@@ -86,36 +87,40 @@ compiled with the J-I-T (Just-In-Time) compiler to run on the platform.</p>
       <td>Label</td>
       <td>lbl</td>
       <td>lblMessage</td>
+      <td>uxMessage</td>
     </tr>
     <tr>
       <td>Text Box</td>
       <td>txt</td>
       <td>txtName</td>
+      <td>uxName</td>
     </tr>
     <tr>
       <td>Button</td>
       <td>btn</td>
       <td>btnClear</td>
+      <td>uxClear</td>
     </tr>
     <tr>
       <td>ListBox</td>
       <td>lst</td>
       <td>lstOption</td>
+      <td>uxOption</td>
     </tr>
     <tr>
       <td>Form</td>
       <td>frm</td>
       <td>frmMain</td>
+      <td>uxMain</td>
     </tr>    
   </tbody>
 </table>
-<p><em>What are the benefits of prefixing names with </em><code>ux</code> (ux = user experience - ie uxClear)</p>
+<p><em>What are the benefits of prefixing names with </em><code>ux</code>? (ux = user experience - ie uxClear)</p>
 <p>
   When a Control is named after it's type (ie. txtName), any change made to the type of Control
    - for instance, changing a TextBox to a ComboBox, necessitates changing the name to comply 
    with convention. If the element is prefixed with <em>ux</em> and named by what it accomplishes
-    (ie. <code>uxName</code>)- not what kind of element it is, then there is no need to change it's variable name if one
-    were to change it's Control type (ie. TextBox => ComboBox)
+    (ie. <code>uxName</code>)- not what kind of element it is, then there is no need to change it's variable name (ie. TextBox => ComboBox)
 </p>
 <hr>
 

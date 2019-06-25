@@ -55,27 +55,24 @@ table.table tr td {
   padding: 0.1rem 1rem;
 }
 
+/*
 .bg-theme, .bg-theme.active {
-  background-color: #cc584d;
+  background-color: $bg-color;
   color: white;
 }
-
 .text-theme {
-  color: #cc584d;
+  color: $bg-color;
 }
-
 .text-theme:hover, .text-theme-hi:hover {
-  color: #b33e33;
+  color: $bg-low;
 }
-
 .text-theme-hi {
-  color: #eec8c4;
+  color: $bg-hi;
 }
-
 .text-theme-low {
-  color: #b33e33;
+  color: $bg-low;
 }
-
+*/
 /*--------------------------------*/
 /* Navbar */
 .navbar {
@@ -117,10 +114,14 @@ div.dropdown-menu .dropdown-item.active, div.dropdown-menu .dropdown-item:active
   color: white;
 }
 div.dropdown-menu .dropdown-item.active {
-  background-color: #cc584d;
+  /*
+      background-color: $bg-color;
+  */
 }
 div.dropdown-menu .dropdown-item:active {
-  background-color: #b33e33;
+  /*
+      background-color: $bg-low;
+  */
 }
 div.dropdown-menu a.active:hover {
   /*
@@ -165,16 +166,23 @@ ul li a {
 }
 ul li a.active, ul li .dropdown-item:active {
   color: white;
-  background-color: #cc584d;
+  /*
+      background-color: $bg-color;
+  */
   border-radius: 25px;
+}
+
+.btn:focus {
+  box-shadow: none;
 }
 
 /*--------------------------------*/
 /* Scrollspy Nav */
-ul#myScrollSpy li a:hover {
-  color: #b33e33;
+/*
+ul#myScrollSpy li a:hover{
+  color: $bg-low;
 }
-
+*/
 /*--------------------------------*/
 /* Code Highlighting */
 .hljs {

@@ -29,8 +29,8 @@ class Course
 //    $this->color = $color;
     $this->color = new Color($color);
 
-    $this->color_hi = $this->color->lighten(0.2);
-    $this->color_low = $this->color->darken(0.2);
+    $this->color_hi = $this->color->lighten(40);
+    $this->color_low = $this->color->darken(20);
 
   }
 
@@ -39,7 +39,7 @@ class Course
    */
   public function getColor()
   {
-    return $this->Color;
+    return $this->color;
   }
 
   /**
@@ -47,7 +47,7 @@ class Course
    */
   public function getColorHi(): string
   {
-    return $this->color_hi;
+    return '#' . $this->color_hi;
   }
 
   /**
@@ -55,7 +55,7 @@ class Course
    */
   public function getColorLow(): string
   {
-    return $this->color_low;
+    return '#' . $this->color_low;
   }
 
   /**

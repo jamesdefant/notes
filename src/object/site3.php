@@ -339,6 +339,8 @@ class Site3
 
   private function getPage() : string
   {
+    $cl = new CourseList();
+
     return '
   <!DOCTYPE html>
   <html>
@@ -377,6 +379,10 @@ class Site3
   
 <!-- Load common HTML js -->  
   <script src="js/commonHTML.js" ></script>      
+  
+  
+  '. CourseList::getThemeStyle() .'
+  
   </head>
   
   <body data-spy="scroll" data-target="#myScrollSpy" data-offset="120" onload="loadCommonHTML()">

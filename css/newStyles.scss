@@ -63,7 +63,7 @@ table.table tr td{
   padding: 0.1rem 1rem;
 
 }
-
+/*
 .bg-theme, .bg-theme.active {
   background-color: $bg-color;
   color: white;
@@ -80,7 +80,7 @@ table.table tr td{
 .text-theme-low {
   color: $bg-low;
 }
-
+*/
 /*--------------------------------*/
 /* Navbar */
 .navbar {
@@ -123,13 +123,15 @@ div.dropdown-menu {
     color: white;
   }
   .dropdown-item.active{
+/*
     background-color: $bg-color;
+*/
   }
 
   .dropdown-item:active {
-
+/*
     background-color: $bg-low;
-
+*/
   }
   a.active:hover {
 /*
@@ -177,20 +179,22 @@ ul li{
   a.active, .dropdown-item:active {
 
     color: white;
-
+/*
     background-color: $bg-color;
-
+*/
     border-radius: 25px;
   }
 }
-
+.btn:focus {
+  box-shadow: none;
+}
 /*--------------------------------*/
 /* Scrollspy Nav */
-
+/*
 ul#myScrollSpy li a:hover{
   color: $bg-low;
 }
-
+*/
 /*--------------------------------*/
 /* Code Highlighting */
 .hljs {

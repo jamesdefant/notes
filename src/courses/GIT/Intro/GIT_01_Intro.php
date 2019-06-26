@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class Git_Intro extends Page
+  class GIT_01_Intro extends Page
   {
 
     /*-----------------------------------------------------------------*/

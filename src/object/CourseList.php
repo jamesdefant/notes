@@ -8,6 +8,15 @@ use J\Util;
 class CourseList
 {
 
+  public static $colors = [
+    "2b00a3",
+    "f4b11f",
+    "ffff3d",
+    "ff1462",
+    "abff63",
+    "00535e"
+  ];
+  /*
   public static $courses = [
       "CPRG200" => "R.A.D. in C#",
       "CPRG210" => "Web Dev",
@@ -15,11 +24,13 @@ class CourseList
       "GIT" => "Version Control"
 
   ];
+  */
   public static $courseObjects = [
-      "CPRG200" => ["R.A.D. in C#", '51a051'],
-      "CPRG210" => ["Web Dev", '17a2b8'],
-      "PROJ216" => ["Project Mgmt", 'cc584d'],
-      "GIT" => ["Version Control", 'ad74bc']
+    "CPRG200" => ["R.A.D. in C#", '51a051'],
+    "CPRG210" => ["Web Dev", '17a2b8'],
+    "PROJ216" => ["Project Mgmt", 'cc584d'],
+    "GIT" => ["Version Control", 'ad74bc'],
+    "XML" => ["Markup Languages", "00535e"]
   ];
 
   public static $courseList = [];
@@ -32,7 +43,6 @@ class CourseList
 
     // Initialize courseList as assoc array of objects
     foreach(self::$courseObjects as $course=>$value){
-//      $courseList[$course] = new Course($course, $value[0]);
       self::$courseList[$course] = new Course($course, $value[0], $value[1]);
     }
 

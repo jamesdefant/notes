@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class PROJ_08_UMLEx extends Page
+  class PROJ_08_UMLPlus extends Page
   {
 
     /*-----------------------------------------------------------------*/

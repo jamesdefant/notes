@@ -154,11 +154,22 @@ div.dropdown-menu {
   background-color: black;
   pre {
     color: white;
-
   }
 }
 
+pre code span.comment {
+  color: red !important;
+}
 
+div.demo {
+  width: 20rem;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
+  h3 {
+    padding: 0.3rem 1rem;
+    text-align: center;
+  }
+}
 /*--------------------------------*/
 /* Topics Nav */
 /*

@@ -91,20 +91,22 @@ MAINHEADING;
 <p><strong>Global scope</strong> allows the developer to 'name' a complexType or simpleType so that the type can be reused in the XSD</p>
 <p>Global scope element types should be direct child elements of <code>&lt;xs:schema&gt;</code></p>
 <p>Define a global scope for an element by:</p>
-<ol>
-  <li>Giving it a name</li>
-<pre><code>
-&lt;xs:element name="address" type="addressType"/&gt;
-</code></pre>
-  <li>Creating a definition as a child under <code>&lt;xs:schema&gt;</code></li>
+
 
 <pre><code>
 &lt;xs:schema&gt;
+
+  <span style="color:red;">// 1. Giving it a name</span>
+  &lt;xs:element name="address" type="addressType"/&gt;
+
+  <span style="color:red;">// 2. Creating a definition as a child under <code>&lt;xs:schema&gt;</code></span>
   &lt;xs:complexType name="addressType"&gt;
     &lt;xs:sequence&gt;
+      ...
+    &lt;/xs:sequence&gt;    
 &lt;/xs:schema&gt;
 </code></pre>
-</ol>
+
 CONTENT;
 
       return $returnValue;

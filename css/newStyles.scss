@@ -127,7 +127,9 @@ div.dropdown-menu {
     background-color: $bg-color;
 */
   }
-
+  span.course-name {
+    width: 10rem;
+  }
   .dropdown-item:active {
 /*
     background-color: $bg-low;

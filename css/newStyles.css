@@ -118,6 +118,9 @@ div.dropdown-menu .dropdown-item.active {
       background-color: $bg-color;
   */
 }
+div.dropdown-menu span.course-name {
+  width: 10rem;
+}
 div.dropdown-menu .dropdown-item:active {
   /*
       background-color: $bg-low;

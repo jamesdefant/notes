@@ -13,7 +13,7 @@ $currentModule = '';
 // Variable to hold all the include paths
 $paths = [
   "/object",
-  "/Mexitek/PHPColors"
+  "/vendor/Mexitek/PHPColors"
 ];
 
 requireObjects( $paths );

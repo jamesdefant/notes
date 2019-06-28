@@ -200,7 +200,8 @@ namespace J\ClassNotes {
           $reuturnValue .= ' text-theme';
         }
 
-        $reuturnValue .= '" href="index.php?course=' . $course . '">' . $course . ' - '. CourseList::$courseObjects[ $course ][0] . '</a>';
+        $reuturnValue .= '" href="index.php?course=' . $course . '"><span class="course-name">' . $course . '</span> - 
+<span class="course-desc">'. CourseList::$courseObjects[ $course ][0] . '</span></a>';
 
       }
 

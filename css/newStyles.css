@@ -118,8 +118,15 @@ div.dropdown-menu .dropdown-item.active {
       background-color: $bg-color;
   */
 }
-div.dropdown-menu span.course-name {
-  width: 10rem;
+div.dropdown-menu div.course-name, div.dropdown-menu div.course-desc {
+  display: inline-block;
+}
+div.dropdown-menu div.course-name {
+  width: 7rem;
+}
+div.dropdown-menu div.course-desc {
+  text-align: right;
+  width: 9rem;
 }
 div.dropdown-menu .dropdown-item:active {
   /*

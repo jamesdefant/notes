@@ -127,8 +127,15 @@ div.dropdown-menu {
     background-color: $bg-color;
 */
   }
-  span.course-name {
-    width: 10rem;
+  div.course-name, div.course-desc {
+    display: inline-block;
+  }
+  div.course-name {
+    width: 7rem;
+  }
+  div.course-desc {
+    text-align: right;
+    width: 9rem;
   }
   .dropdown-item:active {
 /*

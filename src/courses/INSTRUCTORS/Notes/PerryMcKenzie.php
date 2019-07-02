@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class Instructors extends Page
+  class PerryMcKenzie extends Page
   {
 
     /*-----------------------------------------------------------------*/
@@ -10,7 +10,7 @@ namespace J\ClassNotes {
     public function getTitle() : string
     {
       return <<< 'TITLE'
-Instructors
+PerryMcKenzie
 TITLE;
     }
 

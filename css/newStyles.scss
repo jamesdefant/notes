@@ -227,6 +227,10 @@ ul#myScrollSpy li a:hover{
   color: $bg-low;
 }
 */
+code h2 {
+  display: inline-block;
+  font-size: inherit;
+}
 /*--------------------------------*/
 /* Code Highlighting */
 .hljs {

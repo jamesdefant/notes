@@ -14,7 +14,8 @@ class CourseList
     "ffff3d",
     "ff1462",
     "abff63",
-    "00535e"
+    "00535e",
+    "630057"
   ];
   /*
   public static $courses = [

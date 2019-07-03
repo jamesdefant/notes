@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-CPRG210 File Inclusion
+PHP File Inclusion
 MAINHEADING;
     }
 

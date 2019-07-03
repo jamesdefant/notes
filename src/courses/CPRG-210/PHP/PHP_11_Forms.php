@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-CPRG210 Forms
+PHP Forms
 MAINHEADING;
     }
 
@@ -61,7 +61,7 @@ MAINHEADING;
             <li>No control over who might be submitting data to the server and if they validated it</li>
             <li>Problem occurs if form submitted to a new page for validation</li>                  
           </uL>
-          <p>It is customary to combine the form display and form processing in one CPRG210 script</p>  
+          <p>It is customary to combine the form display and form processing in one CPRG-210 script</p>  
           <p>If form action is missing, page reloads itself</p>
           <p>Need to check if page is loading for first time, or being submitted</p>
           <p><code>isset()</code> - used to determine if submitted</p>

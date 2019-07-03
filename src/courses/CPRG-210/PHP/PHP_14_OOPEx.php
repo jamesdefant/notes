@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-Object-Oriented Example in CPRG210
+Object-Oriented Example in PHP
 MAINHEADING;
     }
 

@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-CPRG210 Regular Expressions
+CPRG-210 Regular Expressions
 MAINHEADING;
     }
 

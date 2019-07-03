@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class PHP_07_Fundamentals extends Page
+  class PHP_01_Fundamentals extends Page
   {
 
     /*-----------------------------------------------------------------*/
@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-CPRG210 Fundamentals
+PHP Fundamentals
 MAINHEADING;
     }
 
@@ -70,10 +70,10 @@ MAINHEADING;
 
 <h3>Webservers</h3>
 <ul>
-  <li>LAMP - Linux, Apache HTTP Server, MySQL, CPRG210</li>
-  <li>MAMP - MacOS, Apache, MySQL, CPRG210</li>
-  <li>WAMP - Windows, APache, MySQL, CPRG210</li>
-  <li>XAMPP - Apache, MariaDB, CPRG210 & Perl Interpreters</li>
+  <li>LAMP - Linux, Apache HTTP Server, MySQL, CPRG-210</li>
+  <li>MAMP - MacOS, Apache, MySQL, CPRG-210</li>
+  <li>WAMP - Windows, APache, MySQL, CPRG-210</li>
+  <li>XAMPP - Apache, MariaDB, CPRG-210 & Perl Interpreters</li>
 </ul>
 <hr>
 
@@ -95,7 +95,7 @@ MAINHEADING;
 
 <h2>Variables</h2>
 <p>Memory location holding a value that can be changed</p>
-<p>In CPRG210, no declaration</p>
+<p>In CPRG-210, no declaration</p>
 <p>Standard data types: integer, float, string, boolean</p>
 <p>Name starts with $ then a letter or _ then alpha or numeric characters, Case sensitive, <strong>no spaces</strong>, descriptive</p>
 <h3>Assignment</h3>
@@ -110,7 +110,7 @@ echo $counter;
           
           <h2>Variable Interpolation</h2>
           <p>Including variables within string value enclosed by ""</p>
-          <p>CPRG210 replaces interpolated variable with it's value</p>
+          <p>CPRG-210 replaces interpolated variable with it's value</p>
           <p>Double Quotes "" -- do variable interpolation and backslash interpretation (eg. "\")</p>
           <p>Single Quotes '' -- suppress interpolation and interpretation</p>
           <hr>

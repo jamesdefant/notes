@@ -31,7 +31,7 @@ MAINHEADING;
 <h2>Cookies</h2>
 <p>A small file that is embedded on a users computer</p>
 <p>Used to identify a user and remember his/her preferences</p>
-<p>Can be created, Modified, Deleted, and Retrieved by CPRG210</p>
+<p>Can be created, Modified, Deleted, and Retrieved by CPRG-210</p>
 <p>Cookie Information is saved into $_COOKIE</p>
 <p>Cookies feature must be enabled in the browser</p>
 <p>Enable cookies because most websites add cookies</p>
@@ -83,8 +83,8 @@ MAINHEADING;
 <h2>File Upload</h2>
 <p>Web applications may need to upload files to server</p>
 <p>For example: Webmail needs to attach files - Dropbox, Google Drive</p>
-<p>Make sure CPRG210 is configured to allow file uploads in <code>php.ini</code> configuration file - <code>file_uploads</code> must be set to <code>on</code></p>
-<p>CPRG210 can receive files via HTML forms <code>&lt;input type="file"&gt;</code></p>
+<p>Make sure CPRG-210 is configured to allow file uploads in <code>php.ini</code> configuration file - <code>file_uploads</code> must be set to <code>on</code></p>
+<p>CPRG-210 can receive files via HTML forms <code>&lt;input type="file"&gt;</code></p>
 <h3>For the HTML form above:</h3>
 <ul>
   <li>Make sure <code>method="post"</code></li>

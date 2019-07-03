@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-Object-Oriented Programming in CPRG210
+Object-Oriented Programming in PHP
 MAINHEADING;
     }
 
@@ -40,10 +40,10 @@ MAINHEADING;
 <hr>
 
 <h2>OOP: Overview</h2>
-<p>CPRG210 has a full object model</p>
+<p>CPRG-210 has a full object model</p>
 <p>OOP concepts are similar to other languages</p>
 <p>Syntax is slightly different from JavaScript<br>
-JavaScript uses "." notation and CPRG210 uses "->" notation</p>
+JavaScript uses "." notation and CPRG-210 uses "->" notation</p>
 <h3>Object-Oriented Terms</h3>
 <ul>
   <li>classes are templates used to create objects</li>

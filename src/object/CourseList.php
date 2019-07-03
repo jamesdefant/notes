@@ -18,17 +18,18 @@ class CourseList
   ];
   /*
   public static $courses = [
-      "CPRG200" => "R.A.D. in C#",
-      "CPRG210" => "Web Dev",
-      "PROJ216" => "Project Mgmt",
+      "CPRG-200" => "R.A.D. in C#",
+      "CPRG-210" => "Web Dev",
+      "PROJ-216" => "Project Mgmt",
       "GIT" => "Version Control"
 
   ];
   */
   public static $courseObjects = [
-      "CPRG200" => ["R.A.D. in C#", '51a051'],
-      "CPRG210" => ["Web Dev", '17a2b8'],
-      "PROJ216" => ["Project Mgmt", 'cc584d'],
+      "CPRG-200" => ["R.A.D. in C#", '51a051'],
+      "CPRG-210" => ["Web Dev", '17a2b8'],
+      "CPRG-212" => ["Database Dev", '630000'],
+      "PROJ-216" => ["Project Mgmt", 'cc584d'],
       "GIT" => ["Version Control", 'ad74bc'],
       "XML" => ["Markup Languages", "00535e"],
       "INSTRUCTORS" => ["Notes", "c48000"]

@@ -34,7 +34,7 @@ function requireObjects( array $paths )
     foreach($files as $file) {
 
       // Check if the file is the template file
-      if ($file != 'template.php' && $file != 'GenericPage.php') {
+      if ($file != 'SQL_01_Introphp' && $file != 'GenericPage.php') {
 
         // If not, require it to get it into the project
         require_once __DIR__ . $path . '/' . $file;

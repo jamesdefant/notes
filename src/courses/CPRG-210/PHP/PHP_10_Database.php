@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-CPRG210 & Databases
+PHP & Databases
 MAINHEADING;
     }
 
@@ -54,12 +54,12 @@ MAINHEADING;
           <h2>A number of approaches</h2>
           <p>Use specific drivers - need a  seperate driver for each DB brand<br>Need to learn different functions for each</p>          
           <p>Use MySQLi Driver - Avoid using MySQL driver (deprecated)<br>Use MySQLi (Extension / Improved)</p>
-          <p>Use PDO (CPRG210 Data Object) - Independent from database brand</p>
+          <p>Use PDO (CPRG-210 Data Object) - Independent from database brand</p>
           
           <h2>MySQLi</h2>
           <p><strong>Procedural</strong> - driver provides many functions </p>
           <p><strong>Object Oriented</strong> - Create a MySQLi object -> then call methods from that object</p>
-          <p><strong>CPRG210 Data Object - PDO</strong> - Create a PDO object - then call methods from that object - is database agnostic</p>
+          <p><strong>CPRG-210 Data Object - PDO</strong> - Create a PDO object - then call methods from that object - is database agnostic</p>
           <ol>
            <li>Connect to the DB</li>
            <li>Manipulate database</li>
@@ -217,7 +217,7 @@ $mysqli_stmt_close( $stmt );
           </table>
           <hr>
           
-          <h2>CPRG210 Data Object (PDO)</h2>
+          <h2>CPRG-210 Data Object (PDO)</h2>
           <p>Create a PDO object and call methods to use it</p>
           <pre><code>
 $conn = new PDO( \'mysql:host=localhost;dbname=travelexperts\', \'user\', \'password\' );

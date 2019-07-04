@@ -32,6 +32,11 @@ MAINHEADING;
 <a href="https://www.microsoft.com/en-us/learning/mcsa-sql2016-database-development-certification.aspx" target="_blank">Microsoft SQL SERVER Certification</a>
 <hr>
 
+<h2>LINKS</h2>
+<p>In the absense of material provided here is a list of links to SQL topics:</p>
+<ul>
+  <li><a href="http://www.sqltutorial.org/" target="_blank">http://www.sqltutorial.org/</a> </li>
+</ul>
 <h2>Transact-SQL</h2>
 <ul>
   <li>Data definition language statements</li>

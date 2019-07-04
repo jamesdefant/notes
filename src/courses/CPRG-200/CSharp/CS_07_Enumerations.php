@@ -104,7 +104,7 @@ for(Seasons season = Seasons.Spring; season <= Seasons.Winter; seasons++)
 // UNDERLINE
 
 [Flags]
-enum FontSytles
+enum FontStyles
 {
   None = 0,
   Bold = 1,

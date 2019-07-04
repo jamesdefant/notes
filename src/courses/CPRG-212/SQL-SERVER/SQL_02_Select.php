@@ -103,7 +103,7 @@ FROM employees
 SELECT    -- columns to show    /*REQUIRED*/
 FROM      -- tables to use      /*REQUIRED*/
 
-WHERE     -- rows to pick `     /*OPTIONAL*/
+WHERE     -- rows to pick       /*OPTIONAL*/
 GROUP BY  -- column to total    /*OPTIONAL*/
 HAVING    -- totals to pick      /*OPTIONAL*/
 ORDER BY  -- columns to sort    /*OPTIONAL*/

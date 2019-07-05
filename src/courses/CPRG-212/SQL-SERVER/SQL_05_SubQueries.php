@@ -89,6 +89,41 @@ SELECT name, s.dept, total_sales FROM sales s INNER JOIN averages a
 -- For 1,000 entries
 -- 2,000 reads                                  
 </code></pre>
+
+<h2>"EXAMPLES"</h2>\
+<p>Find all members who have a fine greater than the average</p>
+<pre><code>
+SELECT DISTINCT member_no
+FROM loanhist
+WHERE fine_assessed > (SELECT AVG(fine_assessed) FROM loanhist)
+</code></pre>
+
+<p></p>
+<pre><code>
+SELECT MAX(total)
+FROM (SELECT member_no, SUM(fine_assessed) AS total
+      FROM loanhist
+      WHERE fine_assessed > 0
+      GROUP BY member_no) x
+      
+-- or
+
+WITH x AS
+(SELECT member_no, 
+        SUM(fine_assessed) AS total
+FROM loanhist
+WHERE fine_assessed > 0
+GROUP BY member_no)
+SELECT street
+FROM adult
+WHERE member_no IN (SELECT member_no
+                    FROM x
+                    WHERE total = (SELECT MAX(total) FROM x))      
+</code></pre>
+
+<pre><code>
+
+</code></pre>
 CONTENT;
 
       return $returnValue;

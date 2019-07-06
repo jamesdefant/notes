@@ -72,6 +72,13 @@ FROM employees
 WHERE title IS NULL
 </code></pre>
 
+<h3><code><h2>NOT</h2></code> is a negative value</h3>
+<pre><code>
+SELECT employee_id, lastname, firstname, title
+FROM employees
+WHERE title IS NOT NULL
+</code></pre>
+
 <h3><code><h2>ORDER BY</h2> value ASC/DSC</code>  will display the results in a particular order</h3>
 <pre><code>
 SELECT employee_id, lastname, firstname, title
@@ -98,16 +105,6 @@ SELECT DISTINCT title
 FROM employees
 </code></pre>
 
-<h3>Not all keywords are required</h3>
-<pre><code>
-SELECT    -- columns to show    /*REQUIRED*/
-FROM      -- tables to use      /*REQUIRED*/
-
-WHERE     -- rows to pick       /*OPTIONAL*/
-GROUP BY  -- column to total    /*OPTIONAL*/
-HAVING    -- totals to pick      /*OPTIONAL*/
-ORDER BY  -- columns to sort    /*OPTIONAL*/
-</code></pre>
 CONTENT;
 
       return $returnValue;

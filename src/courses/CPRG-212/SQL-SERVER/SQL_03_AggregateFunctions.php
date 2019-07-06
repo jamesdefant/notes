@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class SQL_02_Basics extends Page
+  class SQL_03_AggregateFunctions extends Page
   {
 
     /*-----------------------------------------------------------------*/
@@ -10,7 +10,7 @@ namespace J\ClassNotes {
     public function getTitle() : string
     {
       return <<< 'TITLE'
-Basics
+Aggregates
 TITLE;
     }
 
@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-SQL Basics
+Aggregate Functions in SQL
 MAINHEADING;
     }
 
@@ -28,24 +28,23 @@ MAINHEADING;
     public function getContent() : string
     {
       $returnValue = <<< 'CONTENT'
-<h2>Syntax</h2>
-<h3>Not all keywords are required</h3>
+<h3>Use <code><h2>COUNT()</h2></code> to get the number of results</h3>
+<p>Count every single result with <code>COUNT (*)</code></p>
 <pre><code>
-SELECT    -- columns to show    /*REQUIRED*/
-FROM      -- tables to use      /*REQUIRED*/
-
-WHERE     -- rows to pick       /*OPTIONAL*/
-GROUP BY  -- column to total    /*OPTIONAL*/
-HAVING    -- totals to pick      /*OPTIONAL*/
-ORDER BY  -- columns to sort    /*OPTIONAL*/
+SELECT COUNT (*)
+FROM employees
 </code></pre>
-      
-<h2>DECLARE</h2>
-<p>Use DECLARE to declare a variable</p>
-<pre><code>
-DECLARE { @LOCAL_VARIABLE[AS] data_type [ = value]}
 
-DECLARE @COURSE_ID AS INT = 5
+<p>Count every field in a column with a value use <code>COUNT (col_name)</code></p>
+<pre><code>
+SELECT COUNT (city)
+FROM employees
+</code></pre>
+
+<p>Count every unique field with <code>COUNT (DISTINCT col_name)</code></p>
+<pre><code>
+SELECT COUNT (DISTINCT city)
+FROM employees
 </code></pre>
 CONTENT;
 

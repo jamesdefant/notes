@@ -28,40 +28,8 @@ MAINHEADING;
     public function getContent() : string
     {
       $returnValue = <<< 'CONTENT'
-<h3><code><h2>TOP</h2></code></h3>
-<p><strong>Microsoft ONLY</strong></p>
-<p>Used with <code>SELECT</code> to grab the top results</p>
-<pre><code>
-SELECT TOP 5 order_id, product_id, quantity
-FROM [order details]
-ORDER BY quantity DESC
-</code></pre>
 
-<p>Used with <code>TIES</code> counts identical values as one</p>
-<pre><cdoe>
-SELECT TOP 5 WITH TIES order_id, product_id, quantity
-FROM [order details]
-ORDER BY quantity DESC
-</cdoe></pre>
 
-<h3>Use <code><h2>COUNT()</h2></code> to get the number of results</h3>
-<p>Count every single result with <code>COUNT (*)</code></p>
-<pre><code>
-SELECT COUNT (*)
-FROM employees
-</code></pre>
-
-<p>Count every field in a column with a value use <code>COUNT (col_name)</code></p>
-<pre><code>
-SELECT COUNT (city)
-FROM employees
-</code></pre>
-
-<p>Count every unique field with <code>COUNT (DISTINCT col_name)</code></p>
-<pre><code>
-SELECT COUNT (DISTINCT city)
-FROM employees
-</code></pre>
 
 <h3><code><h2>GROUP BY</h2></code> is used to group rows that have the same values into summary rows</h3>
 <em>Must be used with an <strong>Aggregate function</strong> (ie. <code>SUM</code>, <code>AVG</code>, <code>COUNT</code>, <code>MIN</code>, <code>MAX</code>)</em>
@@ -91,6 +59,21 @@ HAVING COUNT(employee_id) > 5
 
 <p>Use GROUPING SETS over CUBE for 3 or more columns</p>
 
+<h3><code><h2>TOP</h2></code></h3>
+<p><strong>Microsoft ONLY</strong></p>
+<p>Used with <code>SELECT</code> to grab the top results</p>
+<pre><code>
+SELECT TOP 5 order_id, product_id, quantity
+FROM [order details]
+ORDER BY quantity DESC
+</code></pre>
+
+<p>Used with <code>TIES</code> counts identical values as one</p>
+<pre><cdoe>
+SELECT TOP 5 WITH TIES order_id, product_id, quantity
+FROM [order details]
+ORDER BY quantity DESC
+</cdoe></pre>
 CONTENT;
 
       return $returnValue;

@@ -2,6 +2,7 @@ $blue: #17a2b8;
 $green: #51a051;
 $purple: #ad74bc;
 $red: #cc584d;
+$grey: #c9c9c9;
 
 $bg-color: $red;
 
@@ -259,3 +260,23 @@ div.class_diagram_body, div.class_diagram_footer {
   line-height: 0.5rem;
 
 }
+div.table-example {
+  border-left: 3px solid $grey;
+  border-top: 3px solid $grey;
+  border-bottom: 3px solid $grey;
+
+  padding: 1rem;
+  margin-bottom: 1rem;
+  overflow: auto;
+}
+
+pre.SQL {
+
+  padding: 1rem;
+  font-family: "Courier New";
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 0.75rem;
+  color: #cf0000;
+}
+

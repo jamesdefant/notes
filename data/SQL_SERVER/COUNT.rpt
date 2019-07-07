@@ -1,0 +1,9 @@
+﻿/*------------------------
+SELECT COUNT(salesperson#) AS [Number of Salespeople]
+FROM ar_invoices
+------------------------*/
+Number of Salespeople
+4
+
+(1 row affected)
+

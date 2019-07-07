@@ -1,0 +1,11 @@
+﻿/*------------------------
+SELECT * 
+FROM ar_salespeople
+------------------------*/
+salesperson#,salesperson_name
+1,bob                           
+2,mary                          
+3,tim                           
+
+(3 rows affected)
+

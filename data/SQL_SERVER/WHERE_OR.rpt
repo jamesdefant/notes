@@ -1,0 +1,12 @@
+﻿/*------------------------
+SELECT customer#, invoice_amount
+FROM ar_invoices
+WHERE customer# = 1 OR customer# = 2
+------------------------*/
+customer#,invoice_amount
+1,100.00
+2,50.00
+2,80.00
+
+(3 rows affected)
+

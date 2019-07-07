@@ -1,0 +1,11 @@
+﻿/*------------------------
+SELECT customer#, invoice_amount
+FROM ar_invoices
+WHERE NOT customer# = 2
+------------------------*/
+customer#,invoice_amount
+1,100.00
+3,70.00
+
+(2 rows affected)
+

@@ -253,4 +253,22 @@ div.class_diagram_body, div.class_diagram_footer {
   line-height: 0.5rem;
 }
 
+div.table-example {
+  border-left: 3px solid #c9c9c9;
+  border-top: 3px solid #c9c9c9;
+  border-bottom: 3px solid #c9c9c9;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  overflow: auto;
+}
+
+pre.SQL {
+  padding: 1rem;
+  font-family: "Courier New";
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 0.75rem;
+  color: #cf0000;
+}
+
 /*# sourceMappingURL=newStyles.css.map */

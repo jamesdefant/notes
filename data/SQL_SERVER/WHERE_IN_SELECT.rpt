@@ -1,0 +1,11 @@
+﻿/*------------------------
+SELECT DISTINCT salesperson#, salesperson_name
+FROM ar_salespeople
+WHERE salesperson# IN (SELECT salesperson# FROM ar_invoices)
+------------------------*/
+salesperson#,salesperson_name
+1,bob                           
+2,mary                          
+
+(2 rows affected)
+

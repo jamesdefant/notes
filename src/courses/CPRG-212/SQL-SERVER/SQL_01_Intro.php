@@ -28,54 +28,9 @@ MAINHEADING;
     public function getContent() : string
     {
       $returnValue = <<< 'CONTENT'
-<h2>Introduction</h2>
-<a href="https://www.microsoft.com/en-us/learning/mcsa-sql2016-database-development-certification.aspx" target="_blank">Microsoft SQL SERVER Certification</a>
-<hr>
-
-<h2>LINKS</h2>
-<p>In the absense of material provided here is a list of links to SQL topics:</p>
-<ul>
-  <li><a href="http://www.sqltutorial.org/" target="_blank">http://www.sqltutorial.org/</a> </li>
-</ul>
-<h2>Transact-SQL</h2>
-<ul>
-  <li>Data definition language statements</li>
-  <li>data control language statements</li>
-  <li>Data manipulation language statements</li>
-</ul>
-
-<h2>Define the database object</h2>
-
-<h2>Comments</h2>
-<pre><code>
-SELECT * FROM table -- this is a comment
-</code></pre>
-<hr>
-
-<h2>Attach a Database</h2>
-<p>To import a *.mdf file:</p>
-<ol>
-  <li>right-click the <kbd>Databases</kbd> icon and select <kbd>Attach...</kbd></li>
-  <li>Click <kbd>Add...</kbd> to add a database to the list</li>
-  <li>Click <kbd>OK</kbd> to import the databases</li>
-</ol>
-<hr>
-
-<h2>Create a .txt SQL script</h2>
-<p>Open notepad and type:</p>
-<pre><code>
-USE demo
-SELECT * FROM category
-</code></pre>
-<p>Save it as cat.txt</p>
-<p>Grab the name of the server by right-clicking the server, selecting properties and copying it</p>
-<p>Mine is: ICTVM-AHBC4DH7R/SAIT</p>
-<p>Open up the command prompt (<kbd>cmd.exe</kbd>) then type:</p>
-<pre><code>
-osql -S ICTVM-AHBC4DH7R/SAIT -i c:\__SQL\cat.txt -E
-</code></pre>
-<p>...to run the command as a script</p>
-
+<h2>What is it?</h2>
+<p>Microsoft SQL Server is a Relational Database Management System (RDBMS) that stores and retrieves data</p>      
+      
 <h2>Commands</h2>
 <p>There are many keywords in SQL:</p>
 <ul>
@@ -91,10 +46,10 @@ osql -S ICTVM-AHBC4DH7R/SAIT -i c:\__SQL\cat.txt -E
   <li><strong>CREATE INDEX</strong> - creates an index (search key)</li>
   <li><strong>DROP INDEX</strong> - deletes an index</li>
 </ul>
+<hr/>
+      
 
 CONTENT;
-
-
 
       return $returnValue;
     }

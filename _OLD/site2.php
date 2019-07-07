@@ -370,10 +370,10 @@ namespace J\ClassNotes;
       foreach($this->files as $file) {
 
         // Check if the file should be ignored
-        if( !is_dir($file) && $file != 'SQL_01_Intro.php && $file != 'GenericPage.php') {
+        if( !is_dir($file) && $file != 'template.php' && $file != 'GenericPage.php') {
 
           // If not, require it to get it into the project
-          require_once __DIR__ . '/../pages/' . $file;
+//          require_once __DIR__ . '/../pages/' . $file;
 //          require_once __DIR__ . '/../pages/' . $file;
 //          require_once   $file;
 

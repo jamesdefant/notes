@@ -1,0 +1,22 @@
+﻿/*------------------------
+SELECT salesperson_name,
+       invoice_amount
+FROM ar_salespeople    
+CROSS JOIN ar_invoices
+------------------------*/
+salesperson_name,invoice_amount
+bob                           ,100.00
+bob                           ,50.00
+bob                           ,70.00
+bob                           ,80.00
+mary                          ,100.00
+mary                          ,50.00
+mary                          ,70.00
+mary                          ,80.00
+tim                           ,100.00
+tim                           ,50.00
+tim                           ,70.00
+tim                           ,80.00
+
+(12 rows affected)
+

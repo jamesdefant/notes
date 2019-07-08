@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <!-- Bootstrap 4 css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <style>
+    body {
+      padding: 2rem;
+    }
+    div.table-example {
+      border-left: 3px solid #c9c9c9;
+      border-top: 3px solid #c9c9c9;
+      border-bottom: 3px solid #c9c9c9;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      overflow: auto;
+    }
+    pre.SQL {
+      padding: 1rem;
+      font-family: "Courier New";
+      font-size: 1.3rem;
+      font-weight: bold;
+      line-height: 1.5rem;
+      color: #cf0000;
+    }
+  </style>
+
+</head>
+<body>
+<h2>ar_customers</h2>
+
+<div class="table-example">
+  <pre class="SQL">SELECT *
+FROM ar_customers
+</pre>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>customer#</th>
+      <th>customer_name</th>
+      <th>customer_address</th>
+      <th>customer_province</th>
+      <th>customer_rating
+      </th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr><td>1</td><td>bill                          </td><td>123 main st.                            </td><td>ab</td><td>1
+    </td></tr><tr><td>2</td><td>ed                            </td><td>456 main st.                            </td><td>bc</td><td>2
+    </td></tr><tr><td>3</td><td>john                          </td><td>789 main st.                            </td><td>ab</td><td>3
+    </td></tr>
+    </tbody>
+  </table>
+</div><h2>ar_invoices</h2>
+
+<div class="table-example">
+  <pre class="SQL">SELECT *
+FROM ar_invoices
+</pre>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>invoice#</th>
+      <th>customer#</th>
+      <th>salesperson#</th>
+      <th>invoice_date</th>
+      <th>invoice_amount</th>
+      <th>amount_paid</th>
+      <th>current_month_interest_charges</th>
+      <th>total_interest_charges
+      </th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr><td>1</td><td>1</td><td>1</td><td>2019-06-17 10:43:53.727</td><td>100.00</td><td>1.00</td><td>0.00</td><td>0.00
+    </td></tr><tr><td>2</td><td>2</td><td>2</td><td>2019-05-28 10:43:53.727</td><td>50.00</td><td>0.00</td><td>5.00</td><td>10.00
+    </td></tr><tr><td>3</td><td>3</td><td>2</td><td>2019-06-17 10:43:53.727</td><td>70.00</td><td>0.00</td><td>10.00</td><td>20.00
+    </td></tr><tr><td>4</td><td>2</td><td>1</td><td>2019-07-07 10:43:53.727</td><td>80.00</td><td>0.00</td><td>0.00</td><td>0.00
+    </td></tr>
+    </tbody>
+  </table>
+</div><h2>ar_salespeople</h2>
+
+<div class="table-example">
+  <pre class="SQL">SELECT *
+FROM ar_salespeople
+</pre>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>salesperson#</th>
+      <th>salesperson_name
+      </th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr><td>1</td><td>bob
+    </td></tr><tr><td>2</td><td>mary
+    </td></tr><tr><td>3</td><td>tim
+    </td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="table-example">
+  <pre class="SQL">SELECT salesperson_name,
+	MAX([Total Sales]) AS [Highest Earner]
+FROM
+	(SELECT salesperson_name,
+		   SUM(invoice_amount) AS [Total Sales]
+	FROM ar_invoices
+	INNER JOIN ar_salespeople
+		ON ar_invoices.salesperson# = ar_salespeople.salesperson#
+	GROUP BY salesperson_name) x
+GROUP BY salesperson_name
+</pre>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>salesperson_name</th>
+      <th>Highest Earner
+      </th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr><td>bob                           </td><td>180.00
+    </td></tr><tr><td>mary                          </td><td>120.00
+    </td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+</main>
+</div>
+
+
+
+
+
+</div>
+</div>
+
+</body>
+</html>

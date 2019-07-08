@@ -43,6 +43,7 @@ WHERE condition
 '. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_invoices.rpt").
 \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_salespeople.rpt").
 '<hr>
+
 <h2>WHERE Operators</h2>
 <table class="table">
   <thead>

@@ -1,0 +1,18 @@
+﻿/*------------------------
+SELECT salesperson_name,
+	MAX([Total Sales]) AS [Highest Earner]
+FROM
+	(SELECT salesperson_name, 
+		   SUM(invoice_amount) AS [Total Sales]
+	FROM ar_invoices
+	INNER JOIN ar_salespeople
+		ON ar_invoices.salesperson# = ar_salespeople.salesperson#
+	GROUP BY salesperson_name) x
+GROUP BY salesperson_name
+------------------------*/
+salesperson_name,Highest Earner
+bob                           ,180.00
+mary                          ,120.00
+
+(2 rows affected)
+

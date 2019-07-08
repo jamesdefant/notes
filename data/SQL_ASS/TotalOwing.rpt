@@ -1,0 +1,15 @@
+﻿/*------------------------
+SELECT customer_name,
+       (invoice_amount + total_interest_charges) AS TotalOwing
+FROM ar_invoices
+INNER JOIN ar_customers
+ON ar_invoices.customer# = ar_customers.customer#
+------------------------*/
+customer_name,TotalOwing
+bill                          ,100.00
+ed                            ,60.00
+john                          ,90.00
+ed                            ,80.00
+
+(4 rows affected)
+

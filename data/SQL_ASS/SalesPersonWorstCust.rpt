@@ -1,0 +1,12 @@
+﻿/*------------------------
+SELECT salesperson_name,
+       customer_name,
+	   customer_rating
+FROM ar_salespeople s, ar_invoices i , ar_customers c
+WHERE s.salesperson# = i.salesperson# AND i.customer# = c.customer# AND customer_rating = 3
+------------------------*/
+salesperson_name,customer_name,customer_rating
+mary                          ,john                          ,3
+
+(1 row affected)
+

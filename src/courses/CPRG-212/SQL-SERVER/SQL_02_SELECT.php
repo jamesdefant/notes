@@ -66,6 +66,16 @@ ORDER BY  -- columns to sort    /*OPTIONAL*/
 ' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/SELECT_DISTINCT.rpt").
 '<hr/>
 
+<h2>TOP</h2>
+<p>Use the <code>TOP</code> statement to limit the number of records returned</p>
+<h3>Syntax</h3>
+<pre><code>
+SELECT TOP number|percent column_name(s)
+FROM table_name
+WHERE condition
+</code></pre>
+' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/SELECT_TOP.rpt").
+'<hr/>
 ';
 
       return $returnValue;

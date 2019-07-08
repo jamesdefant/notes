@@ -1,0 +1,13 @@
+﻿/*------------------------
+SELECT TOP 1 salesperson_name,
+             SUM(invoice_amount) AS Total
+FROM ar_invoices
+INNER JOIN ar_salespeople
+ON ar_invoices.salesperson# = ar_salespeople.salesperson#
+GROUP BY salesperson_name
+------------------------*/
+salesperson_name,Total
+bob                           ,180.00
+
+(1 row affected)
+

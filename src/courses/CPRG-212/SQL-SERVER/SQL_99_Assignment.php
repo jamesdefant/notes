@@ -65,14 +65,17 @@ MAINHEADING;
 <ol>
   <li></li>
 </ol>
-<hr/>
+' . \WriteHTML::getTableFromReport("./data/SQL_ASS/TotalSalesLastYear.rpt") .
+'<hr/>
+
 
 <strong>List total sales for each province for invoices created during the last month</strong>
 <p>Steps:</p>
 <ol>
   <li></li>
 </ol>
-<hr/>
+' . \WriteHTML::getTableFromReport("./data/SQL_ASS/ProvSalesLastMonth.rpt") .
+'<hr/>
 
 <strong>Find sales people with no sales</strong>
 <p>Steps:</p>

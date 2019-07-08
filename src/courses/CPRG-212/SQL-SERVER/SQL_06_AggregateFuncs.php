@@ -80,7 +80,12 @@ WHERE condition
 '<p><em>Notice how it counts <strong>every</strong> row for <code>salesperson#</code></em><br/>
 Combine <code>COUNT()</code> with <code>DISTINCT</code> to get unique values:</p>
 '. \WriteHTML::getTableFromReport("./data/SQL_SERVER/COUNT_DISTINCT.rpt").
-'<hr/>
+'
+<p>Use <code>COUNT(*)</code> with a <code>WHERE</code> clause to quckly filter what you want:</p>
+'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/COUNT_DISTINCT.rpt").
+'
+<hr/>
+
 
 <h2>AVG()</h2>
 <p>Returns the average value of a numeric column</p>

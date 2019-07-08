@@ -1,0 +1,15 @@
+﻿/*------------------------
+SELECT salesperson_name,
+       SUM(invoice_amount) AS TotalSales
+FROM ar_salespeople s
+INNER JOIN ar_invoices i
+ON s.salesperson# = i.salesperson#
+WHERE invoice_date >= GETDATE() - 365
+GROUP BY salesperson_name
+------------------------*/
+salesperson_name,TotalSales
+bob                           ,180.00
+mary                          ,120.00
+
+(2 rows affected)
+

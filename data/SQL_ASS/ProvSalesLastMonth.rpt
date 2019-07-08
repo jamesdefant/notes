@@ -1,0 +1,15 @@
+﻿/*------------------------
+SELECT customer_province,
+       SUM(invoice_amount) AS SalesByProvince
+FROM ar_customers c
+INNER JOIN ar_invoices i
+ON c.customer# = i.customer#
+WHERE (invoice_date >= GETDATE() - 30)
+GROUP BY customer_province
+------------------------*/
+customer_province,SalesByProvince
+ab,170.00
+bc,80.00
+
+(2 rows affected)
+

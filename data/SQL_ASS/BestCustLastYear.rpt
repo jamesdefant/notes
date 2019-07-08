@@ -1,0 +1,12 @@
+﻿/*------------------------
+SELECT customer_name, count(*) AS NumRows
+FROM ar_customers c inner join ar_invoices i ON c.customer#=i.customer#
+WHERE customer_rating=2 and getdate() - invoice_date <= 365
+GROUP BY customer_name
+HAVING count(*) > 1
+------------------------*/
+customer_name,NumRows
+ed                            ,2
+
+(1 row affected)
+

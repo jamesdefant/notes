@@ -90,7 +90,9 @@ MAINHEADING;
 <ol>
   <li></li>
 </ol>
-<hr/>
+<strong>WHY DOES THIS WORK?</strong>
+' . \WriteHTML::getTableFromReport("./data/SQL_ASS/BestCustLastYear.rpt") .
+'<hr/>
 
 <strong>List the salespeople who sell to the worst customers (rating 3)</strong>
 <p>Steps:</p>

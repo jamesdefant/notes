@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class SQL_05_AggregateFuncs extends Page
+  class SQL_06_AggregateFuncs extends Page
   {
 
     /*-----------------------------------------------------------------*/

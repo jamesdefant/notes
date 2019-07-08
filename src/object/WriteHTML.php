@@ -75,7 +75,7 @@ class WriteHTML
 
 
       if($isQuery === true) {
-        $query .= $line . '<br/>';
+        $query .= $line;
       }
 
       if(stripos($line, '*-') !== false) {

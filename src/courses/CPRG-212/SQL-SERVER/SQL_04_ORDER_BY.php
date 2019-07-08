@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class SQL_04_Alias extends Page
+  class SQL_04_ORDER_BY extends Page
   {
 
     /*-----------------------------------------------------------------*/
@@ -10,7 +10,7 @@ namespace J\ClassNotes {
     public function getTitle() : string
     {
       return <<< 'TITLE'
-Alias
+ORDER BY
 TITLE;
     }
 
@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-SQL Aliases
+SQL ORDER BY Statement
 MAINHEADING;
     }
 
@@ -29,33 +29,24 @@ MAINHEADING;
     {
       $returnValue = '
 <h2>Intro</h2>
-<p>SQL aliases are used to give a table, or a column in a table, a temporary name</p> 
-<p>They are often used to make columns more readable</p>
-<p>They only exist for the duration of the query</p>
-<hr>
+<p>Use the <code>ORDER BY</code> keyword to sort the resulting record set in either ascending or descending order</p>
+<hr/>
 
 <h2>Sample Data</h2>
-<p>These are the tables we will use as an example:</p>
+<p>This is the table we will use as an example:</p>
 '. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_invoices.rpt").
-\WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_salespeople.rpt").
-'<hr>
+'<hr/>
 
-<h2>Column Alias Syntax</h2>
+<h3>Syntax</h3>
 <pre><code>
-SELECT column_name AS alias_name
+SELECT column1, column2, ...
 FROM table_name
+ORDER BY column1, column2, ... ASC|DESC
 </code></pre>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/COLUMN_AS.rpt").
-'<hr/>
+'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ORDER_BY.rpt")
 
-<h2>Table Alias Syntax</h2>
-<pre><code>
-SELECT column_name(s)
-FROM table_name AS alias_name
-</code></pre>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/TABLE_AS.rpt").
-'<hr/>
-'
+
+
 ;
 
       return $returnValue;

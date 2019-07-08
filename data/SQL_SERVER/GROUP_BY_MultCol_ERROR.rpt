@@ -1,0 +1,9 @@
+﻿/*------------------------
+SELECT salesperson#,
+       total_interest_charges,
+       SUM(invoice_amount) AS [Total Sales]
+FROM ar_invoices
+GROUP BY total_interest_charges
+------------------------*/
+Msg 8120, Level 16, State 1, Line 22
+Column 'ar_invoices.salesperson#' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.

@@ -28,12 +28,6 @@ MAINHEADING;
     public function getContent() : string
     {
       $returnValue = '
-<h2>Sample Data</h2>
-<p>These are the tables we will use as an example:</p>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_invoices.rpt").
- \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_salespeople.rpt").
-'<hr>
-
 <h2>WHERE</h2>
 <p>Use the <code>WHERE</code> clause to return only the records that satisfy a specified condition</p>
 <h3>Syntax</h3>
@@ -44,6 +38,11 @@ WHERE condition
 </code></pre>
 ' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/SELECT_WHERE.rpt").
 '
+<h2>Sample Data</h2>
+<p>These are the tables we will use as an example:</p>
+'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_invoices.rpt").
+\WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_salespeople.rpt").
+'<hr>
 <h2>WHERE Operators</h2>
 <table class="table">
   <thead>

@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class SQL_02_Select extends Page
+  class SQL_02_SELECT extends Page
   {
 
     /*-----------------------------------------------------------------*/
@@ -29,7 +29,10 @@ MAINHEADING;
     {
       $returnValue = '
 <h2>Intro</h2>
-<p>SELECT is one of the most common commands used in SQL</p>      
+<p>
+  SELECT is one of the most common commands used in SQL<br/>
+  Use it to <strong>retrieve data</strong> from the database
+</p>      
 <hr/>      
       
 <h2>Syntax</h2>

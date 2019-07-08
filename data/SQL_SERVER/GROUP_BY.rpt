@@ -1,0 +1,12 @@
+﻿/*------------------------
+SELECT salesperson#, 
+       SUM(invoice_amount) AS [Total Sales]
+FROM ar_invoices
+GROUP BY salesperson#
+------------------------*/
+salesperson#,Total Sales
+1,180.00
+2,120.00
+
+(2 rows affected)
+

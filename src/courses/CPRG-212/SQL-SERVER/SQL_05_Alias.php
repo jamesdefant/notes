@@ -36,8 +36,8 @@ MAINHEADING;
 
 <h2>Sample Data</h2>
 <p>These are the tables we will use as an example:</p>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_invoices.rpt").
-\WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_salespeople.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_invoices.rpt").
+\WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_salespeople.rpt").
 '<hr>
 
 <h2>Column Alias Syntax</h2>
@@ -45,7 +45,7 @@ MAINHEADING;
 SELECT column_name AS alias_name
 FROM table_name
 </code></pre>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/COLUMN_AS.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/COLUMN_AS.rpt").
 '<hr/>
 
 <h2>Table Alias Syntax</h2>
@@ -53,7 +53,7 @@ FROM table_name
 SELECT column_name(s)
 FROM table_name AS alias_name
 </code></pre>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/TABLE_AS.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/TABLE_AS.rpt").
 '<hr/>
 '
 ;

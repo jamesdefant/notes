@@ -1,0 +1,15 @@
+﻿/*------------------------
+SELECT salesperson#,
+       total_interest_charges,
+       SUM(invoice_amount) AS [Total Sales]
+FROM ar_invoices
+GROUP BY total_interest_charges,
+         salesperson#
+------------------------*/
+salesperson#,total_interest_charges,Total Sales
+1,0.00,180.00
+2,10.00,50.00
+2,20.00,70.00
+
+(3 rows affected)
+

@@ -1,0 +1,9 @@
+﻿/*------------------------
+SELECT MAX(invoice_amount) AS [Largest Value of All Invoices]
+FROM ar_invoices
+------------------------*/
+Largest Value of All Invoices
+100.00
+
+(1 row affected)
+

@@ -63,7 +63,7 @@ MAINHEADING;
 
 <h2>Sample Data</h2>
 <p>This is the table we will use as an example:</p>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_invoices.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_invoices.rpt").
 '<hr>
 
 <h2>COUNT()</h2>
@@ -75,14 +75,14 @@ SELECT COUNT(column_name)
 FROM table_name
 WHERE condition
 </code></pre>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/COUNT.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/COUNT.rpt").
 
 '<p><em>Notice how it counts <strong>every</strong> row for <code>salesperson#</code></em><br/>
 Combine <code>COUNT()</code> with <code>DISTINCT</code> to get unique values:</p>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/COUNT_DISTINCT.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/COUNT_DISTINCT.rpt").
 '
 <p>Use <code>COUNT(*)</code> with a <code>WHERE</code> clause to quckly filter what you want:</p>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/COUNT_DISTINCT.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/COUNT_DISTINCT.rpt").
 '
 <hr/>
 
@@ -95,7 +95,7 @@ SELECT AVG(column_name)
 FROM table_name
 WHERE condition
 </code></pre>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/AVG.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/AVG.rpt").
 '<hr/>
 
 <h2>SUM()</h2>
@@ -106,7 +106,7 @@ SELECT SUM(column_name)
 FROM table_name
 WHERE condition
 </code></pre>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/SUM.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/SUM.rpt").
 '<hr/>
 
 <h2>MIN()</h2>
@@ -117,7 +117,7 @@ SELECT MIN(column_name)
 FROM table_name
 WHERE condition
 </code></pre>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/MIN.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/MIN.rpt").
 '<hr/>
 
 <h2>MAX()</h2>
@@ -128,7 +128,7 @@ SELECT MAX(column_name)
 FROM table_name
 WHERE condition
 </code></pre>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/MAX.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/MAX.rpt").
 '<hr/>
 
 ';

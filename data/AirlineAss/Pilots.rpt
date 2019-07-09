@@ -1,0 +1,10 @@
+﻿/*------------------------
+SELECT * FROM Pilots
+------------------------*/
+PilotName,License#
+Charlie Kelly,456789
+Dennis Reynolds,234567
+Ronald MacDonald,345678
+
+(3 rows affected)
+

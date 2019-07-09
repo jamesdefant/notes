@@ -1,0 +1,8 @@
+﻿/*------------------------
+SELECT DATEDIFF(year, '1979/10/08',  GETDATE()) AS DateDiff;
+------------------------*/
+DateDiff
+40
+
+(1 row affected)
+

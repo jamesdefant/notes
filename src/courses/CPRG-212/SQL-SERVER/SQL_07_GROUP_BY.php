@@ -37,7 +37,7 @@ MAINHEADING;
 
 <h2>Sample Data</h2>
 <p>This is the table we will use as an example:</p>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_invoices.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_invoices.rpt").
 '<hr>
 
 <h2>Syntax</h2>
@@ -48,20 +48,20 @@ WHERE condition
 GROUP BY column_name(s)
 ORDER BY column_name(s)
 </code></pre>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/GROUP_BY.rpt") .
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/GROUP_BY.rpt") .
 '<p>
   Notice that if you add more columns to the <code>SELECT</code> statement, 
   you <strong>must also add them</strong> to the <code>GROUP BY</code> statement or recieve an error such as this:
 </p>'
-. \WriteHTML::getTableFromReport("./data/SQL_SERVER/GROUP_BY_MultCol_ERROR.rpt") .
+. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/GROUP_BY_MultCol_ERROR.rpt") .
 '<p>This is the correct way:</p>'
-. \WriteHTML::getTableFromReport("./data/SQL_SERVER/GROUP_BY_MultCol.rpt") .
+. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/GROUP_BY_MultCol.rpt") .
 '
 <hr/>
 
 <h2>Combine aggregates</h2>
 <p>Create summaries by combining aggregate functions</p>'
-. \WriteHTML::getTableFromReport("./data/SQL_SERVER/GROUP_BY_MultAgg.rpt") .
+. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/GROUP_BY_MultAgg.rpt") .
 '<hr/>
 
 <h2>HAVING</h2>
@@ -75,7 +75,7 @@ GROUP BY column_name(s)
 HAVING condition
 ORDER BY column_name(s)
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/GROUP_BY_HAVING.rpt")
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/GROUP_BY_HAVING.rpt")
 
 
 

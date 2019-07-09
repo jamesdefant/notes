@@ -1,0 +1,11 @@
+﻿/*------------------------
+SELECT * 
+FROM ar_customers
+------------------------*/
+customer#,customer_name,customer_address,customer_province,customer_rating
+1,bill                          ,123 main st.                            ,ab,1
+2,ed                            ,456 main st.                            ,bc,2
+3,john                          ,789 main st.                            ,ab,3
+
+(3 rows affected)
+

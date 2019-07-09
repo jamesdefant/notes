@@ -1,0 +1,122 @@
+﻿/*------------------------
+-- Start over
+DROP TABLE Tickets;
+DROP TABLE Planes;
+DROP TABLE Pilots;
+DROP TABLE Customers;
+
+-- Create Pilots Table
+CREATE TABLE Pilots
+(
+	PilotName VARCHAR(30) PRIMARY KEY,
+	License# NUMERIC(10) CHECK(License# > 0)
+);
+
+-- Create Customers Table
+CREATE TABLE Customers
+(
+	Customer# NUMERIC(10) PRIMARY KEY CHECK (Customer# > 0),
+	CustomerName VARCHAR(30) NOT NULL,
+	CreditCard# NUMERIC(16) CHECK (CreditCard# > 0),
+	Country VARCHAR(20)
+);
+
+-- Create Planes Table
+CREATE TABLE Planes
+(	
+	Plane# NUMERIC(10) PRIMARY KEY CHECK (Plane# > 0),
+	PlaneName VARCHAR(20) NOT NULL,
+	PilotName VARCHAR(30) FOREIGN KEY REFERENCES Pilots(PilotName)
+);
+
+-- Create Tickets Table
+CREATE TABLE Tickets
+(
+	Customer# NUMERIC(10) FOREIGN KEY REFERENCES Customers(Customer#),
+	Plane# NUMERIC(10) FOREIGN KEY REFERENCES Planes(Plane#),
+	Seat# NUMERIC(3) CHECK (Seat# BETWEEN 1 AND 200),
+	PRIMARY KEY(Customer#, Plane#)
+);
+
+-- Fill Pilot Table
+INSERT INTO Pilots
+	(PilotName, License#)
+	VALUES ('Charlie Kelly', 456789);
+INSERT INTO Pilots
+	(PilotName, License#)
+	VALUES ('Ronald MacDonald', 345678);
+INSERT INTO Pilots
+	(PilotName, License#)
+	VALUES ('Dennis Reynolds', 234567);
+
+-- Fill Customers Table
+INSERT INTO Customers
+	(Customer#, CustomerName, CreditCard#, Country)
+	VALUES (987654, 'Nigel Tuffnel', 1234567890123456, 'UK')
+INSERT INTO Customers
+	(Customer#, CustomerName, CreditCard#, Country)
+	VALUES (876543, 'David St Hubbins', 2345678901234567, 'UK')
+INSERT INTO Customers
+	(Customer#, CustomerName, CreditCard#, Country)
+	VALUES (765432, 'Derek Smalls', 3456789012345678, 'UK')
+
+-- Fill Planes Table
+INSERT INTO Planes
+	(Plane#, PlaneName, PilotName)
+	VALUES (424242, 'Enola Gay', 'Dennis Reynolds')
+INSERT INTO Planes
+	(Plane#, PlaneName, PilotName)
+	VALUES (676767, 'Hawker Hoopoe', 'Charlie Kelly')
+INSERT INTO Planes
+	(Plane#, PlaneName, PilotName)
+	VALUES (818181, 'Wright Flyer', 'Ronald MacDonald')
+
+-- Nigel's tickets
+INSERT INTO Tickets
+	(Customer#, Plane#, Seat#)
+	VALUES (987654, 424242, 2)
+INSERT INTO Tickets
+	(Customer#, Plane#, Seat#)
+	VALUES (987654, 676767, 2)
+
+-- David's tickets
+INSERT INTO Tickets
+	(Customer#, Plane#, Seat#)
+	VALUES (876543, 424242, 3)
+INSERT INTO Tickets
+	(Customer#, Plane#, Seat#)
+	VALUES (876543, 676767, 3)
+
+-- Derek's ticket
+INSERT INTO Tickets
+	(Customer#, Plane#, Seat#)
+	VALUES (765432, 818181, 200)
+------------------------*/
+
+(1 row affected)
+
+(1 row affected)
+
+(1 row affected)
+
+(1 row affected)
+
+(1 row affected)
+
+(1 row affected)
+
+(1 row affected)
+
+(1 row affected)
+
+(1 row affected)
+
+(1 row affected)
+
+(1 row affected)
+
+(1 row affected)
+
+(1 row affected)
+
+(1 row affected)

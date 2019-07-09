@@ -1,0 +1,15 @@
+﻿/*------------------------
+SELECT salesperson_name,
+       invoice#
+FROM ar_salespeople FULL OUTER JOIN ar_invoices
+    ON ar_invoices.salesperson# = ar_salespeople.salesperson#
+------------------------*/
+salesperson_name,invoice#
+bob                           ,1
+bob                           ,4
+mary                          ,2
+mary                          ,3
+tim                           ,NULL
+
+(5 rows affected)
+

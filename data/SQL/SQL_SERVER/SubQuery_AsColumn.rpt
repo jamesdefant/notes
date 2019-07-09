@@ -1,0 +1,14 @@
+﻿/*------------------------
+SELECT salesperson#,
+	   invoice_amount,
+	   (SELECT AVG(invoice_amount) AS Average FROM ar_invoices) AS Average
+FROM ar_invoices
+------------------------*/
+salesperson#,invoice_amount,Average
+1,100.00,75.000000
+2,50.00,75.000000
+2,70.00,75.000000
+1,80.00,75.000000
+
+(4 rows affected)
+

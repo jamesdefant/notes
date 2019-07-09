@@ -36,12 +36,12 @@ SELECT column1, column2, ...
 FROM table_name
 WHERE condition
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/SELECT_WHERE.rpt").
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/SELECT_WHERE.rpt").
 '
 <h2>Sample Data</h2>
 <p>These are the tables we will use as an example:</p>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_invoices.rpt").
-\WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_salespeople.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_invoices.rpt").
+\WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_salespeople.rpt").
 '<hr>
 
 <h2>WHERE Operators</h2>
@@ -100,7 +100,7 @@ SELECT column_name(s)
 FROM table_name
 WHERE column_name BETWEEN value1 AND value2
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/WHERE_BETWEEN.rpt"). '
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/WHERE_BETWEEN.rpt"). '
 
 <h2>LIKE</h2>
 <p>There are 2 wildcards used with the <code>LIKE</code> operator:</p>
@@ -114,7 +114,7 @@ SELECT column1, column2, ...
 FROM table_name
 WHERE columnn LIKE pattern
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/WHERE_LIKE.rpt"). '
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/WHERE_LIKE.rpt"). '
 
 <h2>IN</h2>
 <p>The <code>IN</code> operator is a shorthand for multiple <code>OR</code> conditions</p>
@@ -125,8 +125,8 @@ FROM table_name
 WHERE column_name IN (value1, value2, ...)
 </code></pre>
 
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/WHERE_IN.rpt"). '
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/WHERE_NOT_IN.rpt"). '
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/WHERE_IN.rpt"). '
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/WHERE_NOT_IN.rpt"). '
 
 
 <h3>~or~<br/>Combine the <code>IN</code> operator with a <code>SELECT</code> statement</h3>
@@ -135,7 +135,7 @@ SELECT column_name(s)
 FROM table_name
 WHERE column_name IN (SELECT STATEMENT)
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/WHERE_IN_SELECT.rpt"). '
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/WHERE_IN_SELECT.rpt"). '
 
 <hr/>
 
@@ -172,7 +172,7 @@ SELECT column1, column2, ...
 FROM table_name
 WHERE condition1 AND condition2 AND condition3 ...
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/WHERE_AND.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/WHERE_AND.rpt") .
 
 '<h2>OR</h2>
 <h3>Syntax</h3>
@@ -181,7 +181,7 @@ SELECT column1, column2, ...
 FROM table_name
 WHERE condition1 OR condition2 OR condition3 ...
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/WHERE_OR.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/WHERE_OR.rpt") .
 
 '<h2>NOT</h2>
 <h3>Syntax</h3>
@@ -190,7 +190,7 @@ SELECT column1, column2, ...
 FROM table_name
 WHERE NOT condition
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/WHERE_NOT.rpt") . '
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/WHERE_NOT.rpt") . '
 
 <hr>'
 ;

@@ -1,0 +1,11 @@
+﻿/*------------------------
+SELECT * FROM Customers
+------------------------*/
+Customer#,CustomerName,CreditCard#,Country
+654321,Frank Reynolds,4567890123456789,USA
+765432,Derek Smalls,3456789012345678,UK
+876543,David St Hubbins,2345678901234567,UK
+987654,Nigel Tuffnel,1234567890123456,UK
+
+(4 rows affected)
+

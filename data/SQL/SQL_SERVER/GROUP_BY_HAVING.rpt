@@ -1,0 +1,12 @@
+﻿/*------------------------
+SELECT salesperson#, 
+       SUM(invoice_amount) AS [Total Sales]
+FROM ar_invoices
+GROUP BY salesperson#
+HAVING SUM(invoice_amount) > 130
+------------------------*/
+salesperson#,Total Sales
+1,180.00
+
+(1 row affected)
+

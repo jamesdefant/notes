@@ -1,0 +1,17 @@
+﻿/*------------------------
+SELECT salesperson_name AS Name
+FROM ar_salespeople
+UNION
+SELECT customer_name
+FROM ar_customers
+------------------------*/
+Name
+bill                          
+bob                           
+ed                            
+john                          
+mary                          
+tim                           
+
+(6 rows affected)
+

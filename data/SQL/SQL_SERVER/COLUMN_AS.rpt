@@ -1,0 +1,12 @@
+﻿/*------------------------
+SELECT invoice_amount AS [Invoice Amount]
+FROM ar_invoices
+------------------------*/
+Invoice Amount
+100.00
+50.00
+70.00
+80.00
+
+(4 rows affected)
+

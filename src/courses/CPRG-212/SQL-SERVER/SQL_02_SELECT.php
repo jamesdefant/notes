@@ -50,11 +50,11 @@ ORDER BY  -- columns to sort    /*OPTIONAL*/
 
 <h2>Sample Data</h2>
 <p>This is the table we will use as an example:</p>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_invoices.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_invoices.rpt").
 '<hr>
 
 <h2>Narrow your data</h2>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/SELECT_1.rpt").
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/SELECT_1.rpt").
 '<hr>
 
 <h2>DISTINCT</h2>
@@ -63,7 +63,7 @@ ORDER BY  -- columns to sort    /*OPTIONAL*/
   In this example <code>salesperson#</code> 2 has both <code>amount_paid</code> values = 0 so they get amalgamated 
   whereas <code>salesperson#</code> 1 <em>has</em> 2 distinct values for <code>amount_paid</code>
 </p>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/SELECT_DISTINCT.rpt").
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/SELECT_DISTINCT.rpt").
 '<hr/>
 
 <h2>TOP</h2>
@@ -74,7 +74,7 @@ SELECT TOP number|percent column_name(s)
 FROM table_name
 WHERE condition
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/SELECT_TOP.rpt").
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/SELECT_TOP.rpt").
 '<hr/>
 ';
 

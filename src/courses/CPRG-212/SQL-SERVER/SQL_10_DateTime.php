@@ -46,7 +46,7 @@ MAINHEADING;
 <pre><code>
 GETDATE()
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/GETDATE.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/GETDATE.rpt") .
 '<hr/>
 
 <h2>DATEADD()</h2>
@@ -55,7 +55,7 @@ GETDATE()
 <pre><code>
 DATEADD(interval, number, date)
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/DATEADD.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/DATEADD.rpt") .
 '<hr/>
 
 <h2>DATEDIFF()</h2>
@@ -64,7 +64,7 @@ DATEADD(interval, number, date)
 <pre><code>
 DATEDIFF(interval, date1, date2)
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/DATEDIFF.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/DATEDIFF.rpt") .
 '<hr/>
 
 

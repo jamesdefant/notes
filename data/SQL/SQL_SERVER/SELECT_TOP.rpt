@@ -1,0 +1,11 @@
+﻿/*------------------------
+SELECT TOP 2 invoice_amount
+FROM ar_invoices
+ORDER BY invoice_amount DESC
+------------------------*/
+invoice_amount
+100.00
+80.00
+
+(2 rows affected)
+

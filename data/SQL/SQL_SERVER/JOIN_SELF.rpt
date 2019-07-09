@@ -1,0 +1,15 @@
+﻿/*------------------------
+SELECT A.customer_name AS CustomerA,
+       B.customer_name AS CustomerB,
+	   A.customer_province
+FROM ar_customers A,
+     ar_customers B
+WHERE A.customer# <> B.customer#
+AND A.customer_province = B.customer_province
+------------------------*/
+CustomerA,CustomerB,customer_province
+bill                          ,john                          ,ab
+john                          ,bill                          ,ab
+
+(2 rows affected)
+

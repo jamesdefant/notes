@@ -1,0 +1,14 @@
+﻿/*------------------------
+SELECT i.invoice_amount, s.salesperson_name
+FROM ar_invoices AS i, 
+     ar_salespeople AS s
+WHERE i.salesperson# = s.salesperson#
+------------------------*/
+invoice_amount,salesperson_name
+100.00,bob                           
+50.00,mary                          
+70.00,mary                          
+80.00,bob                           
+
+(4 rows affected)
+

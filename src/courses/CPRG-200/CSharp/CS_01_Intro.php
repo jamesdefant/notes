@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-Intro to Programming in C Sharp
+Intro to Programming in C#
 MAINHEADING;
     }
 

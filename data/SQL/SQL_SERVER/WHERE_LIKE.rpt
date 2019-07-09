@@ -1,0 +1,11 @@
+﻿/*------------------------
+SELECT salesperson#, total_interest_charges
+FROM ar_invoices
+WHERE total_interest_charges LIKE '_0.00'
+------------------------*/
+salesperson#,total_interest_charges
+2,10.00
+2,20.00
+
+(2 rows affected)
+

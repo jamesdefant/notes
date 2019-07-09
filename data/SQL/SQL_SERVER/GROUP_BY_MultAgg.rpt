@@ -1,0 +1,14 @@
+﻿/*------------------------
+SELECT customer#,
+       COUNT(salesperson#) AS [Number of Employees that Customer Used], 
+       SUM(invoice_amount) AS [Total Sales]
+FROM ar_invoices
+GROUP BY customer#
+------------------------*/
+customer#,Number of Employees that Customer Used,Total Sales
+1,1,100.00
+2,2,130.00
+3,1,70.00
+
+(3 rows affected)
+

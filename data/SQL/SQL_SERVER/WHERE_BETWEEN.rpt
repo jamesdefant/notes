@@ -1,0 +1,11 @@
+﻿/*------------------------
+SELECT salesperson#, invoice_amount
+FROM ar_invoices
+WHERE invoice_amount BETWEEN 60 AND 90
+------------------------*/
+salesperson#,invoice_amount
+2,70.00
+1,80.00
+
+(2 rows affected)
+

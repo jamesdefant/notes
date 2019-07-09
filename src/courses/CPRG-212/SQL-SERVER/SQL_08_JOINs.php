@@ -75,9 +75,9 @@ MAINHEADING;
 
 <h2>Sample Data</h2>
 <p>These are the tables we will use as an example:</p>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_invoices.rpt").
-\WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_salespeople.rpt").
-\WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_customers.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_invoices.rpt").
+\WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_salespeople.rpt").
+\WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_customers.rpt").
 '<hr>
 
 
@@ -90,12 +90,12 @@ FROM table1
 INNER JOIN table2
 ON table1.column_name = table2.column_name
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/JOIN_INNER.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/JOIN_INNER.rpt") .
 '<p>Combine multiple <code>JOIN</code>s to link many tables together:</p>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/JOIN_INNER_Mult.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/JOIN_INNER_Mult.rpt") .
 '
 <p>The old way to do an <code>INNER JOIN</code> (ditch the keywords for commas and use a <code>WHERE</code>):</p>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/JOIN_INNER_Mult_OLD.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/JOIN_INNER_Mult_OLD.rpt") .
 '
 <hr/>
 
@@ -108,7 +108,7 @@ FROM table1
 LEFT OUTER JOIN table2
 ON table1.column_name = table2.column_name
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/JOIN_LEFT_OUTER.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/JOIN_LEFT_OUTER.rpt") .
 '
 <p>A <code>RIGHT OUTER JOIN</code> is the same except it shows all the records from the right table</p>
 <hr/>
@@ -124,7 +124,7 @@ FULL OUTER JOIN table2
 ON table1.column_name = table2.column_name
 WHERE condition
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/JOIN_FULL_OUTER.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/JOIN_FULL_OUTER.rpt") .
 '
 
 <h2>SELF JOIN</h2>
@@ -137,7 +137,7 @@ WHERE condition
 </code></pre>
 <em>T1 and T2 are different table aliases for the same table</em>
 <p>This example finds all the customers that live in the same province</p>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/JOIN_SELF.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/JOIN_SELF.rpt") .
 '<hr/>
 
 <h2>CROSS JOIN</h2>
@@ -150,7 +150,7 @@ FROM table1
 CROSS JOIN table2
 </code></pre>
 <strong>Do not understand the use of this</strong>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/JOIN_CROSS.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/JOIN_CROSS.rpt") .
 '<hr/>
 
 <h2>UNION JOIN</h2>
@@ -166,7 +166,7 @@ SELECT column_name(s) FROM table1
 UNION
 SELECT column_name(s) FROM table2
 </code></pre>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/JOIN_UNION.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/JOIN_UNION.rpt") .
 '<hr/>
 
 

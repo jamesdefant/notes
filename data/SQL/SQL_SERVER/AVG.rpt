@@ -1,0 +1,9 @@
+﻿/*------------------------
+SELECT AVG(invoice_amount) AS [Average Invoice Amount]
+FROM ar_invoices
+------------------------*/
+Average Invoice Amount
+75.000000
+
+(1 row affected)
+

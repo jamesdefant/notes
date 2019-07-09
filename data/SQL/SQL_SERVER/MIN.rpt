@@ -1,0 +1,9 @@
+﻿/*------------------------
+SELECT MIN(invoice_amount) AS [Smallest Value of All Invoices]
+FROM ar_invoices
+------------------------*/
+Smallest Value of All Invoices
+50.00
+
+(1 row affected)
+

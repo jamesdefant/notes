@@ -1,0 +1,16 @@
+﻿/*------------------------
+SELECT salesperson_name,
+       invoice_amount,
+       customer_name
+FROM ar_invoices, ar_salespeople, ar_customers
+    WHERE ar_invoices.salesperson# = ar_salespeople.salesperson#
+    AND ar_invoices.customer# = ar_customers.customer#
+------------------------*/
+salesperson_name,invoice_amount,customer_name
+bob                           ,100.00,bill                          
+mary                          ,50.00,ed                            
+mary                          ,70.00,john                          
+bob                           ,80.00,ed                            
+
+(4 rows affected)
+

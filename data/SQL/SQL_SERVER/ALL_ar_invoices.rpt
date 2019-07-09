@@ -1,0 +1,12 @@
+﻿/*------------------------
+SELECT * 
+FROM ar_invoices
+------------------------*/
+invoice#,customer#,salesperson#,invoice_date,invoice_amount,amount_paid,current_month_interest_charges,total_interest_charges
+1,1,1,2019-06-17 10:43:53.727,100.00,1.00,0.00,0.00
+2,2,2,2019-05-28 10:43:53.727,50.00,0.00,5.00,10.00
+3,3,2,2019-06-17 10:43:53.727,70.00,0.00,10.00,20.00
+4,2,1,2019-07-07 10:43:53.727,80.00,0.00,0.00,0.00
+
+(4 rows affected)
+

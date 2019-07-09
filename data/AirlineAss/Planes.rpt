@@ -1,0 +1,10 @@
+﻿/*------------------------
+SELECT * FROM Planes
+------------------------*/
+Plane#,PlaneName,PilotName
+424242,Enola Gay,Dennis Reynolds
+676767,Hawker Hoopoe,Charlie Kelly
+818181,Wright Flyer,Ronald MacDonald
+
+(3 rows affected)
+

@@ -1,0 +1,18 @@
+﻿/*------------------------
+SELECT salesperson_name,
+       invoice_amount,
+       customer_name
+FROM ar_invoices 
+INNER JOIN ar_salespeople
+    ON ar_invoices.salesperson# = ar_salespeople.salesperson#
+INNER JOIN ar_customers
+    ON ar_invoices.customer# = ar_customers.customer#
+------------------------*/
+salesperson_name,invoice_amount,customer_name
+bob                           ,100.00,bill                          
+mary                          ,50.00,ed                            
+mary                          ,70.00,john                          
+bob                           ,80.00,ed                            
+
+(4 rows affected)
+

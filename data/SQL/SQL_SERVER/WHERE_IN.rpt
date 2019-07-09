@@ -1,0 +1,11 @@
+﻿/*------------------------
+SELECT salesperson#, amount_paid
+FROM ar_invoices
+WHERE salesperson# IN (1)
+------------------------*/
+salesperson#,amount_paid
+1,1.00
+1,0.00
+
+(2 rows affected)
+

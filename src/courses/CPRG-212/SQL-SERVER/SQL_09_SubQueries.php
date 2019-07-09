@@ -33,21 +33,28 @@ MAINHEADING;
 
 <h2>Sample Data</h2>
 <p>These are the tables we will use as an example:</p>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_invoices.rpt").
-\WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_salespeople.rpt").
-\WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_customers.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_invoices.rpt").
+\WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_salespeople.rpt").
+\WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_customers.rpt").
 '<hr>
 
 <h2>Nested Column</h2>
 <p>This nested <code>SELECT</code> acts like a column and <strong>only returns one value</strong></p>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/SubQuery_AsColumn.rpt") .
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/SubQuery_AsColumn.rpt") .
 '<hr/>
 
 <h2>Nested Table</h2>
 <p>This nested <code>SELECT</code> acts like a table and <strong>can return multiple rows</strong></p>
-' . \WriteHTML::getTableFromReport("./data/SQL_SERVER/SubQuery_AsColumn.rpt") .
-          '<hr/>
+' . \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/SubQuery_AsColumn.rpt") .
+'<hr/>
 
+<h2>Special Operators</h2>
+<strong>FILL THIS IN</strong>
+<ul>
+  <li>EXISTS</li>
+  <li>ANY</li>
+  <li>ALL</li>
+</ul>
 
 
 

@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class SQL_04_ORDER_BY extends Page
+  class Template extends Page
   {
 
     /*-----------------------------------------------------------------*/
@@ -10,7 +10,7 @@ namespace J\ClassNotes {
     public function getTitle() : string
     {
       return <<< 'TITLE'
-ORDER BY
+Datasets
 TITLE;
     }
 
@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-SQL ORDER BY Statement
+Adding Datasets to Visual Studio Projects
 MAINHEADING;
     }
 
@@ -29,25 +29,10 @@ MAINHEADING;
     {
       $returnValue = '
 <h2>Intro</h2>
-<p>Use the <code>ORDER BY</code> keyword to sort the resulting record set in either ascending or descending order</p>
-<hr/>
-
-<h2>Sample Data</h2>
-<p>This is the table we will use as an example:</p>
-'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_invoices.rpt").
-'<hr/>
-
-<h3>Syntax</h3>
-<pre><code>
-SELECT column1, column2, ...
-FROM table_name
-ORDER BY column1, column2, ... ASC|DESC
-</code></pre>
-'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ORDER_BY.rpt")
+<p>To add a database file </p>
 
 
-
-;
+';
 
       return $returnValue;
     }

@@ -172,30 +172,7 @@ div.demo h3 {
 
 /*--------------------------------*/
 /* Topics Nav */
-/*
-ul#topics {
-  margin: 1rem 15px;
-  li {
-    margin:  auto;
-    a {
-      background-color: transparent;
-
-      color: $bg-color;
-
-    }
-
-
-    a.active {
-      border: 3px solid $bg-color;
-      border-radius: 5px;
-    }
-  }
-}
-*/
 ul li a {
-  /*
-      color: $bg-color;
-  */
   text-align: center;
 }
 ul li a.active, ul li .dropdown-item:active {

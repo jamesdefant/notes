@@ -95,6 +95,7 @@ table.table tr td{
   }
   a.active {
     color: white;
+
   }
 }
 button {
@@ -102,7 +103,9 @@ button {
   padding: 0;
   font-size: 1.2rem;
 }
-
+.text-theme:hover, .text-theme-hi:hover {
+//  box-shadow: 10px 10px 8px 10px #888888;
+}
 
 /*--------------------------------*/
 /* Dropdown */
@@ -182,31 +185,9 @@ div.demo {
 }
 /*--------------------------------*/
 /* Topics Nav */
-/*
-ul#topics {
-  margin: 1rem 15px;
-  li {
-    margin:  auto;
-    a {
-      background-color: transparent;
 
-      color: $bg-color;
-
-    }
-
-
-    a.active {
-      border: 3px solid $bg-color;
-      border-radius: 5px;
-    }
-  }
-}
-*/
 ul li{
   a {
-/*
-    color: $bg-color;
-*/
     text-align: center;
   }
   a.active, .dropdown-item:active {

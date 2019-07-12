@@ -167,6 +167,36 @@ else
     // executed when condition not (!=) true (false)
 }
 
+// for example:
+
+bool isSuccess = true;
+string msg = "";
+
+if(isSuccess)
+{
+  msg = "Operation successful";
+}
+else
+{
+  msg = "Operation failed";
+}
+Console.WriteLine(msg);
+</code></pre>
+<p>If the code to be executed is <b>only 1 line long</b>, you can omit the parentheses</p>
+<pre><code>
+if(isSuccess)
+  msg = "Operation successful";
+else
+  msg = "Operation failed";
+  
+Console.WriteLine(msg);  
+</code></pre>
+<hr/>
+
+<h2>Ternary Operator</h2>
+<p>A more concise way of writing an if/else statement is with the <b>ternary</b> operator:</p>
+<pre><code>
+msg = isSuccess ? "Operation successful" : "Operation failed";
 </code></pre>
 CONTENT;
 

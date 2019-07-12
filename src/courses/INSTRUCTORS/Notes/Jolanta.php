@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class Template extends Page
+  class Jolanta extends Page
   {
 
     /*-----------------------------------------------------------------*/
@@ -10,7 +10,7 @@ namespace J\ClassNotes {
     public function getTitle() : string
     {
       return <<< 'TITLE'
-
+Jolanta
 TITLE;
     }
 
@@ -29,7 +29,7 @@ MAINHEADING;
     {
       $returnValue = '
 <h2>Intro</h2>
-
+<a href="https://www.dotnetcurry.com/" target="_blank">Tim Curry\'s tutorials</a>
 
 ';
 

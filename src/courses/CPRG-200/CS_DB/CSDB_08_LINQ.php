@@ -87,6 +87,11 @@ from [type] elementName in collectionName
 </code></pre>
 <hr/>
 
+<h2>Methods</h2>
+<ul>
+  <li><code>Single()</code></li>
+</ul>
+<hr/>
 
 <h2>LINQ to SQL</h2>
 
@@ -114,6 +119,24 @@ private void Form1_Load()
 }  
   </code></pre>
 </ol>
+<hr/>
+
+<h2>INSERT Function</h2>
+<pre><code>
+// Button Add event handler
+private void btnAdd_Click(object sender, EventArgs e)
+{
+  if(--Validates--)
+  {
+    // Create a new object from provided data
+    Product newProduct = new Product
+    {
+      ProductCode = productCodeTextBox.Text,
+    };
+  }
+}
+</code></pre>
+
 ';
 
       return $returnValue;

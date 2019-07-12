@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class Template extends Page
+  class CS_13_Lambda extends Page
   {
 
     /*-----------------------------------------------------------------*/
@@ -10,7 +10,7 @@ namespace J\ClassNotes {
     public function getTitle() : string
     {
       return <<< 'TITLE'
-
+Lambda
 TITLE;
     }
 
@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-
+Lambda Expresssions
 MAINHEADING;
     }
 
@@ -29,7 +29,12 @@ MAINHEADING;
     {
       $returnValue = '
 <h2>Intro</h2>
+<p>Lambda expresssions are a short way of writing a function</p>
 
+<pre><code>
+// x "goes to" expression
+x => expression
+</code></pre>
 
 ';
 

@@ -103,6 +103,34 @@ MAINHEADING;
 <p>They can all be handled in a common way as they share the same class (blueprint)</p>
 <hr>
 
+<h2>Instantiation</h2>
+<p>Classic syntax for instantiating an object is:</p>
+<pre><code>
+// Given the class MyClass
+public class MyClass
+{
+  public int MyInt { get; set; }
+  public int MyOtherInt { get; set; }
+  
+  // Custom constructor
+  public MyClass(int param1, int param2)
+  {}
+}
+
+// Instantiate a new object:
+MyClass myObj = new MyClass(arg1, arg2);
+</code></pre>
+
+<h3>Microsoft offers a new syntax that simply uses the default constructor:</h3>
+<pre><code>
+// Instantiate a new object:
+MyClass myObj = new MyClass
+{
+  MyInt = arg1,
+  MyOtherInt = arg2
+};
+</code></pre>
+
 
 
 CONTENT;

@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class CSDB_02_Datasets extends Page
+  class ADO_02_Datasets extends Page
   {
 
     /*-----------------------------------------------------------------*/

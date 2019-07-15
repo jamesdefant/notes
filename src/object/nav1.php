@@ -154,6 +154,7 @@ namespace J\ClassNotes {
 
       foreach ($topicArray as $topic) {
 
+
         if($topic === $currentTopic) {
           $returnValue .= $this->createLink(
               $topic,
@@ -178,7 +179,87 @@ namespace J\ClassNotes {
 
       return $returnValue;
     }
+/*
+    public function createCourseNav( array $pages, $currentPage )
+    {
+      $returnValue = '
+      <ul id="topics" class="nav flex-column position-fixed">
+      ';
 
+      foreach ($pages as $topic) {
+
+        if($topic === $currentPage) {
+          $returnValue .= $this->createLink(
+              $topic,
+              $this->path .'.php?topic=' . $topic,
+              true,
+              "bg-theme"
+
+          );
+        } else {
+          $returnValue .= $this->createLink(
+              $topic,
+              $this->path .'.php?topic=' . $topic,
+              false,
+              "text-theme"
+          );
+        }
+      }
+
+      $returnValue .= '
+      </ul>
+      ';
+
+      return $returnValue;
+    }
+
+    public function createTopicNav( array $topicArray, $currentTopic )
+    {
+      $this->nav = '
+<nav class="navbar navbar-expand-sm fixed-top bg-theme" id="nav">            
+  <div class="container-fluid navbar-header">
+    <!--<a class="navbar-brand" href="index.php">Class Notes</a>-->' .
+
+          $this->createDropDown( $this->courseList )  .
+
+          '<button type="button" class="navbar-toggler navbar-right" data-toggle="collapse" data-target="#myNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav ml-auto">
+  ';
+
+      foreach ($topicArray as $filename => $title) {
+
+        if($title === $currentTopic) {
+          $this->nav .= $this->createLink(
+              $title,
+              $this->path .'.php?page=' . $filename,
+              true,
+              "text-theme"
+
+          );
+        } else {
+          $this->nav .= $this->createLink(
+              $title,
+              $this->path .'.php?page=' . $filename,
+              false,
+              "text-theme-hi"
+          );
+        }
+      }
+
+      $this->nav .= '
+      </ul>
+    </div>
+  </div>
+   
+</nav>
+  ';
+    }
+*/
     // Build the dropdown to select a different course
     private function createDropDown( array $courseList )
     {

@@ -88,15 +88,14 @@ class Site3
 
     // Create navbar current Pages array
     foreach($_SESSION[ 'tree' ][ $_SESSION[ 'course' ]][ $_SESSION[ 'topic' ]] as $page) {
-
-
       if($page != '') {
-        $this->navbarPageArray[ $this->stripExtFromFile($page) ] =$this->navbarArray[$page];
+        $this->navbarPageArray[ $this->stripExtFromFile($page) ] = $this->navbarArray[$page];
       }
     }
 
-
-    $this->sidebarTopicArray = array_keys($_SESSION[ 'tree' ][$_SESSION[ 'course' ]]);
+    $tempArray = array_keys($_SESSION[ 'tree' ][$_SESSION[ 'course' ]]);
+    sort($tempArray);
+    $this->sidebarTopicArray = $tempArray;
 
     if($this->isDebug) {
       $this->printArrays();
@@ -289,8 +288,8 @@ class Site3
 
     if($this->isDebug) {
       echo 'Class: ' . $class[0] . '<br>';
-      echo $this->modulesAssoc[$_SESSION['page']] . '<br>';
-      echo 'J\\ClassNotes\\' . $this->stripClassNameFromFilePath($this->modulesAssoc[$_SESSION['module']], true) . '<br>';
+//      echo $this->modulesAssoc[$_SESSION['page']] . '<br>';
+//      echo 'J\\ClassNotes\\' . $this->stripClassNameFromFilePath($this->modulesAssoc[$_SESSION['module']], true) . '<br>';
     }
     // Instantiate the class with the filePath ( eg.  )as param
 
@@ -333,6 +332,8 @@ class Site3
 
     // Set up the nav
     $this->nav->buildNav($this->navbarPageArray, $this->currentPage->getTitle());
+//    $this->nav->createTopicNav($this->navbarPageArray, $this->currentPage->getTitle());
+//    $this->nav->createTopicNav($this->sidebarTopicArray, $_SESSION[ 'topic' ]);
 
     return $this->getPage();
   }
@@ -394,6 +395,7 @@ class Site3
              
         <div class="col-md-2">' .
           $this->nav->createSideBarTopic( $this->sidebarTopicArray, $_SESSION[ 'topic' ] ) .
+//          $this->nav->createCourseNav( $this->navbarPageArray, $this->currentPage->getTitle() ) .
         '</div>
 
         <div class="col-lg-8 col-md-7">

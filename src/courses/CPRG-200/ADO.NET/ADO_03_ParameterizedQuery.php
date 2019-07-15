@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class CSDB_03_ParameterizedQuery extends Page
+  class ADO_03_ParameterizedQuery extends Page
   {
 
     /*-----------------------------------------------------------------*/

@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class CSDB_10_Transactions extends Page
+  class ADO_10_Transactions extends Page
   {
 
     /*-----------------------------------------------------------------*/

@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class CSDB_04_ADONET extends Page
+  class ADO_04_ADONET extends Page
   {
 
     /*-----------------------------------------------------------------*/

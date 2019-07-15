@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class CS_13_Lambda extends Page
+  class CSII_05_Lambda extends Page
   {
 
     /*-----------------------------------------------------------------*/

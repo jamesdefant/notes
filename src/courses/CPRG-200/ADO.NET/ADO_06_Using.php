@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class CSDB_11_Serialization extends Page
+  class ADO_06_Using extends Page
   {
 
     /*-----------------------------------------------------------------*/
@@ -10,7 +10,7 @@ namespace J\ClassNotes {
     public function getTitle() : string
     {
       return <<< 'TITLE'
-Serialization
+Using
 TITLE;
     }
 
@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-Serialization in C#
+Using Construct
 MAINHEADING;
     }
 
@@ -29,27 +29,27 @@ MAINHEADING;
     {
       $returnValue = '
 <h2>Intro</h2>
-<p>There are two read/write classes in C#:</p>
-<ul>
-  <li><code>StreamReader/Writer</code></li>
-  <li><code>BinaryReader/Writer</code></li>
-</ul>
-<hr/>
-
+<p>Using is a keyword that scopes an object to </p>
 <h2>Syntax</h2>
 <pre><code>
-BinaryWriter binaryOut = new BinaryWriter(new FileStream(path, FileMode.Create, FileAccess.Write));
-
-foreach(Product p in products)
+using(SqlConnection connection = GetConnection())
 {
-  binaryOut.Write(Product.Code);
-  binaryOut.Write(Product.Description);
-  binaryOut.Write(Product.Price);
+  // the connection object is created here and is only available here
+  
+  // It gets recycled at the closing brace
 }
-
-binaryOut.Close();
 </code></pre>
-
+<h2>Nesting</h2>
+<p>You can nest one using block inside of another as necessary</p>
+<pre><code>
+using(SqlConnection connection = GetConnection())
+{
+  using(SqlCommand cmd = new SqlCommand(query, connection))
+  {
+    
+  }   // cmd is recycled 
+}   // connection is recycled
+</code></pre>
 ';
 
       return $returnValue;

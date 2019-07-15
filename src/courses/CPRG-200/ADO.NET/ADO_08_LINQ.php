@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class CSDB_08_LINQ extends Page
+  class ADO_08_LINQ extends Page
   {
 
     /*-----------------------------------------------------------------*/

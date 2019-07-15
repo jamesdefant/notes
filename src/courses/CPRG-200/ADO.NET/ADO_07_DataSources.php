@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class CSDB_07_DataSources extends Page
+  class ADO_07_DataSources extends Page
   {
 
     /*-----------------------------------------------------------------*/

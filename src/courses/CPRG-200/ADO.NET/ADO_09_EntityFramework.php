@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class CSDB_09_EntityFramework extends Page
+  class ADO_09_EntityFramework extends Page
   {
 
     /*-----------------------------------------------------------------*/

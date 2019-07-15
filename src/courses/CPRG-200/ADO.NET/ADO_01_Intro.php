@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class CSDB_01_Intro extends Page
+  class ADO_01_Intro extends Page
   {
 
     /*-----------------------------------------------------------------*/

@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class CSDB_05_Nullable extends Page
+  class ADO_05_Nullable extends Page
   {
 
     /*-----------------------------------------------------------------*/

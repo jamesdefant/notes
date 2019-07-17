@@ -43,7 +43,27 @@ MAINHEADING;
         ['ASP.NET MVC', 'A development environment similar to PHP or classic ASP. It uses the Model-View-Controller (MVC) design pattern and the Razor templating engine for in-line data binding']
       ];
       $returnValue .= \WriteHTML::getTable($ASPTable);
+      $returnValue .= '
+<h2>Server Controls</h2>
+<p>All server controls are prefixed with <code>asp:</code></p>
+<p>They exist side-by-side with regular HTML content - create static content with HTML and dynamic content with server controls</p>
+<h3>Properties</h3>
+<ul>
+  <li>
+    <b>AutoPostBack</b> - Whether the page is posted back to the server when the value of th econtrol changes.
+    Available for textboxes, checkboxes, and lists. <b>Default: false. Buttons do not have AutoPostBack property because
+    they always post back</b>
+  </li>
+  <li>
+    <b>CausesValidation</b> - Determines whether the validation specified by validation controls should be done when 
+    a button is clicked. <b>Default: true</b>
+  </li>
+  <li><b>EnableViewState</b> - Determines whether the controls maintain its view state between HTTP requests. <b>Default: true</b></li>
+  <li><b>Runat</b> - Indicates that the control will be processed by the ASP.NET on the server</li>
+</ul>
 
+      
+      ';
       return $returnValue;
     }
 

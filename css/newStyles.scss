@@ -263,4 +263,20 @@ pre.SQL {
 img {
   margin: 1rem 0;
 }
-
+/* Career Resume */
+.resume {
+  margin: 2rem;
+  padding: 1rem 2rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  h3 {
+    font-weight: bold;
+  }
+  .work-education {
+    ul {
+      list-style-type: none;
+      margin: 0 0 0 1rem;
+      padding: 0;
+    }
+  }
+}

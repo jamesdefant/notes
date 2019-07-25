@@ -96,6 +96,78 @@ class WriteHTML
 '</div>';
   }
 
+  // Get a table from a sql report with custom delimiter
+  public static function getTableFromReportDelimiter($reportFilename, $delimiter) : string
+  {
+    // Open the file
+    $myFile = fopen($reportFilename, "r") or die("Unable to open file!");
+
+    // Create the array from the file
+    $array = [];
+
+    // Init variables
+    $isQuery = false;
+    $isData = false;
+    $query = '';
+
+    // Read the file
+    while(!feof($myFile)) {
+
+      // If the first char is not '(' - split the line and add the elems to an array
+
+      $lineArray = [];
+
+      $line = fgets($myFile);
+
+      if($isData) {
+        // If line does not contain '('
+        if (strpos($line, '(') === false) {
+
+          // If line does contain ','
+          if ($line != "" && $line != "\n" && $line != "\r" && $line != "\r\n" && $line != "\R") {
+//          if () {
+
+            $stringArray = explode(",", $line);
+
+            foreach ($stringArray as $string) {
+              array_push($lineArray, $string);
+            }
+
+            if (count($lineArray) > 0) {
+              array_push($array, array_filter($lineArray));
+            }
+          }
+        }
+        else {
+          $isData = false;
+        }
+      }
+
+      if(stripos($line, "-*") !== false) {
+        $isQuery = false;
+        $isData = true;
+      }
+
+
+      if($isQuery === true) {
+        $query .= $line;
+      }
+
+      if(stripos($line, '*-') !== false) {
+        $isQuery = true;
+      }
+    }
+    $newArray = array_filter($array);
+//    \J\Util::printArray($newArray, "table array");
+
+    return '
+<div class="table-example">
+  <pre class="SQL">' . $query . '</pre>' .
+        self::getTable($newArray).
+        '</div>';
+  }
+
+
   public static function getTable(array $dataTable) : string
   {
     $headers = '';
@@ -115,6 +187,7 @@ class WriteHTML
 
     ';
 
+    // Start at 1 to skip the header row
     for ($row = 1, $end = count($dataTable); $row < $end; $row++) {
 
       $returnValue .= '<tr>';

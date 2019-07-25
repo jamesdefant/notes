@@ -31,6 +31,7 @@ class CourseList
       "CPRG-210" => ["Web Dev", '17a2b8'],
       "CPRG-212" => ["Database Dev", '630000'],
       "PROJ-216" => ["Project Mgmt", 'cc584d'],
+      "PROJ" => ["GROUP PROJECT", 'cc584c'],
       "GIT" => ["Version Control", 'ad74bc'],
       "XML" => ["Markup Languages", "00535e"],
       "INSTRUCTORS" => ["Notes", "c48000"],

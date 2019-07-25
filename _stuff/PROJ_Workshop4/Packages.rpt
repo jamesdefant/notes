@@ -1,0 +1,28 @@
+﻿/*------------------------
+SELECT 
+    c.name 'Column Name',
+    t.Name 'Data type',
+    c.is_nullable,
+    ISNULL(i.is_primary_key, 0) 'Primary Key'
+FROM    
+    sys.columns c
+INNER JOIN 
+    sys.types t ON c.user_type_id = t.user_type_id
+LEFT OUTER JOIN 
+    sys.index_columns ic ON ic.object_id = c.object_id AND ic.column_id = c.column_id
+LEFT OUTER JOIN 
+    sys.indexes i ON ic.object_id = i.object_id AND ic.index_id = i.index_id
+WHERE
+    c.object_id = OBJECT_ID('Packages')
+------------------------*/
+Column Name,Data type,is_nullable,Primary Key
+PackageId,int,0,1
+PkgName,nvarchar,0,0
+PkgStartDate,datetime,1,0
+PkgEndDate,datetime,1,0
+PkgDesc,nvarchar,1,0
+PkgBasePrice,money,0,0
+PkgAgencyCommission,money,1,0
+
+(7 rows affected)
+

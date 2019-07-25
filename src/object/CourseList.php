@@ -33,7 +33,8 @@ class CourseList
       "PROJ-216" => ["Project Mgmt", 'cc584d'],
       "GIT" => ["Version Control", 'ad74bc'],
       "XML" => ["Markup Languages", "00535e"],
-      "INSTRUCTORS" => ["Notes", "c48000"]
+      "INSTRUCTORS" => ["Notes", "c48000"],
+      "PROJ" => ["Group Project", "630057"]
 
   ];
 

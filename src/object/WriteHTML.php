@@ -21,6 +21,12 @@ class WriteHTML
 </div>
 
    */
+
+  /*
+   * Turn a SQL Server Report into a HTML table
+   * Use comma as a delimiter
+   * include query
+   */
   public static function getTableFromReport($reportFilename) : string
   {
     // Open the file
@@ -37,8 +43,6 @@ class WriteHTML
     while(!feof($myFile)) {
 
       // If the first char is not '(' - split the line and add the elems to an array
-
-
 
       $lineArray = [];
 
@@ -81,9 +85,6 @@ class WriteHTML
       if(stripos($line, '*-') !== false) {
         $isQuery = true;
       }
-
-
-
     }
     $newArray = array_filter($array);
 //    \J\Util::printArray($newArray, "table array");

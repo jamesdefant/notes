@@ -1,0 +1,2 @@
+﻿Msg 2809, Level 16, State 1, Line 15
+The request for procedure 'Packages_Products_Suppliers' failed because 'Packages_Products_Suppliers' is a table object.

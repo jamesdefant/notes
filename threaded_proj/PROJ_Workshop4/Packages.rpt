@@ -15,14 +15,14 @@ LEFT OUTER JOIN
 WHERE
     c.object_id = OBJECT_ID('Packages')
 ------------------------*/
-Column Name,Data type,is_nullable,Primary Key
-PackageId,int,0,1
-PkgName,nvarchar,0,0
-PkgStartDate,datetime,1,0
-PkgEndDate,datetime,1,0
-PkgDesc,nvarchar,1,0
-PkgBasePrice,money,0,0
-PkgAgencyCommission,money,1,0
+Column Name|Data type|is_nullable|Primary Key
+PackageId|int|0|1
+PkgName|nvarchar|0|0
+PkgStartDate|datetime|1|0
+PkgEndDate|datetime|1|0
+PkgDesc|nvarchar|1|0
+PkgBasePrice|money|0|0
+PkgAgencyCommission|money|1|0
 
 (7 rows affected)
 

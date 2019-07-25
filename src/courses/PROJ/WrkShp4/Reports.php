@@ -30,7 +30,8 @@ MAINHEADING;
       $returnValue = '
 <h2>Packages</h2>';
 
-$returnValue .= \WriteHTML::getTableFromReport("./_stuff/PROJ_WorkShop4/Packages.rpt");
+$returnValue .= // \WriteHTML::getTableFromReportDelimiter("./threaded_proj/PROJ_WorkShop4/Products_Suppliers.rpt") .
+    \WriteHTML::getTableFromReportDelimiter("./threaded_proj/PROJ_WorkShop4/Packages.rpt","|", false);
       return $returnValue;
     }
 

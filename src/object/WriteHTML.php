@@ -97,7 +97,7 @@ class WriteHTML
   }
 
   // Get a table from a sql report with custom delimiter
-  public static function getTableFromReportDelimiter($reportFilename, $delimiter) : string
+  public static function getTableFromReportDelimiter($reportFilename, $delimiter = "|", $showQuery = true) : string
   {
     // Open the file
     $myFile = fopen($reportFilename, "r") or die("Unable to open file!");
@@ -119,6 +119,7 @@ class WriteHTML
 
       $line = fgets($myFile);
 
+      // Skip this until the flag goes up
       if($isData) {
         // If line does not contain '('
         if (strpos($line, '(') === false) {
@@ -127,14 +128,17 @@ class WriteHTML
           if ($line != "" && $line != "\n" && $line != "\r" && $line != "\r\n" && $line != "\R") {
 //          if () {
 
-            $stringArray = explode(",", $line);
+            $stringArray = explode($delimiter, $line);
 
             foreach ($stringArray as $string) {
+//              echo "<br/>" . $string;
               array_push($lineArray, $string);
             }
 
+//            \J\Util::printArray($lineArray, "line array");
+
             if (count($lineArray) > 0) {
-              array_push($array, array_filter($lineArray));
+              array_push($array, $lineArray);
             }
           }
         }
@@ -142,6 +146,7 @@ class WriteHTML
           $isData = false;
         }
       }
+
 
       if(stripos($line, "-*") !== false) {
         $isQuery = false;
@@ -160,11 +165,18 @@ class WriteHTML
     $newArray = array_filter($array);
 //    \J\Util::printArray($newArray, "table array");
 
-    return '
-<div class="table-example">
-  <pre class="SQL">' . $query . '</pre>' .
+    $returnValue = '
+<div class="table-example">';
+
+    if($showQuery) {
+      $returnValue .=
+      '<pre class="SQL">' . $query . '</pre>';
+  }
+    $returnValue .=
         self::getTable($newArray).
         '</div>';
+
+    return $returnValue;
   }
 
 

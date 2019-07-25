@@ -34,7 +34,7 @@ class CourseList
       "GIT" => ["Version Control", 'ad74bc'],
       "XML" => ["Markup Languages", "00535e"],
       "INSTRUCTORS" => ["Notes", "c48000"],
-      "PROJ" => ["Group Project", "630057"]
+      "CPLN-240" => ["Career Planning", "5ca188"]
 
   ];
 
@@ -98,7 +98,7 @@ ul#topics li a.active {
   border-radius: 5px;
 
 }
-</style>    
+</style>
     ';
   }
 

@@ -35,7 +35,8 @@ class CourseList
       "GIT" => ["Version Control", 'ad74bc'],
       "XML" => ["Markup Languages", "00535e"],
       "INSTRUCTORS" => ["Notes", "c48000"],
-      "CPLN-240" => ["Career Planning", "5ca188"]
+      "CPLN-240" => ["Career Planning", "5ca188"],
+      "CMPS-200" => ["Windows Server","630057"]
 
   ];
 

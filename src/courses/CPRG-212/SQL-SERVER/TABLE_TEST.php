@@ -29,15 +29,15 @@ MAINHEADING;
     {
       $returnValue = '
 <h2>ar_customers</h2>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_customers.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_customers.rpt").
 
 
 '<h2>ar_invoices</h2>
-    '. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_invoices.rpt").
+    '. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_invoices.rpt").
 
 
 '<h2>ar_salespeople</h2>
-'. \WriteHTML::getTableFromReport("./data/SQL_SERVER/ALL_ar_salespeople.rpt").
+'. \WriteHTML::getTableFromReport("./data/SQL/SQL_SERVER/ALL_ar_salespeople.rpt").
 
 '<h2>ar_salespeople</h2>
 '. \WriteHTML::getTableFromReport("./data/SQL_TESTS/TopSalesPerson.rpt");

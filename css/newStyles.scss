@@ -218,7 +218,10 @@ code h2 {
 .hljs {
   font-size: 0.9rem;
 }
-
+caption {
+  display: inline-block;
+  margin: auto;
+}
 /*--------------------------------*/
 /* Class Diagrams */
 div.class_diagram {

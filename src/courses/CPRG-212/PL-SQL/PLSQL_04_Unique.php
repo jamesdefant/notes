@@ -57,8 +57,8 @@ DESC suppliers
 </code></pre>
 <hr>
 
-<h2>Grant Priviledges</h2>
-<p>If you encounter <code>Insufficient Priviledges</code>, type:</p>
+<h2>Grant Privileges</h2>
+<p>If you encounter <code>Insufficient Privileges</code>, type:</p>
 <pre><code>
 SQL> CONNECT system/oracle
 

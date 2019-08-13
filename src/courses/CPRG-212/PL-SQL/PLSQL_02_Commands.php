@@ -34,7 +34,7 @@ MAINHEADING;
   <code>set pagesize 40</code> - sets how many lines will be displayed (vertically) before the header re-appears
 </li> 
 <li>
-  <code>set linesize 120</code> - set how may characters on a page (horizontally) before the line wraps
+  <code>set linesize 60</code> - set how may characters on a page (horizontally) before the line wraps
 </li>
 </ul>
 <hr>

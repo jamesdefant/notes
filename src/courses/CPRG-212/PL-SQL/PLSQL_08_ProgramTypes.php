@@ -40,7 +40,18 @@ MAINHEADING;
         ['C#', 'PL SQL'],
         ['Throw("Hey")', 'RAISE.APPLICATION.ERROR(-20001, "HEY");']
       ];
+
       $returnValue =
+'<h2>User Created Methods</h2>
+<p>
+  All user created functions are stored in <code>user_source</code>, so you may get a list of them by querying  
+</p>
+<pre><code>
+SELECT DISTINCT name, type FROM user_source;
+</code></pre>
+<hr>';
+
+      $returnValue .=
           \WriteHTML::getTable($programTypesData) .'
 <p>Package is like a .zip with related functions & procedures in it</p>
 <hr>

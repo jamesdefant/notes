@@ -75,6 +75,19 @@ MAINHEADING;
 START c:\sql\AR
 ...
 </code></pre>
+<hr>
+
+<h2>Customize your SQL Plus</h2>
+<p>Navigate to <kbd>c:\app\Administrator\product\11.2.0\dbhome_1\sqlplus\admin</kbd></p>
+<p>Alter glogin.sql to set variables that you would every single session:</p>
+<pre><code>
+set linesize 60
+set pagesize 80
+
+set serveroutput on
+show errors
+</code></pre>
+
 ';
 
       return $returnValue;

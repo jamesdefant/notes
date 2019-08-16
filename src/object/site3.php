@@ -309,6 +309,10 @@ class Site3
 
   }
 
+  private function printPageToHTML()
+  {
+
+  }
 
   public function buildPage() : string
   {

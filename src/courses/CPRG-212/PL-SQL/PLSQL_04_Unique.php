@@ -63,6 +63,7 @@ DESC suppliers
 SQL> CONNECT system/oracle
 
 SQL> GRANT CREATE ANY DIRECTORY TO scott;
+SQL> GRANT CREATE ANY VIEW TO scott;
 
 SQL> CONNECT scott/tiger
 

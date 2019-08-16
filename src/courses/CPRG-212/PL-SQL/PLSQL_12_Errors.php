@@ -53,11 +53,9 @@ EXCEPTION   --try/catch
     END IF;
 END;
 /
-
-
-
-
 </code></pre>
+
+<h2>Raise an Exception</h2>
 
 ';
 

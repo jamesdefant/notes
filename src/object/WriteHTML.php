@@ -222,7 +222,7 @@ class WriteHTML
   public static function getClassDiagram(
       string $className,
       array $properties,
-      array $operations) : string
+      array $operations = null) : string
   {
     $returnValue = '
 <div class="class_diagram">
@@ -244,17 +244,24 @@ class WriteHTML
 
     $returnValue .= '
   </div>
-  <div class="class_diagram_footer">
+  ';
+    if ($operations != null) {
+      $returnValue .= '
+      <div class="class_diagram_footer">
   ';
 
-    foreach ($operations as $operation) {
-      $returnValue .= '<p>';
-      $returnValue .= $operation;
-      $returnValue .= '</p>';
-    }
+      foreach ($operations as $operation) {
+        $returnValue .= '<p>';
+        $returnValue .= $operation;
+        $returnValue .= '</p>';
+      }
 
-    $returnValue .= '
+
+      $returnValue .= '
   </div>
+  ';
+    }
+    $returnValue .= '
 </div>
 ';
     return $returnValue;

@@ -88,6 +88,39 @@ set serveroutput on
 show errors
 </code></pre>
 
+<h2>File System</h2>
+<p>To backup the data of the Oracle system, navigate to:<br><kbd>c:\app\Administrator\oradata</kbd></p>
+<p>
+  To check out the packages that are installed in the Oracle system navigate to:<br> 
+  <kbd>c:\app\Administrator\product\[version]\dbhome_1\RDBMS\ADMIN</kbd>
+</p>
+<p><code>dbmsotpt.sql</code> - holds all the methods to print a line, read a line</p>
+<p><code>utlfile.sql</code> - perform IO operations</p>
+
+<p>
+  To view detailed documentation, visit <a href="http://psoug.org/" target="_blank">http://psoug.org/</a> or 
+  go directly to their <a href="http://psoug.org/reference/library.html" target="_blank">reference</a>
+</p>
+
+<h2>Defrag</h2>
+<ol>
+  <li>Create temporary table</li>
+  <li>Copy fragmented data</li>
+  <li>Put data back into main table</li>
+</ol>
+<ol>
+  <li>Import the package: <kbd>utlchain</kbd></li>
+  <li>Call the analyze function - <code>ANALYZE TABLE [tablename] LIST CHAINED ROWS;</code></li>
+  <li>Create the temp table - <code>CREATE TABLE fragstuff AS SELECT * FROM demostuff WHERE rowid IN (SELECT head_rowid FROM chained_rows);</code></li>
+  <li>Remove the fragmented data from main table - <code>DELETE FROM demostuff WHERE rowid IN (SELECT head_rowid FROM chained_rows);</code></li>
+  <li>Put the data back in to the main table - <code>INSERT INTO demostuff SELECT * FROM fragstuff;</code></li>
+  <li>Test if the fragments are gone - <code>DELETE FROM chained_rows;</code></li>
+  <li>Analyze the table - 
+  <pre><code>
+  ANALYZE TABLE [tablename] LIST CHAINED ROWS;
+  SELECT COUNT(*) FROM chained_rows;
+  </code></pre></li>
+</ol>
 ';
 
       return $returnValue;

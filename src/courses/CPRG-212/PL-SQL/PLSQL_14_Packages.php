@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class PLSQP_14_Packages extends Page
+  class PLSQL_14_Packages extends Page
   {
 
     /*-----------------------------------------------------------------*/

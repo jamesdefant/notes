@@ -191,6 +191,9 @@ BEGIN
 END;
 /
 </code></pre>
+<hr>
+
+
 ';
 
       return $returnValue;

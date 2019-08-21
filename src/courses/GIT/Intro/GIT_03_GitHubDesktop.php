@@ -51,11 +51,12 @@ MAINHEADING;
 <h2>Environment</h2>
 <p>It looks like this:</p>
 <div class="col-md-4">
-  <div class="box box-file"><b>File folder</b></div>
-
-  <div class="box box-stage"><b>Staging area</b></div>
-  <div class="box box-local"><b>Local repo</b></div>
-  <div class="box box-remote"><b>Remote repo</b></div>
+  <div class="box box-file"><b>File folder- UnCommitted</b></div>
+<!--
+  <div class="box box-stage"><b>Staging area</b></div>  
+-->  
+  <div class="box box-local"><b>Local repo - Committed</b></div>
+  <div class="box box-remote"><b>Remote repo - GitHub</b></div>
 </div>
 
 <h2>Workflow to set up GitHub Desktop</h2>

@@ -52,8 +52,7 @@ MAINHEADING;
 <p>It looks like this:</p>
 <div class="col-md-4">
   <div class="box box-file"><b>File folder</b></div>
-  <h3>|</h3>
-  <h3>\/</h3>
+
   <div class="box box-stage"><b>Staging area</b></div>
   <div class="box box-local"><b>Local repo</b></div>
   <div class="box box-remote"><b>Remote repo</b></div>

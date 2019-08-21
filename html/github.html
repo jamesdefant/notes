@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie-edge">
+  <title>GitHub Notes</title>
+
+  <!-- Bootstrap 4 css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- JavaScript code prettifier - https://github.com/google/code-prettify -->
+
+  <!--
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  -->
+
+  <!-- highlight.js - https://highlightjs.org/ -->
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/school-book.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <!-- Perfect Scrollbar -
+    <script src="../../dist/perfect-scrolbar-1.4.0/dist/perfect-scrollbar.js"></script>
+    <link rel="stylesheet" href="../../dist/perfect-scrolbar-1.4.0/css/perfect-scrollbar.css">
+  -->
+
+  <!-- Custom css  -->
+  <link rel="stylesheet" href="css/newStyles.css">
+
+  <!-- Load common HTML js -->
+  <script src="js/commonHTML.js" ></script>
+
+
+  <style>
+    .bg-theme, .bg-theme.active {
+      background-color: #cc584c;
+      color: white;
+    }
+    .text-theme {
+      color: #cc584c;
+    }
+    .text-theme:hover, .text-theme-hi:hover {
+      color: #8b3127;
+    }
+    a.text-theme-hi {
+      color: #f9eceb;
+    }
+    .text-theme-low {
+      color: #8b3127;
+    }
+
+    .dropdown-item.active{
+      background-color: #cc584c;
+    }
+    .dropdown-item:active {
+      background-color: #8b3127;
+    }
+    ul li a.active, .dropdown-item:active {
+      background-color: #cc584c;
+    }
+    ul li a:hover{
+      color: #8b3127;
+    }
+    ul#topics li a.active {
+      background-color: transparent;
+      color: #cc584c;
+      border: 3px solid #cc584c;
+      border-radius: 5px;
+    }
+    body {
+      margin-top: 60px;
+      box-sizing: content-box;
+    }
+
+    main {
+      margin-bottom: 4rem;
+      padding: 1rem;
+    }
+
+    /* Make inside links apear below header */
+    h2::before {
+      display: block;
+      content: " ";
+      margin-top: -55px;
+      height: 55px;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    ul.flex-column {
+      margin-top: 1rem;
+    }
+
+    table.table tr td {
+      padding: 0.1rem 1rem;
+    }
+    .navbar a.active {
+      color: white;
+    }
+
+    button {
+      color: white;
+      padding: 0;
+      font-size: 1.2rem;
+    }
+
+    /*--------------------------------*/
+    /* Dropdown */
+    button.dropdown-toggle, button.dropdown-toggle:hover {
+      color: white;
+    }
+    div.dropdown-menu .dropdown-item.active, div.dropdown-menu .dropdown-item:active {
+      color: white;
+    }
+    div.dropdown-menu div.course-name, div.dropdown-menu div.course-desc {
+      display: inline-block;
+    }
+    div.dropdown-menu div.course-name {
+      width: 7rem;
+    }
+    div.dropdown-menu div.course-desc {
+      text-align: right;
+      width: 9rem;
+    }
+    .console {
+      padding: 1rem;
+      background-color: black;
+    }
+    .console pre {
+      color: white;
+    }
+
+    pre code span.comment {
+      color: red !important;
+    }
+
+    div.demo {
+      width: 20rem;
+      margin: 1rem auto;
+      padding: 0.5rem 1rem;
+    }
+    div.demo h3 {
+      padding: 0.3rem 1rem;
+      text-align: center;
+    }
+
+    /*--------------------------------*/
+    /* Topics Nav */
+    ul li a {
+      text-align: center;
+    }
+    ul li a.active, ul li .dropdown-item:active {
+      color: white;
+      /*
+          background-color: $bg-color;
+      */
+      border-radius: 25px;
+    }
+
+    .btn:focus {
+      box-shadow: none;
+    }
+    code h2 {
+      display: inline-block;
+      font-size: inherit;
+    }
+
+    /*--------------------------------*/
+    /* Code Highlighting */
+    .hljs {
+      font-size: 0.9rem;
+    }
+
+    caption {
+      display: inline-block;
+      margin: auto;
+    }
+
+    /*--------------------------------*/
+    /* Class Diagrams */
+    div.class_diagram {
+      display: inline-block;
+      border: 1px solid black;
+      font-family: "Lucida Console", Monaco, monospace;
+      margin: 1rem 0;
+    }
+
+    div.class_diagram_head, div.class_diagram_body, div.class_diagram_footer {
+      padding: 0.6rem;
+      border: 1px solid black;
+    }
+
+    div.class_diagram_head {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: bold;
+      background-color: #e5e5e5;
+    }
+
+    div.class_diagram_body, div.class_diagram_footer {
+      line-height: 0.5rem;
+    }
+
+    div.table-example {
+      border-left: 3px solid #c9c9c9;
+      border-top: 3px solid #c9c9c9;
+      border-bottom: 3px solid #c9c9c9;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      overflow: auto;
+    }
+
+    pre.SQL {
+      padding: 1rem;
+      font-family: "Courier New";
+      font-size: 1.3rem;
+      font-weight: bold;
+      line-height: 1.5rem;
+      color: #cf0000;
+    }
+
+    img {
+      margin: 1rem 0;
+    }
+
+    /* Career Resume */
+    .resume {
+      margin: 2rem;
+      padding: 1rem 2rem;
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+    .resume h3 {
+      font-weight: bold;
+    }
+    .resume .work-education ul {
+      list-style-type: none;
+      margin: 0 0 0 1rem;
+      padding: 0;
+    }
+
+  </style>
+
+</head>
+
+<body data-spy="scroll" data-target="#myScrollSpy" data-offset="120" onload="loadCommonHTML()">
+
+<nav class="navbar navbar-expand-sm fixed-top bg-theme" id="nav">
+  <div class="container-fluid navbar-header">
+    <a class="navbar-brand text-theme-hi" href="#">Class Notes</a>
+    <button type="button" class="navbar-toggler navbar-right" data-toggle="collapse" data-target="#myNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav ml-auto">
+
+        <li class="nav-item">
+          <a class="nav-link text-theme active" href="#" id="link_Reports">Links
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-2"></div>
+
+    <div class="col-lg-8 col-md-7">
+      <h1 class="text-center m-3">GitHub Desktop</h1><hr>
+      <main>
+        <p>
+          GitHub Desktop is a version control system that harnesses the power of Git and
+          filters out the complexity of working with the command line interface (CLI).
+        </p>
+        <h2>The workflow to use GitHub Desktop looks like this:</h2>
+        <ol>
+          <li>Clone/Create/Add a repository (setup your local repo)</li>
+          <li>Define which Branch you're using (if you're using more than one Branch)</li>
+          <li>Write a summary note and Commit to your local repo</li>
+        </ol>
+      </main>
+    </div>
+
+    <div class="col-lg-2 col-md-3" id="scrollSpyNav">
+    </div>
+
+ </div>
+</div>
+
+</body>
+</html>        

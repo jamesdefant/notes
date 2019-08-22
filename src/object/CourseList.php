@@ -36,7 +36,7 @@ class CourseList
       "XML" => ["Markup Languages", "00535e"],
       "INSTRUCTORS" => ["Notes", "c48000"],
       "CPLN-240" => ["Career Planning", "5ca188"],
-      "CMPS-200" => ["Windows Server","630057"]
+      "CMPS-200" => ["Operating Systems","630057"]
 
   ];
 

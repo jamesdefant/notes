@@ -101,7 +101,7 @@ MAINHEADING;
 </li>
 <li>
   <code>history</code> - print a list of the commands that have been issued in shell
-  <p><kbd>histroy -c</kbd> - clear the history list by deleting all the entries</p>    
+  <p><kbd>history -c</kbd> - clear the history list by deleting all the entries</p>    
 </li>
 
 <li>
@@ -110,22 +110,80 @@ MAINHEADING;
 </li>
 <li>  
   <code>ssh</code> - open SSH Client to log into a remote machine
-  <p><kbd>find -warn</kbd> or <kbd>-nowarn</kbd> - turn warning messages <b>on</b> or <b>off</b></p>    
+  <p><kbd>ssh -q</kbd> - quiet mode - causes most warning and diagnostic messages to be suppressed</p>    
 </li>
-<li><code>scp</code></li>
-<li><code>vi</code></li>
-<li><code>grep</code> - </li>
-<li><code>useradd</code> - </li>
-<li><code>userdel</code> - </li>
-<li><code>usermod</code> - </li>
+<li>
+  <code>scp</code> - secure file copy (remote file copy)
+  <p><kbd>scp -p</kbd> - preserves modification times, access times, and modes form the original file</p>    
+</li>
+<li>
+  <code>vi</code> - VIM - Vi IMproved - a programmer\'s text editor
+  <p><kbd>vi -x</kbd> - use encryption when writing files. Will prompt for a crypt key</p>    
+</li>
+<li>
+  <code>grep</code> - print lines matching a pattern
+  <p>
+    <kbd>grep -i</kbd> or <kbd>--ignore-case</kbd> - ignore case distinctions in both the PATTERN and 
+    the input files
+  </p>     
+</li>
+<li>
+  <code>useradd</code> - create a new user or update default new user information
+  <p><kbd>useradd -m</kbd> or <kbd>--create-home</kbd> - create the user\'s home directory if it does not exist</p>  
+</li>
+<li>
+  <code>userdel</code> -  delete a user account and related files
+  <p>
+    <kbd>userdel -r</kbd> or <kbd>--remove</kbd> - files in the user\'s home directory will be removed along with 
+    the home directory itself and the user\'s mail spool
+  </p>     
+</li>
+<li>
+  <code>usermod</code> - modify a user account
+  <p>
+    <kbd>usermod -e</kbd> or <kbd>--expire-date EXPIRE_DATE</kbd> - the date on which the user account wil be disabled.
+    The date is specified in the format <b>YYY-MM-DD</b>
+  </p>     
+</li>
 
-<li><code>passwd</code> - </li>
-<li><code>groupadd</code> - </li>
-<li><code>groupdel</code> - </li>
-<li><code>df</code> - </li>
-<li><code>du</code> - </li>
-<li><code>date</code> - </li>
-<li><code>alias</code> - </li>
+<li>
+  <code>passwd</code> - update user\'s authentication tokens (password)
+  <p>
+    <kbd>passwd -d</kbd> or <kbd>--delete</kbd> - this is a quick way to delete a password for an account.
+    It will set the named account passwordless. Available to root only
+  </p>  
+</li>
+<li>
+  <code>groupadd</code> - create a new group
+  <p><kbd>groupadd -r</kbd> or <kbd>--system</kbd> - creates a system group</p>     
+</li>
+<li>
+  <code>groupdel</code> - delete a group <br>
+  (can not remove the primary group of any existing user. Remove the user before the group)
+  <p>
+    <kbd>groupdel -R</kbd> or <kbd>--root</kbd> - apply changes in the CHROOT_DIR directory and 
+    use the configuration files from the CHROOT_DIR directory
+  </p>    
+</li>
+<li>
+  <code>df</code> - report file system disk usage 
+  <p><kbd>df -h</kbd> or <kbd>--human-readable</kbd> - print sizes in human readable format</p>    
+</li>
+<li>
+  <code>du</code> - estimate file space usage
+  <p><kbd>du -h</kbd> or <kbd>--human-readable</kbd> - print sizes in human readable format</p>    
+</li>
+<li>
+  <code>date</code> - print or set the system date and time
+  <p>
+    <kbd>date -R</kbd> or <kbd>--reference=FILE</kbd> - output date and time in RFC 3339 format<br>
+    <b>2006-08-07 12:34:56-06:00</b>
+  </p>      
+</li>
+<li>
+  <code>alias</code> - either print all the aliases that are set or set an alias
+  <p><kbd>alias [alias_name]=\'[command]\'</kbd> - set the command to the alias [alias_name]</p>      
+</li>
 <li><code>gzip</code> - </li>
 <li><code>gunzip</code> - </li>
 <li><code>ps</code> - </li>

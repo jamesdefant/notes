@@ -229,17 +229,43 @@ MAINHEADING;
 </li>
 <li>
   <code>diff</code> - compare files line by line
-  <p><kbd>chmod -R</kbd> or <kbd>--recursive</kbd> - change files and directories recursively</p>       
+  <p><kbd>diff -q</kbd> or <kbd>--brief</kbd> - report only when files differ</p>       
 </li>
-<li><code>sort</code> - </li>
-<li><code>head</code> - </li>
-<li><code>wget</code> - </li>
-<li><code>yum</code> - </li>
-<li><code>ping</code> - </li>
-<li><code>ifconfig</code> - </li>
-<li><code>ifup</code> - </li>
-<li><code>ifdown</code> - </li>
-<li><code>dhclient</code> - </li>
+<li>
+  <code>sort</code> - sort lines of text files
+  <p><kbd>sort -b</kbd> or <kbd>--ignore-leading-blanks</kbd> - ignore leading blank characters</p>        
+</li>
+<li>
+  <code>head</code> - output the first part of files
+  <p>
+    <kbd>head -n</kbd> or <kbd>--lines=[-]K</kbd> - print the first K lines instead of the first 10;<br>
+    with the leading \'-\', print all but the last K lines of each file
+  </p>          
+</li>
+<li>
+  <code>wget</code> - Wget - the non-interactive network downloader
+  <p><kbd>wget -i FILE</kbd> or <kbd>--input-file=FILE</kbd> - read URLs from a local or external file</p>          
+</li>
+<li>
+  <code>yum</code> - YUM - Yellowdog Updater Modified - an interactive, rpm based, package manager 
+  <p><kbd>yum install [package1] -y</kbd> or <kbd>--assumeyes</kbd> - assume <b>yes</b> to all following prompts</p>          
+</li>
+<li>
+  <code>ping</code> - send ICMP ECHO_REQUEST to network hosts
+  <p><kbd>ping -4</kbd> - use IPv4 only</p>           
+</li>
+<li>
+  <code>ifconfig</code> - configure a network interface
+  <p><kbd>ifconfig -a</kbd> - display all interfaces which are currently available</p>          
+</li>
+<li><code>ifup</code> - bring a network interface up</li>
+<li><code>ifdown</code> - take a network interface down</li>
+<li>
+  <code>dhclient</code> - Dynamic Host Configuration Protocol Client - provides a means for configuring one or 
+  more network interfaces using the Dynamic Host Configuration Protocol, BOOTP protocol, or 
+  by statically assigning an address
+  <p><kbd>dhclient -v</kbd> - enable verbose log messages</p>            
+</li>
 
 
 </ul>

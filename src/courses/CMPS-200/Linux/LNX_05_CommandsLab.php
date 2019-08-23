@@ -184,15 +184,53 @@ MAINHEADING;
   <code>alias</code> - either print all the aliases that are set or set an alias
   <p><kbd>alias [alias_name]=\'[command]\'</kbd> - set the command to the alias [alias_name]</p>      
 </li>
-<li><code>gzip</code> - </li>
-<li><code>gunzip</code> - </li>
-<li><code>ps</code> - </li>
-<li><code>kill</code> - </li>
-<li><code>jobs</code> - </li>
-<li><code>top</code> - </li>
-<li><code>chmod</code> - </li>
-<li><code>chown</code> - </li>
-<li><code>diff</code> - </li>
+<li>
+  <code>gzip</code> - compress a file
+  <p>
+    <kbd>gzip -l</kbd> or <kbd>--list</kbd> - for each compressed file, list the following fields:
+    <ul>
+      <li>compressed size</li>
+      <li>uncompressed size</li>
+      <li>ratio of compression</li>
+      <li>uncompressed_name</li>
+    </ul>
+  </p>         
+</li>
+<li>
+  <code>gunzip</code> - decompress a file 
+  <p><kbd>gunzip -r</kbd> or <kbd>--recursive</kbd> - travel the directory structure recursively, decompressing all items</p>   
+</li>
+<li>
+  <code>ps</code> -  report a snapshot of the current processes
+  <p><kbd>ps -e</kbd> - report <b>every</b> process running on the system</p>  
+</li>
+<li>
+  <code>kill</code> -  terminate a process
+  <p><kbd>kill -s</kbd> or <kbd>--signal SIGNAL</kbd> - specify the signal to send. May be given as a signal name or number</p>  
+</li>
+<li>
+  <code>jobs</code> - lists all active jobs
+  <p><kbd>jobs -s</kbd> - restrict output to stopped jobs</p>   
+</li>
+<li>
+  <code>top</code> - display Linux processes
+  <p>
+    <kbd>top -i</kbd> - <b>:Idle-process TOGGLE</b> - starts top with the last remembered \'i\' state reversed. When this is <b>off</b>
+    tasks that have not used any CPU since the last update will not be displayed
+  </p>     
+</li>
+<li>
+  <code>chmod</code> - change file mode bits
+  <p><kbd>chmod -R</kbd> or <kbd>--recursive</kbd> - change files and directories recursively</p>     
+</li>
+<li>
+  <code>chown</code> - change file owner and group
+  <p><kbd>chmod -R</kbd> or <kbd>--recursive</kbd> - operate on files and directories recursively</p>     
+</li>
+<li>
+  <code>diff</code> - compare files line by line
+  <p><kbd>chmod -R</kbd> or <kbd>--recursive</kbd> - change files and directories recursively</p>       
+</li>
 <li><code>sort</code> - </li>
 <li><code>head</code> - </li>
 <li><code>wget</code> - </li>

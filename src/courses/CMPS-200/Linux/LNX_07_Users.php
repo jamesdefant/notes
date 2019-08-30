@@ -191,17 +191,17 @@ MAINHEADING;
 <p>Type <kbd>chmod</kbd> to change file mode bits</p>
 <ul>
   <li>
-    <kbd>chmod [ugorwx] FILENAME</kbd><br> 
-    <code>chmod u=rwx,g=rw,o=r file.txt</code>   
+    <kbd>chmod [ugoarwx] FILENAME</kbd><br> 
+    <code>chmod u=rwx,g=rw,o=r,a=r file.txt</code>   
   </li>
 </ul>
 
 <h2>ACL with facl</h2>
 <p>
   Type <kbd>setfacl</kbd> to set Access Control Lists (permissions):<br>
-  <kbd>setfacl -m [u/g]:NAME:[-/r/x/x] FILENAME/DIRECTORY</kbd><br>
-  For example: Give User Larry read+write permission
-  <code>setfacl -m u:Larry:rw /tmp/ACL</code>
+  <code>setfacl -m [u/g]:NAME:[-/r/x/x] FILENAME/DIRECTORY</code><br>
+  For example: Give User Larry read+write permission<br>
+  <kbd>setfacl -m u:Larry:rw /tmp/ACL</kbd>
 </p>
 <p>
   Type <kbd>getfacl</kbd> to display ACL permissions:<br>

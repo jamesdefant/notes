@@ -79,7 +79,26 @@ MAINHEADING;
 [admin@localhost]# at now + 1 minute
 at> echo "Testing" > test.txt
 </code></pre>
+<hr>
 
+<h2>tar</h2>
+<p><kbd>tar</kbd> is an archiving utility that will save many files together as a single file</p>
+<p>
+  Usage:<br>
+  <kbd>tar [OPTION]... [FILE]...</kbd><br>
+  For example:<br>
+  <code>tar -cf backup.tar /personal</code>  
+</p>
+<hr>
+
+<h2>gzip</h2>
+<p><kbd>gzip</kbd> is a file compression utility</p>
+<p>
+  Usage:<br>
+  <kbd>gzip [OPTION] [FILE]</kbd><br>
+  For example:<br>
+  <code>gzip backup.tar</code>  
+</p>
 ';
 
       return $returnValue;

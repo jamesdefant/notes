@@ -54,6 +54,20 @@ MAINHEADING;
 </ul>
 <hr>
 
+<h2>View Structure with tree</h2>
+<p><code>tree</code> is a command that will show a directory structure in a format of a tree</p>
+<p>It is not installed by default on CentOS, so you\'ll have to install it first:</p>
+<ol>
+  <li>
+    Type:<br>
+    <kbd>yum install tree -y</kbd>
+  </li>
+  <li>
+    Then run it like so:<br>
+    <kbd></kbd>
+  </li>
+</ol>
+
 <h2>Partitioning with mkfs</h2>
 <p>To create a new partition, use the <code>fdisk</code> command:</p>
 <ol>
@@ -126,6 +140,14 @@ MAINHEADING;
 
 <h2>Partitioning with LVM</h2>
 <ol>
+  <li>Open a terminal</li>
+  <li>Run <code>su</code> to switch to root user (admin privileges)</li>
+  <li>
+    Run <code>fdisk -l</code> to list out all the current disks on the system and identify the one you want
+    <br>or pipe it through grep to get only the info you want <code>fdisk -l | grep /dev/sd</code>
+    <br><em>We\'ll call it /dev/sde</em>
+  </li>
+
   <li>
     Create the physical volumne - <code>pvcreate [volume_name]</code> or in our case
     <br><code>pvcreate /dev/sdc</code>
@@ -147,6 +169,10 @@ MAINHEADING;
   <li>
     Edit the <code>fstab</code> file - <code>gedit /etc/fstab</code>
     <br>/dev/vg_data/lv_app /lvm/app ext4 defaults 0 0
+  </li>
+    <li>
+    Mount the drives to test whether or not they were set up properly:
+    <br><code>mount -a</code>
   </li>
 </ol>
 

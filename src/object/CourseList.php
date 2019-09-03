@@ -27,6 +27,7 @@ class CourseList
   ];
   */
   public static $courseObjects = [
+      "CMPP-264" => ["Java", "66c3f2"],
       "CPRG-200" => ["R.A.D. in C#", '51a051'],
       "CPRG-210" => ["Web Dev", '17a2b8'],
       "CPRG-212" => ["Database Dev", '630000'],

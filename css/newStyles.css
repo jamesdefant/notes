@@ -210,6 +210,11 @@ caption {
   margin: auto;
 }
 
+div.compare div h3 {
+  text-align: center;
+  display: block;
+}
+
 /*--------------------------------*/
 /* Class Diagrams */
 div.class_diagram {

@@ -120,19 +120,19 @@ if(y.equals(x))
 <h2>Naming Conventions</h2>
 <ul>
   <li>
-    <p><b>Class & Interface</b></p>
+    <b>Class & Interface</b><br>
     <code>HelloWorldApp</code>
   </li>
   <li>
-    <p><b>Method</b></p>
+   <b>Method</b><br>
     <code>calcPay()</code>
   </li>
   <li>
-    <p><b>Variable</b></p>
+    <b>Variable</b><br>
     <code>monthlySalary</code>
   </li>
   <li>
-    <p><b>Constant</b></p>
+    <b>Constant</b><br>
     <code>MAX_SALARY</code>
   </li>  
 </ul>

@@ -224,27 +224,27 @@ using MyProject.MyNamespace.MyClass;
     
     <div class="col-md-6">
       <h3>Java</h3><hr>
-      <p>Java offers the following access modifiers:</p>
-      <p>For <b>classes</b> only <b>public</b> and <b>default</b> are available</p>      
+      <p>Java access modifiers:</p>
+      <p>For <kbd>classes</kbd> only <b>public</b> and <b>default</b> are available</p>      
       <ul>
-        <li><b>private</b> - restricted to the declared class</li>
-        <li><b><em>default</em></b> - restricted to the same package</li>
-        <li><b>protected</b> - restricted to the declared class and <b>subclasses</b></li>
-        <li><b>public</b> - not restricted</li>
+        <li><code>private</code> - restricted to the declared class</li>
+        <li><em>default</em> - restricted to the same package</li>
+        <li><code>protected</code> - restricted to the declared class and <b>subclasses</b></li>
+        <li><code>public</code> - not restricted</li>
       </ul>
     </div>
     
     <div class="col-md-6">
       <h3>C#</h3><hr>
-      <p>C# offers the following access modifiers:</p>
+      <p>C# access modifiers:</p>
       <ul>
-        <li><b>private</b> - restricted to the declared class</li>
-        <li><b>internal</b> - restricted to the same assembly</li>
-        <li><b>protected</b> - restricted to the declared class and <b>subclasses</b></li>
-        <li><b>public</b> - not restricted</li>
+        <li><code>private</code> - restricted to the declared class</li>
+        <li><code>internal</code> - restricted to the same assembly</li>
+        <li><code>protected</code> - restricted to the declared class and <b>subclasses</b></li>
+        <li><code>public</code> - not restricted</li>
 
-        <li><b>protected internal</b> - restricted to the same assembly <em>or</em> subclasses</li>
-        <li><b>private protected</b> - restricted to the declared class <em>or</em> subclasses</li>
+        <li><code>protected internal</code> - restricted to the same assembly <em>or</em> subclasses</li>
+        <li><code>private protected</code> - restricted to the declared class <em>or</em> subclasses</li>
 
       </ul>      
     </div>
@@ -253,29 +253,45 @@ using MyProject.MyNamespace.MyClass;
   <div class="row compare">
     
     <div class="col-md-6">
-      <p>Java offers the following non-access modifiers:</p>
-      <p>For <b>classes</b> only <b>final</b> and <b>abstract</b> are available</p>
+      <p>Java non-access modifiers:</p>
+      <p>For <kbd>classes</kbd> only <b>final</b> and <b>abstract</b> are available</p>
       <ul>
-        <li><b>final</b> - </li>
-        <li><b>static</b> - </li>
-        <li><b>abstract</b> - </li>
-        <li><b>transient</b> - </li>
-        <li><b>synchronized</b> - </li>
-        <li><b>volatile</b> - </li>
+        <li><code>final</code> - attributes and methods cannot be overidden/modified</li>
+        <li><code>static</code> - attributes and methods belong to the class instead of the object</li>
+        <li>
+          <code>abstract</code> - <b>Can only be used in an abstract class and on methods</b><br>
+          The method does not have a body<br>
+          <code>abstract void run();</code><br>
+          The body (implementation) is provided by the subclass
+        </li>
+        <li><code>transient</code> - attributes and methods are skipped when serializing the object containing them</li>
+        <li><code>synchronized</code> - methods can only be accessed by one thread at a time</li>
+        <li>
+          <code>volatile</code> - the value of an attribute is not cached thread-locally, and is allways read from 
+          the "main memory"
+        </li>
       </ul>
     </div>
     
     <div class="col-md-6">
-      <h3>C#</h3><hr>
-      <p>C# offers the following access modifiers:</p>
+      <p>C# non-access modifiers:</p>
       <ul>
-        <li><b>private</b> - restricted to the declared class</li>
-        <li><b>internal</b> - restricted to the same assembly</li>
-        <li><b>protected</b> - restricted to the declared class and <b>subclasses</b></li>
-        <li><b>public</b> - not restricted</li>
+        <li><code>abstract</code> - </li>
+        <li><code>async</code> - </li>
+        <li><code>event</code> - </li>
+        <li><code>extern</code> - </li>
+        <li><code>override</code> - </li>
+        <li><code>readonly</code> - </li>
+        <li><code>sealed</code> - </li>
+        <li><code>static</code> - </li>
+        <li><code>unsafe</code> - </li>
+        <li><code>virtual</code> - </li>
+        <li><code>volatile</code> - </li>
 
-        <li><b>protected internal</b> - restricted to the same assembly <em>or</em> subclasses</li>
-        <li><b>private protected</b> - restricted to the declared class <em>or</em> subclasses</li>
+        <li><code>in</code> - </li>
+        <li><code>new</code> - </li>
+        <li><code>out</code> - </li>
+
 
       </ul>      
     </div>

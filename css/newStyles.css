@@ -215,6 +215,10 @@ div.compare div h3 {
   display: block;
 }
 
+code {
+  color: #c4256e;
+}
+
 /*--------------------------------*/
 /* Class Diagrams */
 div.class_diagram {

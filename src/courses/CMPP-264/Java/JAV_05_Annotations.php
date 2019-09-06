@@ -96,8 +96,91 @@ public String toString() {
   </li>
   
 </ul>
+<hr>
 
+<h2>Declare Custom Annotations</h2>
+<p>
+  You can define your own annotations so that, for instance, you define a standard comment structure for 
+  the beginning of a class
+</p>
+<p><b>For example:</b></p>
+<pre><code>
+/**
+  * Person class defines person entity
+  * Author : John Smith
+  * Date : Sep 5 2019
+  */
+public class Person {
+  ...
+}
+</code></pre>
+<p>To add this metadata with an annotation, you must first <b>define the <em>annotation type</em></b></p>
+<pre><code>
+@interface ClassPreamble {
+  String comment();
+  String author();
+  String date();
+  
+  // Note the default value
+  String lastModifiedBy() default "N/A";
+  
+  // Note the enum
+  DaysOfWeek day();
+  
+  // Note the annotation type
+  Override ovr() default @Override;
+  
+  // Note the array
+  String[] reviewers();
+}
+</code></pre>
+<p>In <b>Java SE 8</b>, the type of an annotation element must be one of the following:</p>
+<ul> 
+  <li>primitive types (<code>boolean</code>, <code>int</code>, <code>float</code>, <code>char</code>, etc)</li>
+  <li><code>String</code></li>
+  <li><code>enum</code></li>
+  <li>An <em>annotation type</em></li>
+  <li>An <em>array</em> of the preceding types - <b>not an array of arrays</b></li>
+</ul>
+<p>Then, to use the custom annotation, use it like so:</p>
+<pre><code>
+@ClassPreamble (
+  comment = "Person class defines person entity",
+  author = "John Smith",
+  date = "Sep 5 2019"
+  
+  // Note the enum
+  day = DaysOfWeek.Friday,
+  
+  // Note the annotation type
+  ovr = @Override
 
+  // Note the array notation
+  reviewers = {"Jack", "Jill"}
+)
+public class Person {
+  ...
+}
+</code></pre>
+<p><b>
+  To make the custom annontaion appear in generated Javadoc documentation, add the <code>@Documented</code> 
+  annotation just before the custom annotation definition
+</b></p>
+<pre><code>
+import java.lang.annotation.Documented;
+
+@Documented
+public @interface ClassPreamble {
+    String comment();
+    String author();
+    String date();
+    DaysOfWeek day();
+
+    Override ovr() default @Override;
+    enum Status { UNCONFIRMED, CONFIRMED, FIXED, NOTABUG };
+
+}
+</code></pre>
 ';
 
       return $returnValue;

@@ -32,10 +32,12 @@ MAINHEADING;
 <p>Interfaces are entirely made up of abstract methods</p>
 <p>
   They are a contract that a class implementing them will be guaranteed to have their methods defined - otherwise
-  there will be a compiler error. 
+  there will be a compiler error
 </p>
-<p>Interfaces are used to ensure that multiple classes all have the same structure.</p>
-
+<p>Interfaces are used to ensure that multiple classes all have the same structure</p>
+<p>If you need 5 different classes that all have a <code>run()</code> method, implement them with an interface</p>
+<p>Interface <b>methods</b> are implicitly <code>public</code> and <code>abstract</code></p>
+ 
 <h2>Define an Interface</h2>
 <p>Use the <code>interface</code> keyword</p>
 <pre><code>
@@ -46,12 +48,12 @@ public interface Wearable {
 <p><b>Interfaces can also be extended</b></p>
 <pre><code>
 public interface Wearable {
-  public abstract void PutOn();
+  public void PutOn();
 }
 
 // Also contains the PutOn() method
 public interface Ironable extends Wearable {
-  public abstract void Iron();
+  public void Iron();
 }
 </code></pre>
 
@@ -60,22 +62,34 @@ public interface Ironable extends Wearable {
 <pre><code>
 public class Shirt implements Ironable {
 
-  // Must implement PutOn() and Iron() or face the errors
-  public void PutOn() {
-    ...
-  }
+  // Must implement PutOn() and Iron() or face errors
+  public void PutOn() {  ...  }
+  public void Iron() {  ...  }
   
-  public void Iron() {
-    ...
-  }
+  // Defined by the class - not the interface
+  public void GetType() {  ...  }
 }
 </code></pre>
 
 <h2>Access the Object by it\'s Interface</h2>
+<p>
+  Calling an object by it\'s interface strips away all the typical methods that are defined by the class or it\'s 
+   superclasses and leaves only those defined by the interface
+</p>
 <pre><code>
 public class Program {
   public static void Main(String[] args) {
+  
+    Ironable garment = new Ironable();
     
+    // The only methods availabe to garment are
+    garment.PutOn();
+    
+    // ...and
+    
+    garment.Iron();
+    
+    // GetType() is not available
   }
 }
 </code></pre>

@@ -81,7 +81,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PersonTest {
+public class PersonTest {
 
     @BeforeEach
     void setUp() {
@@ -105,7 +105,7 @@ class PersonTest {
 </code></pre>
 
 <pre><code>
-class PersonTest {
+public class PersonTest {
     Person p;
     
     @BeforeEach

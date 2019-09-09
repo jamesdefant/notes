@@ -38,7 +38,7 @@ MAINHEADING;
 <p>
   Install it, then navigate to where it was installed so that you may get the full path. It should be located:<br>
   <ul>
-    <li>Windows 10:<br>
+    <li>Windows 10 - SceneBuilder v.8:<br>
     <kbd>c:\Users\[username]\AppData\Local\SceneBuilder\SceneBuilder.exe</kbd></li>
   </ul>
 </p>

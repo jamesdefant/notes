@@ -310,4 +310,25 @@ div.box b {
   background-color: indianred;
 }
 
+.box {
+  border: 1px solid black;
+  background-color: #a8a8a8;
+}
+.box h5 {
+  color: white;
+  background-color: transparent;
+}
+.box .box {
+  background-color: #bfbfbf;
+}
+.box .box .box {
+  background-color: #cfcfcf;
+}
+.box .box .box .box {
+  background-color: white;
+}
+.box .box .box .node {
+  display: inline-block;
+}
+
 /*# sourceMappingURL=newStyles.css.map */

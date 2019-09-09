@@ -313,3 +313,25 @@ div.box {
 .box-stage{ background-color: lightskyblue; }
 .box-local{ background-color: mediumpurple; }
 .box-remote{ background-color: indianred; }
+
+.box {
+  h5 {
+    color: white;
+    background-color: transparent;
+  }
+  border: 1px solid black;
+  background-color: #a8a8a8;
+  .box {
+    background-color: #bfbfbf;
+    .box {
+      background-color: #cfcfcf;
+      .box {
+        background-color: white;
+      }
+      .node {
+        display: inline-block;
+      }
+    }
+  }
+
+}

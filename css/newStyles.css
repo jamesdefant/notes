@@ -294,22 +294,6 @@ div.box b {
   padding: 0.1rem 0.6rem;
 }
 
-.box-file {
-  background-color: greenyellow;
-}
-
-.box-stage {
-  background-color: lightskyblue;
-}
-
-.box-local {
-  background-color: mediumpurple;
-}
-
-.box-remote {
-  background-color: indianred;
-}
-
 .box {
   border: 1px solid black;
   background-color: #a8a8a8;
@@ -329,6 +313,22 @@ div.box b {
 }
 .box .box .box .node {
   display: inline-block;
+}
+
+.box-file {
+  background-color: greenyellow;
+}
+
+.box-stage {
+  background-color: lightskyblue;
+}
+
+.box-local {
+  background-color: mediumpurple;
+}
+
+.box-remote {
+  background-color: indianred;
 }
 
 /*# sourceMappingURL=newStyles.css.map */

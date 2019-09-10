@@ -309,10 +309,6 @@ div.box {
     padding: 0.1rem 0.6rem;
   }
 }
-.box-file{ background-color: greenyellow; }
-.box-stage{ background-color: lightskyblue; }
-.box-local{ background-color: mediumpurple; }
-.box-remote{ background-color: indianred; }
 
 .box {
   h5 {
@@ -333,5 +329,9 @@ div.box {
       }
     }
   }
-
 }
+
+.box-file{ background-color: greenyellow; }
+.box-stage{ background-color: lightskyblue; }
+.box-local{ background-color: mediumpurple; }
+.box-remote{ background-color: indianred; }

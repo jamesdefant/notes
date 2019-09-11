@@ -138,14 +138,14 @@ public static bool UpdateCustomer(Customer oldCustomer, Customer newCustomer)
                        "DateEnded IS NULL AND @oldDateEnded IS NULL)";
 
   if(newCustomer.DateEnded == null)
-    cmd.Parameters.AddWithValue("@newDateEnded" DBNull.Value);     
+    cmd.Parameters.AddWithValue("@newDateEnded", DBNull.Value);     
   else
-    cmd.Parameters.AddWithValue("@newDateEnded" (DateTime)newCustomer.DateEnded);     
+    cmd.Parameters.AddWithValue("@newDateEnded", (DateTime)newCustomer.DateEnded);     
 
   if(oldCustomer.DateEnded == null)
-    cmd.Parameters.AddWithValue("@oldDateEnded" DBNull.Value);     
+    cmd.Parameters.AddWithValue("@oldDateEnded", DBNull.Value);     
   else
-    cmd.Parameters.AddWithValue("@oldDateEnded" (DateTime)oldCustomer.DateEnded);                        
+    cmd.Parameters.AddWithValue("@oldDateEnded", (DateTime)oldCustomer.DateEnded);                        
   ...                     
 }                     
 </code></pre>

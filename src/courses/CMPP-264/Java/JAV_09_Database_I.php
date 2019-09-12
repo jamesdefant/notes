@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class JAV_09_Database extends Page
+  class JAV_09_Database_I extends Page
   {
 
     /*-----------------------------------------------------------------*/
@@ -10,7 +10,7 @@ namespace J\ClassNotes {
     public function getTitle() : string
     {
       return <<< 'TITLE'
-Database
+Database I
 TITLE;
     }
 
@@ -86,6 +86,109 @@ MAINHEADING;
   <li>Disconnect from the database</li>  
 </ol>
 <hr>
+
+<h2>Drivers</h2>
+<p>Use the static method <code>Class.forName(String driverPathName)</code></p>
+<ul>
+  <li><b>ODBC</b> - <code>sun.jdbc.odbc.JdbcDriver</code></li>
+  <li><b>MySQL</b> - <code>com.mysql.jdbc.Driver</code></li>
+  <li><b>Oracle</b> - <code>oracle.jdbc.driver.OracleDriver</code></li>  
+</ul>
+<p>
+  <b>or</b><br>
+  you can instantiate the class using <code>DriverManager.registerDriver(new path.DriverClassName())</code><br>
+  <code>DriverManager.registerDriver(new com.mysql.jdbc.Driver())</code>
+</p>
+
+<h2>DriverManager</h2>
+<p><code>DriverManager</code> has some useful methods:</p>
+<ul>
+  <li><code>DriverManager.getDriver()</code> - returns the driver if only one</li>
+  <li><code>DriverManager.getDrivers()</code> - returns an enumeration conatining all drivers</li>
+  <li><code>DriverManager.connect(String url, Properties info)</code> - returns connection object</li>
+  <li><code>DriverManager.getConnection(String dbUrl, Properties info)</code> - returns connection object</li>
+  <li><code>DriverManager.getConnection(String dbUrl, String userId, String password)</code> - returns connection object</li>
+</ul>
+<hr>
+
+<h2>URL structure</h2>
+<p><code>"jdbc:mysql://localhost:3306/database_name"</code></p>
+<ul>
+  <li><code>jdbc</code> - indicates that we are using the JDBC drivers</li>
+  <li><code>mysql</code> - indicates that we are using the mysql driver</li>
+  <li><code>//localhost</code> - specifies the domain which could be an external domain or an IP address</li>
+  <li><code>3306</code> - is the default port used by a MySQL server</li>
+  <li><code>database_name</code> - is the name of the database</li>
+</ul>
+
+<h2>Connection Strings</h2>
+<ul>
+  <li><b>ODBC</b> - <code>"jdbc:odbc:dataSourceName"</code></li>
+  <li><b>MySQL</b> - <code>"jdbc:mysql://localhost:3306/dataSourceName"</code></li>
+  <li><b>Oracle</b> - <code>"jdbc:oracle:thin:@ora1.ict.sait.ca:1521:EDUC", "userid", "password"</code></li>  
+</ul>
+<hr>
+
+<h2>Properties object</h2>
+<p>Properties is a subclass of Hashtable</p>
+<pre><code>
+Properties p = new Properties();
+p.put("user", "admin");
+p.put("password", "P@ssw0rd");
+</code></pre>
+<hr>
+
+<h2>Statement object</h2>
+<p>Used to submit a SQL query</p>
+<p>Instantiated from a method of the connection object</p>
+<p><code>Statement stmt = conn.createStatement();</code></p>
+<p>
+  The statement object has a number of <code>execute()</code> methods for dealing with various kinds of SQL 
+  queries:
+</p>
+<ul>
+  <li>
+    <b>SELECT</b> - return a ResultSet<br>
+    <code>ResultSet rs = stmtexecuteQuery("SELECT * FROM agents");</code>
+  </li>
+  <li>
+    <b>INSERT, UPDATE, DELETE</b> - return an int representing the number of rows affected<br>
+    <code>int numRows = stmtexecuteUpdate("DELETE * FROM agents WHERE id=3 ");</code>
+  </li>
+</ul>
+
+<h2>ResultSet</h2>
+<p>The dataset that gets returned from a JDBC query</p>
+<p>Has methods to iterate your way through it</p>
+<p>
+  <code>next()</code> - positions the "cursor" at the top of the set, moves to each successive row when it is 
+  called, and returns false if there are no more rows
+</p>
+<pre><code>
+while(rs.next()) {
+  System.out.println(rs.getText(1));
+}
+</code></pre>
+<ul>
+  <li><code>rs.previous()</code></li>
+  <li><code>rs.first()</code></li>
+  <li><code>rs.last()</code></li>
+  <li><code>rs.getText(int colNum)</code> - returns a String of whatever type the column is</li>
+  <li><code>rs.getString(int colNum)</code> - returns a String</li>
+  <li><code>rs.getInt(int colNum)</code> - returns an int</li>  
+</ul>
+<hr>
+
+<h2>ResultSetMetaData</h2>
+<p>Contains data on the table - <b>names, data type, number of columns, etc</b> </p>
+<p><code>ResultSetMetaData rsmd = rs.getMetaData();</code></p>
+<ul>
+  <li><code>rsmd.getColumnName(int index)</code></li>
+  <li><code>rsmd.getColumnLabel(int index)</code></li>
+  <li><code>rsmd.getColumnClassName(int index)</code></li>
+  <li><code>rsmd.getColumnCount()</code></li>
+  <li><code>rsmd.getColumnType(int index)</code></li>
+</ul>
 
 <h2>An Example with MySQL</h2>
 <p>First we need to import the driver into our project:</p>

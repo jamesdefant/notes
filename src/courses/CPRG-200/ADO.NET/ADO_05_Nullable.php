@@ -100,14 +100,54 @@ myDecimal = myOtherNullableDecimal ?? 0m;
 <hr/>
 
 <h2>DBNull</h2>
+<p>When you run a <b>SELECT</b> query with nullable values, you must check the column:</p>
+<pre><code>
+public static Member GetMemberByID(int memberID)
+{
+  ...
+  string query = "SELECT MemberID, DateEnded " +
+                 "FROM Membership " +
+                 "WHERE MemberID = @MemberID";
+  
+  if (reader.Read()) // if member with given ID exists
+  {
+      member = new Member();
+      member.MemberID = (int)reader["MemberID"];
+  
+      int col = reader.GetOrdinal("DateEnded"); // column number of DateEnded
+      if (reader.IsDBNull(col)) // if reader contains DBNull in this column
+          member.DateEnded = null; // make it null in the object
+      else // it is not null
+          member.DateEnded = Convert.ToDateTime(reader["DateEnded"]);
+  }
+  ...                 
+}
+</code></pre>
 <p>
   When you <strong>INSERT</strong> or <strong>UPDATE</strong> a value in a database 
   and you want to insert a NULL value, you must use <code>DBNull.Value</code> 
 </p>
 <pre><code>
-string updateQuery = "UPDATE Customer SET " +
-                     "DateEnded = @newDateEnded " +
-                     "WHERE CustomerID = @oldCustomerID";
+public static bool UpdateCustomer(Customer oldCustomer, Customer newCustomer)
+{
+  ...
+  string updateQuery = "UPDATE Customer SET " +
+                        "DateEnded = @newDateEnded " +
+                       "WHERE CustomerID = @oldCustomerID "
+                       "AND (DateEnded = @oldDateEnded OR "
+                       "DateEnded IS NULL AND @oldDateEnded IS NULL)";
+
+  if(newCustomer.DateEnded == null)
+    cmd.Parameters.AddWithValue("@newDateEnded", DBNull.Value);     
+  else
+    cmd.Parameters.AddWithValue("@newDateEnded", (DateTime)newCustomer.DateEnded);     
+
+  if(oldCustomer.DateEnded == null)
+    cmd.Parameters.AddWithValue("@oldDateEnded", DBNull.Value);     
+  else
+    cmd.Parameters.AddWithValue("@oldDateEnded", (DateTime)oldCustomer.DateEnded);                        
+  ...                     
+}                     
 </code></pre>
 ';
 

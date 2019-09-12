@@ -35,6 +35,7 @@ MAINHEADING;
   <li><a href="https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/checkbox.htm#CHDFEJCD" target="_blank">Checkbox</a> </li>
   <li><a href="https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/choice-box.htm#BCEDJAEH" target="_blank">ChoiceBox</a> </li>
   <li><a href="https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/color-picker.htm#BABHFGHA" target="_blank">ColorPicker</a> </li>
+  <li><a href="https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/combo-box.htm#BABJCCIB" target="_blank">ComboBox</a> </li>
   <li><a href="https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/date-picker.htm#CCHHJBEA" target="_blank">DatePicker</a> </li>
   <li><a href="https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/editor.htm#CHDBEGDD" target="_blank">HTMLEditor</a> </li>
   <li><a href="https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/hyperlink.htm#CIHGADBG" target="_blank">Hyperlink</a> </li>

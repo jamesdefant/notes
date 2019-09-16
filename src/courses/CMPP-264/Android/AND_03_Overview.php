@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class AND_02_Overview extends Page
+  class AND_03_Overview extends Page
   {
 
     /*-----------------------------------------------------------------*/
@@ -28,6 +28,11 @@ MAINHEADING;
     public function getContent() : string
     {
       $returnValue = '
+
+<h2>Activity</h2>
+<p></p>
+<hr>
+
 <h2>Create an icon</h2>
 <p>You can create either a bitmapped icon set or a vector bassed icon set</p>
 <ol>

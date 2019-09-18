@@ -45,6 +45,7 @@ MAINHEADING;
       ];
       $returnValue = '
 <h2>Intro</h2>
+<p><a href="https://developer.android.com/courses/fundamentals-training/toc-v2" target="_blank">Android Codelabs Tutorials</a> </p>
 <p>
   Android is an operating system that runs on top of the Linux Kernel. It has been developed to run on tablets and phones
   as well as a number of other devices

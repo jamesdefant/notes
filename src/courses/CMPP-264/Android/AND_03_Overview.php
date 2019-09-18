@@ -31,7 +31,8 @@ MAINHEADING;
 
 <h2>Activity</h2>
 <p>
-  A single, focused thing that the user can do. Almost all activities interact with the user, so the Activity class 
+  <b>A single, focused thing that the user can do.</b> Typically, it has a <b>layout</b> resource associated with it. 
+  Almost all activities interact with the user, so the Activity class 
   takes care of creating a window for you in which you can place your UI with <code>setContentView(View)</code>
 </p>
 <p>
@@ -48,6 +49,14 @@ MAINHEADING;
   <code>&lt;activity&gt;</code> declaration in their package\'s <code>AndroidManifest.xml</code>
 </p>
 <hr>
+
+<h2>Manifest</h2>
+<p>
+  The manifest file is an XML file that contains essential information about how the app interacts with the Android 
+  system
+</p>
+<p><b>All the components of an app must be declared in the manifest</b></p>
+<p>It is located at: <code>/manifests</code></p>
 
 <h2>Create an icon</h2>
 <p>You can create either a bitmapped icon set or a vector bassed icon set</p>

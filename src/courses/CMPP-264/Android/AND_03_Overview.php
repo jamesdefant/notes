@@ -57,6 +57,19 @@ MAINHEADING;
 </p>
 <p><b>All the components of an app must be declared in the manifest</b></p>
 <p>It is located at: <code>/manifests</code></p>
+<hr>
+
+<h2>Views</h2>
+<p>Every visual element that makes up the GUI inherits from the <code>View</code> class including:</p>
+<ul>
+  <li><code>TextView</code> - display text</li>
+  <li><code>EditText</code> - enable the user to enter text</li>
+  <li><code>Button</code> - provide interactive behaviour</li>
+  <li><code>ScrollView</code> - display scrollable items</li>
+  <li><code>ImageView</code> - display images</li>
+  <li><code>ConstraintLayout</code> - contain other <code>View</code> elements</li>
+</ul>
+<hr>
 
 <h2>Create an icon</h2>
 <p>You can create either a bitmapped icon set or a vector bassed icon set</p>

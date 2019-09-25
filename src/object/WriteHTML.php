@@ -180,27 +180,39 @@ class WriteHTML
   }
 
 
-  public static function getTable(array $dataTable) : string
+  public static function getTable(array $dataTable, bool $displayHeaders = true) : string
   {
-    $headers = '';
-    foreach ($dataTable[0] as $tableCell) {
-      $headers .= '<th>' . $tableCell . '</th>
-';
+    // Set the first row depending on whether or not we display headers
+    $startRow = $displayHeaders ? 1 : 0;
+
+    if($displayHeaders) {
+      $headers = '';
+      foreach ($dataTable[0] as $tableCell) {
+        $headers .= '<th>' . $tableCell . '</th>
+    ';
+      }
     }
 
     $returnValue = '
     <table class="table">
+    ';
+    if($displayHeaders) {
+      $returnValue .= '
       <thead>
         <tr>
 ' . $headers . '
 </tr>
 </thead>
+';
+    }
+    $returnValue .= '
+
 <tbody>
 
     ';
 
     // Start at 1 to skip the header row
-    for ($row = 1, $end = count($dataTable); $row < $end; $row++) {
+    for ($row = $startRow, $end = count($dataTable); $row < $end; $row++) {
 
       $returnValue .= '<tr>';
 

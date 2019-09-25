@@ -27,17 +27,18 @@ class CourseList
   ];
   */
   public static $courseObjects = [
-      "CMPP-264" => ["Java", "66c3f2"],
-      "CPRG-200" => ["R.A.D. in C#", '51a051'],
-      "CPRG-210" => ["Web Dev", '17a2b8'],
-      "CPRG-212" => ["Database Dev", '630000'],
-      "PROJ-216" => ["Project Mgmt", 'cc584d'],
-      "PROJ" => ["GROUP PROJECT", 'cc584c'],
-      "GIT" => ["Version Control", 'ad74bc'],
-      "XML" => ["Markup Languages", "00535e"],
-      "INSTRUCTORS" => ["Notes", "c48000"],
-      "CPLN-240" => ["Career Planning", "5ca188"],
-      "CMPS-200" => ["Operating Systems","630057"]
+    "CMPP-264" => ["Java", "66c3f2"],
+    "CPRG-200" => ["R.A.D. in C#", '51a051'],
+    "CPRG-210" => ["Web Dev", '17a2b8'],
+    "CPRG-212" => ["Database Dev", '630000'],
+    "PROJ-216" => ["Project Mgmt", 'cc584d'],
+    "PROJ" => ["GROUP PROJECT", 'cc584c'],
+    "GIT" => ["Version Control", 'ad74bc'],
+    "XML" => ["Markup Languages", "00535e"],
+    "INSTRUCTORS" => ["Notes", "c48000"],
+    "CPLN-240" => ["Career Planning", "5ca188"],
+    "CMPS-200" => ["Operating Systems","630057"],
+    "CPRG-220" => ["Open-Source Dev", "ff8282"]
 
   ];
 

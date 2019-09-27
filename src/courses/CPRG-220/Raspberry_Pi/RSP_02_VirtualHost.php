@@ -32,35 +32,43 @@ MAINHEADING;
 <p>
   <a href="http://httpd.apache.org/docs/2.4/vhosts/" target="_blank">http://httpd.apache.org/docs/2.4/vhosts/</a> 
 </p>
-<p>If we create a virtual host on our Pi and enter the hostname and IP in our hostfile in Windows, we can</p>
+<p>We\'ll create a website named <code>joebob.com</code></p>
+<p>We must first setup the virtual host on the Pi, then define the hostname on the machine we\'ll load it from (Windows)</p>
+<h2>On the Pi</h2>
 <ol>
   <li>
-    Navigate to <code>/var/www/html</code> and create a new directory named <code>vhosts</code>:
+    We\'ll use <code>gedit</code> instead of <code>vi</code> as a text editor. You can use either, 
+    just substitue one for the other or install <code>gedit</code>
+    <pre><code>sudo apt install gedit</code></pre> 
+  </li>
+  <li>
+    Navigate to <code>/var/www/html</code> and create a new directory named <code>vhosts</code>:<br>
+     <em>If it doesn\'t already exist</em>
     <pre><code>
-[user]@[server]:/var/www/html $ sudo mkdir vhosts
+$ sudo mkdir /var/www/html/vhosts
     </code></pre>
   </li>
   <li>
     Create a new directory within the <code>vhosts</code> directory
     <pre><code>
 -- enter the vhosts directory  
-[user]@[server]:/var/www/html $ cd vhosts    
+$ cd /var/www/html/vhosts    
 
--- create a new directory
-[user]@[server]:/var/www/html/vhosts $ sudo mkdir jd.com
+-- create a new sub-directory
+$ sudo mkdir joebob.com
     </code></pre>
   </li>
   <li>
     Create a new <code>index.html</code> file within the new directory
     <pre><code>
--- enter the jd.com directory  
-[user]@[server]:/var/www/html/vhosts $ cd jd.com    
+-- enter the joebob.com directory  
+$ cd joebob.com    
 
 -- create a new file
-[user]@[server]:/var/www/html/vhostsjd.com $ sudo touch index.html
+$ sudo touch index.html
 
 -- open the file in an editor (in our case gedit - cuz vi sux)
-[user]@[server]:/var/www/html/vhostsjd.com $ sudo gedit index.html
+$ sudo gedit index.html
     </code></pre>
     ...and add this to the file:
     <pre><code>
@@ -77,33 +85,51 @@ MAINHEADING;
     </code></pre>
   </li>
   <li>
-    Open <kbd>Webmin</kbd> and navigate to <kbd>Servers</kbd> => <kbd>Apache Servers</kbd> = <kbd>Create Virtual Host</kbd>
-    and define the <b>Document Root</b> as the directory where the <code>index.html</code> file is located (<code>/var/www/html/vhosts/jd.com</code>)<br>
-    as well as the <b>Server Name</b> that you would like the domain name to be<br>
-    Click <kbd>Create New</kbd>
+    Create a new <code>.conf</code> file in the <code>/etc/apache2/sites-available</code> directory by copying the default on in there:
+    <pre><code>
+-- change to the sites-available directory
+$ sudo cd /etc/apache2/sites-available    
+
+-- copy the file
+$ sudo cp 000-default.conf joebob.com.conf  
+    </code></pre>
   </li>
-  <li>Navigate to the <kbd>Existing Virtual Hosts</kbd> tab and click the icon to the left of the virtual host that was just created to bring up the options for the virtual server
-    <ul>
-      <li>Click the <kbd>Log Files</kbd> button and define the file to log errors to</li>
-      <li>
-        Click the <kbd>Networking and Addresses</kbd> button and define the
-        <ul>
-          <li><b>Server Hostname</b> - <code>jd.com</code></li>
-          <li><b>Server Admin Email Address</b> - <code>webmaster@jd.com</code></li>
-        </ul> 
-      </li>
-      <li>Click the <kbd>Document Options</kbd> button to define various options for the site - <b>Follow symbolic links</b></li>
-      <li>Click the <kbd>Error Handling</kbd> button to define custom error handling</li>
-      <li>Click the <kbd>Processes and Limits</kbd> button to define limits for CPU usage and number of processes</li>
-    </ul>
+  <li>
+    Edit the file that was just created:
+    <pre><code>
+$ sudo gedit joebob.com.conf    
+    </code></pre>
+    and define the following:
+    <pre><code>
+...    
+ServerName joebob.com
+ServerAlias www.joebob.com         -- optional
+ServerAdmin wemaster@joebob.com    -- optional
+DocumentRoot /var/www/html/vhosts/joebob.com/
+...
+    </code></pre>
   </li>
-  <li><b>Restart the webserver</b></li>
+  <li>
+    Activate the host by running the apache command:
+    <pre><code>
+$ sudo a2ensite joebob.com    
+    </code></pre>
+  </li>
+  <li>
+    Reload the apache server:
+    <pre><code>
+$ sudo systemctl reload apache2    
+    </code></pre>
+  </li>
 </ol>
 
 <h2>On Windows</h2>
 <p>Navigate to <kbd>C:/Windows/System32/drivers/etc</kbd> and edit the <code>hosts</code> file</p>
 <p>Add the IP and domain name to the end of the file</p>
-<p><code>10.163.37.227  jd.com</code></p>
+<pre><code>
+...
+10.163.37.227  joebob.com
+</code></pre>
 ';
 
       return $returnValue;

@@ -110,9 +110,9 @@ $ date -s "SEP 25 2019 14:30:00"
   <li>
     Run the command following commands to update the system:
     <pre><code>
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get update
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo apt-get update
     </code></pre>
   </li>
 </ol>
@@ -223,7 +223,7 @@ $ sudo mysql -u root -p
     <pre><code>
 -- set the username and password appropriately
 -- we\'ll use \'admin\' and \'P@ssw0rd\'
-GRANT ALL PRIVILEGES ON *.* TO \'username\'@\'localhost\' IDENTIFIED BY \'password\';      
+$ GRANT ALL PRIVILEGES ON *.* TO \'username\'@\'localhost\' IDENTIFIED BY \'password\';      
     </code></pre>
     <p>Exit the CLI by typing <code>quit</code>and pressing <kbd>ENTER</kbd></p>
   </li>

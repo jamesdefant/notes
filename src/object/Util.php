@@ -26,4 +26,15 @@ class Util
       echo '</pre>';
     }
   }
+
+  // Return a filename without it's extension
+  public static function stripExtFromFile( $filename ) : string
+  {
+    $class = explode(
+        ".",
+        $filename
+
+    );
+    return $class[0];
+  }
 }

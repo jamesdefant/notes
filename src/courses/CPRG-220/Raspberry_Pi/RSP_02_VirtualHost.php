@@ -35,12 +35,16 @@ MAINHEADING;
 <p>We\'ll create a website named <code>joebob.com</code></p>
 <p>We must first setup the virtual host on the Pi, then define the hostname on the machine we\'ll load it from (Windows)</p>
 <h2>On the Pi</h2>
-<ol>
+<ul>
   <li>
-    We\'ll use <code>gedit</code> instead of <code>vi</code> as a text editor. You can use either, 
+    We\'ll use <code>gedit</code> instead of <code>vi</code> as a text editor.<br> You can use either, 
     just substitue one for the other or install <code>gedit</code>
-    <pre><code>sudo apt install gedit</code></pre> 
+    <pre><code>
+$ sudo apt install gedit
+</code></pre> 
   </li>
+  </ul>
+  <ol>
   <li>
     Navigate to <code>/var/www/html</code> and create a new directory named <code>vhosts</code>:<br>
      <em>If it doesn\'t already exist</em>

@@ -102,6 +102,13 @@ ul#topics li a.active {
   border-radius: 5px;
 
 }
+
+div.plain-html-link {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
 </style>
     ';
   }

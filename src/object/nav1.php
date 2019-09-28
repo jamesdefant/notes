@@ -2,6 +2,8 @@
 
 namespace J\ClassNotes {
 
+  use J\Util;
+
   class Nav1
   {
     private $nav;
@@ -40,12 +42,34 @@ namespace J\ClassNotes {
       <ul class="nav navbar-nav ml-auto">
   ';
 
+      foreach ($pages as $page) {
+
+        if($page->getTitle() === $currentPage) {
+          $this->nav .= $this->createLink(
+              $page->getTitle(),
+              $this->path .'.php?course=' . $page->getCourse() . '&topic='. $page->getTopic() . '&page=' . Util::stripExtFromFile($page->getFilename()),
+              true,
+              "text-theme"
+
+          );
+        } else {
+          $this->nav .= $this->createLink(
+              $page->getTitle(),
+              $this->path .'.php?course=' . $page->getCourse() . '&topic='. $page->getTopic() . '&page=' . Util::stripExtFromFile($page->getFilename()),
+              false,
+              "text-theme-hi"
+          );
+        }
+      }
+
+
+/*
       foreach ($pages as $filename => $title) {
 
         if($title === $currentPage) {
           $this->nav .= $this->createLink(
               $title,
-              $this->path .'.php?page=' . $filename,
+              $this->path .'.php?course=' . $course . '&page=' . $filename,
               true,
               "text-theme"
 
@@ -59,7 +83,7 @@ namespace J\ClassNotes {
           );
         }
       }
-
+*/
       $this->nav .= '
       </ul>
     </div>
@@ -69,6 +93,16 @@ namespace J\ClassNotes {
   ';
     }
 
+    // Return a filename without it's extension
+    private function stripExtFromFile( $filename ) : string
+    {
+      $class = explode(
+          ".",
+          $filename
+
+      );
+      return $class[0];
+    }
     /*
         public function buildNav(array $pages, $currentPage)
         {

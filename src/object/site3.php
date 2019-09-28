@@ -9,6 +9,7 @@ namespace J\ClassNotes;
 class Site3
 {
   private $path;
+  private const PLAIN = "plain";
   private $indexFile;
   private $directoryLevel = 0;
 
@@ -21,6 +22,8 @@ class Site3
   private $topics = [];
   private $modules = [];
   private $modulesAssoc = [];
+
+  private $allPages = [];
 
   private $structure = [];
   private $treeStruct = [];
@@ -59,7 +62,8 @@ class Site3
     if(isset($_GET[ 'topic' ])) {
 
       $_SESSION[ 'topic' ] = $_GET[ 'topic' ];
-      if (count($this->treeStruct[$_SESSION['course']][$_SESSION['topic']]) > 0) {
+      if ($this->treeStruct[$_SESSION['course']][$_SESSION['topic']] != null &&
+          count($this->treeStruct[$_SESSION['course']][$_SESSION['topic']]) > 0) {
         $_SESSION['module'] = $this->stripExtFromFile($this->treeStruct[$_SESSION['course']][$_SESSION['topic']][0]);
       }
     }
@@ -82,14 +86,17 @@ class Site3
 
     $this->readFolder($this->path, 'Courses', $this->directoryLevel);
 
+//    Util::printArray($this->allPages);
     if($this->isDebug) {
       echo '<span style="color:blue;">count($_SESSION[ \'tree\' ][ $_SESSION[ \'course\' ]][ $_SESSION[ \'topic\' ]])</span>: ' . count($_SESSION['tree'][$_SESSION['course']][$_SESSION['topic']]);
     }
 
     // Create navbar current Pages array
-    foreach($_SESSION[ 'tree' ][ $_SESSION[ 'course' ]][ $_SESSION[ 'topic' ]] as $page) {
-      if($page != '') {
-        $this->navbarPageArray[ $this->stripExtFromFile($page) ] = $this->navbarArray[$page];
+    if($_SESSION[ 'tree' ][ $_SESSION[ 'course' ]][ $_SESSION[ 'topic' ]] != null) {
+      foreach ($_SESSION['tree'][$_SESSION['course']][$_SESSION['topic']] as $page) {
+        if ($page != '') {
+          $this->navbarPageArray[$this->stripExtFromFile($page)] = $this->navbarArray[$page];
+        }
       }
     }
 
@@ -98,11 +105,12 @@ class Site3
     $this->sidebarTopicArray = $tempArray;
 
     if($this->isDebug) {
-      $this->printArrays();
-      Util::printSession();
+      $this->printArrays(false);
+//      Util::printSession();
     }
   }
 
+  // Recursively read the folder
   private function readFolder($path, $parent, $depth)
   {
     // Remove . and ..
@@ -170,6 +178,22 @@ class Site3
           echo $count++ . ' | Site readFolder() |  ' . $filePath . ' is a file with a depth of ' . $depth . '<br>';
         }
 
+        // Break the filePath into an array on the '/'
+        $array = explode(
+            '/',
+            $filePath
+        );
+
+        $page = $this->stripExtFromFile($array[count($array) - 1]);
+        $module = $array[count($array) - 2];
+        $course = $array[count($array) - 3];
+        $temp = [
+            $module,
+            $course]
+        ;
+        $this->allPages[$page] = $temp;
+
+//        array_push($this->allPages, $temp);
 
         $className = $this->stripClassNameFromFilePath($filePath);
 
@@ -184,20 +208,21 @@ class Site3
     }
   }
 
-  private function printArrays()
+  private function printArrays($isPrint)
   {
+    if ($isPrint) {
 //      Util::printArray($this->courses, 'courses');
 //      Util::printArray($this->topics, 'topics');
 //      Util::printArray($this->modules, 'modules');
-    Util::printArray($this->modulesAssoc, 'modulesAssoc');
+      Util::printArray($this->modulesAssoc, 'modulesAssoc');
 
 //      Util::printArray($this->structure, 'Structure');
 //      Util::printArray($this->treeStruct, 'Structure');
 
-    Util::printArray($this->navbarArray, 'Navbar');
-    Util::printArray($this->navbarPageArray, 'navbarPageArray');
-    Util::printArray($this->sidebarTopicArray, 'sidebarTopicArray');
-
+      Util::printArray($this->navbarArray, 'Navbar');
+      Util::printArray($this->navbarPageArray, 'navbarPageArray');
+      Util::printArray($this->sidebarTopicArray, 'sidebarTopicArray');
+    }
   }
   // Return a filename without it's extension
   private function stripExtFromFile( $filename ) : string
@@ -219,7 +244,7 @@ class Site3
     }
     // Add the object to the array
 //      $this->navbarArray[ $newPage->getTitle() ] = $newPage->getFilename();
-    $this->navbarArray[ $newPage->getFilename() ] = $newPage->getTitle();
+    $this->navbarArray[ $newPage->getFilename() ] = $newPage;
 
   }
 
@@ -276,6 +301,11 @@ class Site3
 
     $filename = $filePathArray[count($filePathArray) - 1];
 
+
+    $page = $filePathArray[count($filePathArray) - 1];
+    $topic = $this->allPages[$this->stripExtFromFile($filename)][0];
+    $course = $this->allPages[$this->stripExtFromFile($filename)][1];
+
     if($isDebug) {
       echo '<span style="color:blue;">Filename</span>: ' . $filename . '<br>';
     }
@@ -292,7 +322,6 @@ class Site3
 //      echo 'J\\ClassNotes\\' . $this->stripClassNameFromFilePath($this->modulesAssoc[$_SESSION['module']], true) . '<br>';
     }
     // Instantiate the class with the filePath ( eg.  )as param
-
     $className = 'J\\ClassNotes\\' . $class[0];
 
     if($isDebug) {
@@ -302,7 +331,7 @@ class Site3
 
     require_once $pageFilePath;
 
-    $newPage = new $className( $filename );
+    $newPage = new $className( $filename, $topic, $course );
 
 
     return $newPage;
@@ -314,18 +343,20 @@ class Site3
 
   }
 
-  public function buildPage() : string
+  public function buildPage($hasDependencies = true) : string
   {
-    if($this->isDebug) {
-      echo '<span style="color:blue;">$_SESSION[ \'module\' ]</span>: ' . $_SESSION['module'] . '<br>';
-    }
-    // Retrieve path from modulesAssoc
-    $filepath = $this->modulesAssoc[$_SESSION[ 'module' ]];
+    if(true) {
 
-    if($this->isDebug) {
-      echo '<span style="color:blue;">$filepath</span>: ' . $filepath . '<br>';
-    }
+      if ($this->isDebug) {
+        echo '<span style="color:blue;">$_SESSION[ \'module\' ]</span>: ' . $_SESSION['module'] . '<br>';
+      }
+      // Retrieve path from modulesAssoc
+      $filepath = $this->modulesAssoc[$_SESSION['module']];
 
+      if ($this->isDebug) {
+        echo '<span style="color:blue;">$filepath</span>: ' . $filepath . '<br>';
+      }
+    }
     $this->currentPage = $this->instantiateClass($filepath);
 
     if($this->isDebug) {
@@ -339,28 +370,30 @@ class Site3
 //    $this->nav->createTopicNav($this->navbarPageArray, $this->currentPage->getTitle());
 //    $this->nav->createTopicNav($this->sidebarTopicArray, $_SESSION[ 'topic' ]);
 
-    return $this->getPage();
+    if($hasDependencies) {
+      return $this->getPage();
+    } else {
+      return $this->getPage($hasDependencies);
+    }
   }
 
-  private function getPage() : string
+  private function getPage($hasDependencies = true) : string
   {
     $cl = new CourseList();
 
-    return '
+    $returnValue = "";
+
+    $returnValue .= '
   <!DOCTYPE html>
   <html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie-edge">
-    <title>'. $this->currentPage->getTitle() .'</title>
-      
-  <!-- Bootstrap 4 css -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
+    <title>'. $this->currentPage->getTitle() .'</title>' .
+
+    $this->GetCommonHead() .
+        ' 
             
 <!-- JavaScript code prettifier - https://github.com/google/code-prettify -->     
 
@@ -368,39 +401,91 @@ class Site3
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 -->  
 
-<!-- highlight.js - https://highlightjs.org/ -->  
-  <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/school-book.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>   
-  <script>hljs.initHighlightingOnLoad();</script>       
-
 <!-- Perfect Scrollbar -  
   <script src="../../dist/perfect-scrolbar-1.4.0/dist/perfect-scrollbar.js"></script>
   <link rel="stylesheet" href="../../dist/perfect-scrolbar-1.4.0/css/perfect-scrollbar.css">
 -->
+  ';
+
+    if($hasDependencies) {
+          $returnValue .= '
+      <!-- Custom css  --> 
+        <link rel="stylesheet" href="css/newStyles.css">
+        
+      <!-- Load common HTML js -->  
+        <script src="js/commonHTML.js" ></script> ';
+    }
   
-<!-- Custom css  --> 
-  <link rel="stylesheet" href="css/newStyles.css">
-  
-<!-- Load common HTML js -->  
-  <script src="js/commonHTML.js" ></script>      
-  
-  
-  '. CourseList::getThemeStyle() .'
-  
+    $returnValue .=
+   CourseList::getThemeStyle() .'
+
   </head>
   
-  <body data-spy="scroll" data-target="#myScrollSpy" data-offset="120" onload="loadCommonHTML()">
-  
-    '. $this->nav->getNav() .'
+  <body data-spy="scroll" data-target="#myScrollSpy" data-offset="120" onload="loadCommonHTML()"> 
+  ';
+
+    if($hasDependencies) {
+      $returnValue .= $this->nav->getNav() .
+        '<div class="plain-html-link">
+          <a href="' . self::PLAIN . '.php?course=' . $this->currentPage->getCourse() .
+          '&topic='. $this->currentPage->getTopic() .
+          '&page=' . $this->stripExtFromFile($this->currentPage->getFilename()) .'">
+            Generate plain HTML
+          </a>
+        </div> 
+      ';
+    }
+    else {
+      $returnValue .= '
+        <div class="plain-html-link">
+          <a href="index.php?course=' . $this->currentPage->getCourse() .
+          '&topic='. $this->currentPage->getTopic() .
+          '&page=' . $this->stripExtFromFile($this->currentPage->getFilename()) .'">
+            Return to site
+          </a>
+        </div> 
+      ';
+    }
+    $returnValue .=
+        $this->GetMain($hasDependencies).'
     
+  </body>  
+</html>        
+      ';
+
+    return $returnValue;
+  }
+
+  private function GetCommonHead()
+  {
+    return '
+  <!-- Bootstrap 4 css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
+            
+<!-- highlight.js - https://highlightjs.org/ -->  
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/school-book.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>   
+  <script>hljs.initHighlightingOnLoad();</script>         ';
+  }
+  private function GetMain($hasDependencies) {
+    $returnValue = '
     <div class="container-fluid">
       <div class="row">
              
-        <div class="col-md-2">' .
-          $this->nav->createSideBarTopic( $this->sidebarTopicArray, $_SESSION[ 'topic' ] ) .
+        <div class="col-md-2">';
+
+    if($hasDependencies) {
+      $returnValue .= $this->nav->createSideBarTopic($this->sidebarTopicArray, $_SESSION['topic']);
 //          $this->nav->createCourseNav( $this->navbarPageArray, $this->currentPage->getTitle() ) .
-        '</div>
+    }
+        $returnValue .=
+
+                '</div>
 
         <div class="col-lg-8 col-md-7">
           <h1 class="text-center m-3">'. $this->currentPage->getMainHeading() .'</h1><hr>
@@ -412,15 +497,11 @@ class Site3
         <div class="col-lg-2 col-md-3" id="scrollSpyNav">         
         </div>
         
-
-        
       </div>
     </div>
-    
-    
-  </body>  
-</html>        
-      ';
+';
+
+    return $returnValue;
   }
 
 }

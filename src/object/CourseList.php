@@ -103,15 +103,43 @@ ul#topics li a.active {
 
 }
 
+/* COMMON STYLES */
 div.plain-html-link {
   display: block;
   margin: auto;
   text-align: center;
 }
 
+/*--------------------------------*/
+/* Code Highlighting */
+.hljs {
+  font-size: 0.9rem;
+}
+caption {
+  display: inline-block;
+  margin: auto;
+}
+
+div.compare div {
+  h3 {
+    text-align: center;
+    display: block;
+  }
+}
+code {
+  color: #c4256e;
+
+}
+
 </style>
     ';
   }
 
+  public function getCommonStyles()
+  {
+    return '
+    
+    ';
+  }
 
 }

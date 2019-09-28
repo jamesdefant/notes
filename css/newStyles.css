@@ -200,26 +200,6 @@ code h2 {
 }
 
 /*--------------------------------*/
-/* Code Highlighting */
-.hljs {
-  font-size: 0.9rem;
-}
-
-caption {
-  display: inline-block;
-  margin: auto;
-}
-
-div.compare div h3 {
-  text-align: center;
-  display: block;
-}
-
-code {
-  color: #c4256e;
-}
-
-/*--------------------------------*/
 /* Class Diagrams */
 div.class_diagram {
   display: inline-block;

@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class PROJ_01_MySQLData extends Page
+  class PROJ_01_MySQLDataConstraints extends Page
   {
 
     /*-----------------------------------------------------------------*/
@@ -10,7 +10,7 @@ namespace J\ClassNotes {
     public function getTitle() : string
     {
       return <<< 'TITLE'
-Tables
+Constraints
 TITLE;
     }
 
@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-Travel Experts DB Tables in MySQL
+Travel Experts DB Table Constraints in MySQL
 MAINHEADING;
     }
 
@@ -49,6 +49,18 @@ MAINHEADING;
         "triptypes"
       ];
 
+      $constraints = [
+        ["agents","agencies"],
+        ["customers","agents","agencies"],
+        ["creditcards","customers","agents","agencies"],
+        ["customers_rewards","rewards","customers","agents","agencies"],
+        ["bookings","triptypes","packages","customers","agents","agencies"],
+        ["bookingdetails","classes","regions","fees","bookings","triptypes","packages","customers","agents","agencies"],
+        ["products_suppliers","products","suppliers"],
+        ["packages_products_suppliers","packages","products_suppliers","products","suppliers"],
+        ["suppliercontacts","suppliers","affiliations"]
+      ];
+
       $server = "localhost";
       $user = "admin";
       $pass = "password";
@@ -63,23 +75,59 @@ MAINHEADING;
       }
 
       $returnValue = '
-<p>This is a listing of all the data in the TravelExperts MySQL database</p>
- '. $this->describeDB($conn, $tables)
+<p>This is a listing of all the <b>related</b> data in the TravelExperts MySQL database</p>
+<p>They are all named after the top table in the hierarchy (no other table relies on it)</p>
+ '. $this->describeDBConstraints($conn, $constraints)
 ;
 
       return $returnValue;
     }
 
-    private function describeDB($conn, $tables)
+    private function describeDBConstraints($conn, $constraints)
     {
-      $returnValue = "";
-      foreach ($tables as $table) {
-        $data = $this->describeTable($table, $conn );
+      $returnValue = '';
 
-        $returnValue .= "<h2>" . $table . "</h2>" .
-        "<p>Number of Columns: <b>" . count($data) . "</b></p>" .
-        \WriteHTML::getTable($data);
+      foreach ($constraints as $tables) {
+        $count = 0;
+        $heading = "";
+        $list = "";
+        $total = "";
+        $section = "";
+        $isFirst = true;
+        $title = $tables[0];
+
+        $heading .="<h5 class='center'>";
+        foreach($tables as $table) {
+
+          if($isFirst) {
+            $heading .= $table;
+            $isFirst = false;
+          } else {
+            $heading .= "/" . $table;
+          }
+        }
+        $heading .= "</h5>";
+
+        foreach($tables as $table) {
+          $data = $this->describeTable($table, $conn);
+
+          $list .=
+            "<h3>" . $table . "</h3>" .
+            "<p style='text-indent: 3em'>Number of Columns: <b>" . count($data) . "</b></p>"//        \WriteHTML::getTable($data)
+          ;
+          $count += count($data);
+        }
+        $total .= "<h5 style='text-align: end'>Total columns: <b>" . $count . "</b></h5><hr>";
+        $section .=
+            "<h2 class='center'>" . $title . " - " . $count . "</h2>" .
+            $heading .
+            $list .
+            $total
+        ;
+        $returnValue .= $section;
       }
+
+
 
       return $returnValue;
     }

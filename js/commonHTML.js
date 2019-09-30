@@ -7,18 +7,12 @@ const isDebug = true;
 // Create all necessary common HTML elements
 function loadCommonHTML() {
   
-
-
-
-
-  createScrollSpyNav( 
+  createScrollSpyNav(
                       document.getElementById( "scrollSpyNav" ),
                       "myScrollSpy",
                       [ "nav", "flex-column", "position-fixed" ],
                       getH2Links()
                     );
-                    
-
 }
 
 function createNavbar1() {

@@ -413,7 +413,13 @@ class Site3
         <link rel="stylesheet" href="css/newStyles.css">
         
       <!-- Load common HTML js -->  
-        <script src="js/commonHTML.js" ></script> ';
+        <script src="js/createScrollSpyNav.js" ></script> ';
+    }
+    else {
+      $returnValue .= '
+        <!-- Load common HTML js from GitHub as a CDN -->         
+        <script src="https://cdn.jsdelivr.net/gh/jamesdefant/Create-ScrollSpy-Nav/createScrollSpyNav.js"></script>
+      ';
     }
   
     $returnValue .=

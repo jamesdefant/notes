@@ -54,7 +54,6 @@ class CourseList
     foreach(self::$courseObjects as $course=>$value){
       self::$courseList[$course] = new Course($course, $value[0], $value[1]);
     }
-
   }
 
 
@@ -95,6 +94,9 @@ ul li a.active, .dropdown-item:active {
 ul li a:hover{
   color: '. $course->getColorLow() .';
 }
+ul li a.active {
+  color: white;
+}
 ul#topics li a.active {
   background-color: transparent;
   color: '. $course->getColor() .';
@@ -109,7 +111,9 @@ div.plain-html-link {
   margin: auto;
   text-align: center;
 }
-
+.center {
+text-align: center;
+}
 /*--------------------------------*/
 /* Code Highlighting */
 .hljs {

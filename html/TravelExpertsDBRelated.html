@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie-edge">
+  <title>Constraints</title>
+  <!-- Bootstrap 4 css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- highlight.js - https://highlightjs.org/ -->
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/school-book.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <!-- JavaScript code prettifier - https://github.com/google/code-prettify -->
+
+  <!--
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  -->
+
+  <!-- Perfect Scrollbar -
+    <script src="../../dist/perfect-scrolbar-1.4.0/dist/perfect-scrollbar.js"></script>
+    <link rel="stylesheet" href="../../dist/perfect-scrolbar-1.4.0/css/perfect-scrollbar.css">
+  -->
+
+  <!-- Load common HTML js from GitHub as a CDN -->
+  <script src="https://cdn.jsdelivr.net/gh/jamesdefant/Create-ScrollSpy-Nav/createScrollSpyNav.js"></script>
+
+  <style>
+    .bg-theme, .bg-theme.active {
+      background-color: #cc584c;
+      color: white;
+    }
+    .text-theme {
+      color: #cc584c;
+    }
+    .text-theme:hover, .text-theme-hi:hover {
+      color: #8b3127;
+    }
+    a.text-theme-hi {
+      color: #f9eceb;
+    }
+    .text-theme-low {
+      color: #8b3127;
+    }
+
+    .dropdown-item.active{
+      background-color: #cc584c;
+    }
+    .dropdown-item:active {
+      background-color: #8b3127;
+    }
+    ul li a.active, .dropdown-item:active {
+      background-color: #cc584c;
+    }
+    ul li a:hover{
+      color: #8b3127;
+    }
+    ul li a.active {
+      color: white;
+    }
+    ul#topics li a.active {
+      background-color: transparent;
+      color: #cc584c;
+      border: 3px solid #cc584c;
+      border-radius: 5px;
+
+    }
+
+    /* COMMON STYLES */
+    div.plain-html-link {
+      display: block;
+      margin: auto;
+      text-align: center;
+    }
+    .center {
+      text-align: center;
+    }
+    /*--------------------------------*/
+    /* Code Highlighting */
+    .hljs {
+      font-size: 0.9rem;
+    }
+    caption {
+      display: inline-block;
+      margin: auto;
+    }
+
+    div.compare div {
+    h3 {
+      text-align: center;
+      display: block;
+    }
+    }
+    code {
+      color: #c4256e;
+
+    }
+
+  </style>
+
+
+</head>
+
+<body data-spy="scroll" data-target="#myScrollSpy" data-offset="120" onload="loadCommonHTML()">
+
+<div class="plain-html-link">
+  <a href="index.php?course=PROJ&topic=Notes&page=PROJ_01_MySQLDataConstraints">
+    Return to site
+  </a>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-2"></div>
+
+    <div class="col-lg-8 col-md-7">
+      <h1 class="text-center m-3">Travel Experts DB Table Constraints in MySQL</h1><hr>
+      <main>
+
+        <p>This is a listing of all the <b>related</b> data in the TravelExperts MySQL database</p>
+        <h2 class='center'>agents</h2><h5 class='center'>agents/agencies</h5><h3>agents</h3><p style='text-indent: 3em'>Number of Columns: <b>9</b></p><h3>agencies</h3><p style='text-indent: 3em'>Number of Columns: <b>9</b></p><h5 style='text-align: end'>Total columns: <b>18</b></h5><hr><h2 class='center'>customers</h2><h5 class='center'>customers/agents/agencies</h5><h3>customers</h3><p style='text-indent: 3em'>Number of Columns: <b>13</b></p><h3>agents</h3><p style='text-indent: 3em'>Number of Columns: <b>9</b></p><h3>agencies</h3><p style='text-indent: 3em'>Number of Columns: <b>9</b></p><h5 style='text-align: end'>Total columns: <b>31</b></h5><hr><h2 class='center'>creditcards</h2><h5 class='center'>creditcards/customers/agents/agencies</h5><h3>creditcards</h3><p style='text-indent: 3em'>Number of Columns: <b>6</b></p><h3>customers</h3><p style='text-indent: 3em'>Number of Columns: <b>13</b></p><h3>agents</h3><p style='text-indent: 3em'>Number of Columns: <b>9</b></p><h3>agencies</h3><p style='text-indent: 3em'>Number of Columns: <b>9</b></p><h5 style='text-align: end'>Total columns: <b>37</b></h5><hr><h2 class='center'>customers_rewards</h2><h5 class='center'>customers_rewards/rewards/customers/agents/agencies</h5><h3>customers_rewards</h3><p style='text-indent: 3em'>Number of Columns: <b>4</b></p><h3>rewards</h3><p style='text-indent: 3em'>Number of Columns: <b>4</b></p><h3>customers</h3><p style='text-indent: 3em'>Number of Columns: <b>13</b></p><h3>agents</h3><p style='text-indent: 3em'>Number of Columns: <b>9</b></p><h3>agencies</h3><p style='text-indent: 3em'>Number of Columns: <b>9</b></p><h5 style='text-align: end'>Total columns: <b>39</b></h5><hr><h2 class='center'>bookings</h2><h5 class='center'>bookings/triptypes/packages/customers/agents/agencies</h5><h3>bookings</h3><p style='text-indent: 3em'>Number of Columns: <b>8</b></p><h3>triptypes</h3><p style='text-indent: 3em'>Number of Columns: <b>3</b></p><h3>packages</h3><p style='text-indent: 3em'>Number of Columns: <b>8</b></p><h3>customers</h3><p style='text-indent: 3em'>Number of Columns: <b>13</b></p><h3>agents</h3><p style='text-indent: 3em'>Number of Columns: <b>9</b></p><h3>agencies</h3><p style='text-indent: 3em'>Number of Columns: <b>9</b></p><h5 style='text-align: end'>Total columns: <b>50</b></h5><hr><h2 class='center'>bookingdetails</h2><h5 class='center'>bookingdetails/classes/regions/fees/bookings/triptypes/packages/customers/agents/agencies</h5><h3>bookingdetails</h3><p style='text-indent: 3em'>Number of Columns: <b>14</b></p><h3>classes</h3><p style='text-indent: 3em'>Number of Columns: <b>4</b></p><h3>regions</h3><p style='text-indent: 3em'>Number of Columns: <b>3</b></p><h3>fees</h3><p style='text-indent: 3em'>Number of Columns: <b>5</b></p><h3>bookings</h3><p style='text-indent: 3em'>Number of Columns: <b>8</b></p><h3>triptypes</h3><p style='text-indent: 3em'>Number of Columns: <b>3</b></p><h3>packages</h3><p style='text-indent: 3em'>Number of Columns: <b>8</b></p><h3>customers</h3><p style='text-indent: 3em'>Number of Columns: <b>13</b></p><h3>agents</h3><p style='text-indent: 3em'>Number of Columns: <b>9</b></p><h3>agencies</h3><p style='text-indent: 3em'>Number of Columns: <b>9</b></p><h5 style='text-align: end'>Total columns: <b>76</b></h5><hr><h2 class='center'>products_suppliers</h2><h5 class='center'>products_suppliers/products/suppliers</h5><h3>products_suppliers</h3><p style='text-indent: 3em'>Number of Columns: <b>4</b></p><h3>products</h3><p style='text-indent: 3em'>Number of Columns: <b>3</b></p><h3>suppliers</h3><p style='text-indent: 3em'>Number of Columns: <b>3</b></p><h5 style='text-align: end'>Total columns: <b>10</b></h5><hr><h2 class='center'>packages_products_suppliers</h2><h5 class='center'>packages_products_suppliers/packages/products_suppliers/products/suppliers</h5><h3>packages_products_suppliers</h3><p style='text-indent: 3em'>Number of Columns: <b>3</b></p><h3>packages</h3><p style='text-indent: 3em'>Number of Columns: <b>8</b></p><h3>products_suppliers</h3><p style='text-indent: 3em'>Number of Columns: <b>4</b></p><h3>products</h3><p style='text-indent: 3em'>Number of Columns: <b>3</b></p><h3>suppliers</h3><p style='text-indent: 3em'>Number of Columns: <b>3</b></p><h5 style='text-align: end'>Total columns: <b>21</b></h5><hr><h2 class='center'>suppliercontacts</h2><h5 class='center'>suppliercontacts/suppliers/affiliations</h5><h3>suppliercontacts</h3><p style='text-indent: 3em'>Number of Columns: <b>16</b></p><h3>suppliers</h3><p style='text-indent: 3em'>Number of Columns: <b>3</b></p><h3>affiliations</h3><p style='text-indent: 3em'>Number of Columns: <b>4</b></p><h5 style='text-align: end'>Total columns: <b>23</b></h5><hr>
+      </main>
+    </div>
+
+    <div class="col-lg-2 col-md-3" id="scrollSpyNav">
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>        
+      

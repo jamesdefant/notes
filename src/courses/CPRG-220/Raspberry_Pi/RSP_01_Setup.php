@@ -139,13 +139,18 @@ $ sudo apt-get update
     https://filezilla-project.org/
   </a> 
 </p>
+<p>Determine the Pi\'s IP address by typing:</p>
+<pre><code>
+$ ifconfig
+</code></pre>
 <p>
   Run <b>FileZilla</b> and insert the IP address (<b>10.163.37.227</b>), username (<b>pi</b>), and password 
   (<b>P@ssw0rd</b>)
 </p>
 <p><b>Start/Stop the Apache server</b> by running:</p>
 <pre><code>
-$ systemctl start httpd
+--$ systemctl start httpd
+$ systemctl start apache2
 </code></pre>
 <hr>
 
@@ -223,9 +228,9 @@ $ sudo mysql -u root -p
     <pre><code>
 -- set the username and password appropriately
 -- we\'ll use \'admin\' and \'P@ssw0rd\'
-$ GRANT ALL PRIVILEGES ON *.* TO \'username\'@\'localhost\' IDENTIFIED BY \'password\';      
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO \'username\'@\'localhost\' IDENTIFIED BY \'password\';      
     </code></pre>
-    <p>Exit the CLI by typing <code>quit</code>and pressing <kbd>ENTER</kbd></p>
+    <p>Exit the CLI by typing <code>quit</code> and pressing <kbd>ENTER</kbd></p>
   </li>
 </ol>
 <h4>Now we\'ll have to edit the config files</h4>
@@ -258,6 +263,13 @@ $ GRANT ALL PRIVILEGES ON *.* TO \'username\'@\'localhost\' IDENTIFIED BY \'pass
   </li>
 </ul>
 <p>Logging in as <b>root</b> is now disabled as it is a security risk</p>
+
+
+<h2>Samba</h2>
+<p>Install samba by running the following command:</p>
+<pre><code>
+$ sudo apt-get install samba
+</code></pre>
 
 <h2>Webmin</h2>
 <p><a href="http://webmin.com" target="_blank">http://webmin.com</a></p>

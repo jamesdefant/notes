@@ -30,7 +30,7 @@ MAINHEADING;
       $returnValue = '
 <h2>Intro</h2>
 <p>You need a proper environment setup to create and run servlets</p>
-
+<p>We\'ll develop using <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE</a> </p>
 ';
 
       return $returnValue;

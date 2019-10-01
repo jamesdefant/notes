@@ -102,6 +102,17 @@ MAINHEADING;
 </p>
 '. $this->getMatrixTable($zyris) .'
 <hr>
+
+<h2>Job search Plans</h2>
+<p>
+  Apply to 15 jobs on Indeed.com by Oct 31<br>
+  Have 3 interviews from these postings
+</p>
+<p>
+  Identify all the companies in Calgary who are hiring developers in IoT by Nov 30<br>
+  Canvas them all with resumes and secure 3 interviews
+</p>
+
 ';
 
       return $returnValue;

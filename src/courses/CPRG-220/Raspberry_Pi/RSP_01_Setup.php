@@ -121,9 +121,13 @@ $ sudo apt-get update
 <h2>Apache</h2>
 <p>Install apache2 like so:</p>
 <ol>
-  <li>Install <code>vsftpd</code> by running the following command: <kbd>sudo apt-get install vsftpd</kbd></li>
+  <li>Install <code>vsftpd</code> by running the following command:<br> 
+    <pre><code>sudo apt-get install vsftpd</code></pre>
+  </li>
   <li>
-    Edit the <code>vsftpd.conf</code> file by running: <kbd>sudo vi /etc/vsftpd.conf</kbd> and alter the following lines:
+    Edit the <code>vsftpd.conf</code> file by running:<br> 
+    <pre><code>sudo vi /etc/vsftpd.conf</code></pre><br>
+    ...and alter the following lines:
     <ul>
       <li><code>anonymous_enable=NO</code></li>
       <li><code>local_enable=YES</code></li>
@@ -131,8 +135,14 @@ $ sudo apt-get update
       <li><code>local_unmask=022</code></li>
     </ul>
   </li>
-  <li>Restart the <code>vsftpd</code> service by running the command: <kbd>sudo systemctl restart vsftpd</kbd></li>
-  <li>Install <code>Apache</code> by running the following command: <kbd>sudo apt install apache2</kbd></li>
+  <li>
+    Restart the <code>vsftpd</code> service by running the command:<br> 
+    <pre><code>sudo systemctl restart vsftpd</code></pre>
+  </li>
+  <li>
+    Install <code>Apache</code> by running the following command:<br>
+    <pre><code>sudo apt install apache2</code></pre>
+  </li>
 </ol>
 <p>
   Download <b>FileZilla FTP Client</b> for Windows here: <a href="https://filezilla-project.org/" target="_blank">
@@ -149,7 +159,6 @@ $ ifconfig
 </p>
 <p><b>Start/Stop the Apache server</b> by running:</p>
 <pre><code>
---$ systemctl start httpd
 $ systemctl start apache2
 </code></pre>
 <hr>
@@ -207,7 +216,7 @@ $ sudo apt install phpmyadmin
     </code></pre>
   </li>
   <li>
-    When prompted, select the <kbd>apache2</kbd> option by pressing <kbd>SPACE</kbd> and <kbd>ENTER</kbd> - 
+    When prompted, select the <kbd>apache2</kbd> option by pressing <kbd>SPACE</kbd> and <kbd>ENTER</kbd><br>
     <em><b>There must be an asterisk in the option!</b></em><br>
     <p><em>If you miss pressing SPACE, run this command to get back to the option:</em></p>
     <pre><code>
@@ -224,12 +233,15 @@ $ sudo mysql -u root -p
     and enter your password when prompted
   </li>
   <li>
-    Now run this command to create a new MySQL user with full privileges:
-    <pre><code>
+    Now run this command to create a new MySQL user with full privileges: ' . "
+    <pre><code> 
+mysql> GRANT ALL PRIVILEGES ON database_name.* TO \'username\'@\'host\';
+
 -- set the username and password appropriately
+
 -- we\'ll use \'admin\' and \'P@ssw0rd\'
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO \'username\'@\'localhost\' IDENTIFIED BY \'password\';      
-    </code></pre>
+    </code></pre> " . '
     <p>Exit the CLI by typing <code>quit</code> and pressing <kbd>ENTER</kbd></p>
   </li>
 </ol>
@@ -237,7 +249,8 @@ MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO \'username\'@\'localhost\' IDEN
 <ol>
   <li>
     Edit the <code>apache2.conf</code> file by typing:<br> 
-    <kbd>sudo gedit /etc/apache2/apache2.conf</kbd> - or use <kbd>nano</kbd> or <kbd>vi</kbd> if you havent installed <code>gedit</code><br>
+    <pre><code>sudo gedit /etc/apache2/apache2.conf</code></pre>
+     - or use <kbd>nano</kbd> or <kbd>vi</kbd> if you havent installed <code>gedit</code><br>
     Add the following line to the end of the file so that the <code>phpmyadmin.conf</code> file is loaded 
     when apache2 is loaded:<br>
     <code>Include /etc/phpmyadmin/apache.conf</code><br>
@@ -245,7 +258,7 @@ MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO \'username\'@\'localhost\' IDEN
   </li>
   <li>
     Restart the apache2 service by typing:<br>
-    <kbd>sudo service apache2 restart</kbd>
+    <pre><code>sudo service apache2 restart</code></pre>
   </li>
 </ol>
 <h4>Configure NGINX</h4>
@@ -263,9 +276,37 @@ MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO \'username\'@\'localhost\' IDEN
   </li>
 </ul>
 <p>Logging in as <b>root</b> is now disabled as it is a security risk</p>
+<hr>
+
+<h2>Tomcat</h2>
+<p>Install Tomcat by typing the following commands:</p>
+<pre><code>
+$ sudo apt install tomcat9
+$ sudo apt install tomcat9-docs
+$ sudo apt install tomcat9-examples
+$ sudo apt install tomcat9-admin
+</code></pre>
+<p>
+  Edit the <code>/etc/tomcat9/tomcat-users.xml</code> file to setup <b>manager-gui</b> & 
+  <b>admin-gui</b> roles<br>
+  <em>Tomcat <b>Admin</b> and <b>Manager</b> can only sign on through localhost</em>
+</p>
+<pre><code>
+-- Open the file
+$ sudo gedit /etc/tomcat9/tomcat-users.xml
+
+-- Add this to the file:
+&lt;tomcat-users ...>
+      
+  &lt;role rolename="manager-gui" />
+  &lt;role rolename="admin-gui" />
+  &lt;user username="pi" password="P@ssw0rd" roles="manager-gui, admin-gui" />
+&lt;tomcat-users>  
+</code></pre>
 
 
 <h2>Samba</h2>
+<p>Samba is used to integrate Linux/Unix servers into a Windows Active Directory environment</p>
 <p>Install samba by running the following command:</p>
 <pre><code>
 $ sudo apt-get install samba

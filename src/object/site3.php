@@ -419,6 +419,14 @@ class Site3
       $returnValue .= '
         <!-- Load common HTML js from GitHub as a CDN -->         
         <script src="https://cdn.jsdelivr.net/gh/jamesdefant/Create-ScrollSpy-Nav/createScrollSpyNav.js"></script>
+        <style>
+          pre code {
+            display: block;
+            padding: 1rem 2rem;
+            color: white;
+            background-color: grey;
+          }
+        </style>
       ';
     }
   

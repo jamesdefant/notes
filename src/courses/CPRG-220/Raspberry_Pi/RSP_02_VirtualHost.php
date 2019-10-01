@@ -89,7 +89,8 @@ $ sudo gedit index.html
     </code></pre>
   </li>
   <li>
-    Create a new <code>.conf</code> file in the <code>/etc/apache2/sites-available</code> directory by copying the default on in there:
+    Create a new <code>.conf</code> file in the <code>/etc/apache2/sites-available</code> directory 
+    by copying the default one in there:
     <pre><code>
 -- change to the sites-available directory
 $ sudo cd /etc/apache2/sites-available    

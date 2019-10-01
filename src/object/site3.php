@@ -442,6 +442,7 @@ class Site3
       ';
     }
     else {
+ /*
       $returnValue .= '
         <div class="plain-html-link">
           <a href="index.php?course=' . $this->currentPage->getCourse() .
@@ -451,6 +452,7 @@ class Site3
           </a>
         </div> 
       ';
+*/
     }
     $returnValue .=
         $this->GetMain($hasDependencies).'

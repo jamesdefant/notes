@@ -35,10 +35,16 @@ MAINHEADING;
       ];
 
       $returnValue = '
+<h2>CRUD with JPA Tutorials</h2>
+<p>
+  <a href="https://www.objectdb.com/java/jpa/persistence/overview" target="_blank">
+    https://www.objectdb.com/java/jpa/persistence/overview
+  </a> 
+</p>
 <h2>Intro</h2>
 <p>
   Continuing the project form the previous page - 
-  <a href="index.php?course=CPRG-220&topic=JSP&page=JSP_07_REST">RESTful APIs</a>, 
+  <a href="index.php?course=CPRG-220&topic=JSP&page=JSP_07_REST">REST Services</a>, 
   we can add CRUD functionality with JPA 
 </p>
 <h2>Convert the project to JPA</h2>
@@ -72,21 +78,99 @@ MAINHEADING;
         </ol>
       </li>
       <li>Select <b>Add driver library to build path</b></li>
-      <li>Click <kbd>Next ></kbd></li>
-      <li>Click <kbd>Finish</kbd></li>
     </ul>
+  <li>Click <kbd>Next ></kbd></li>
+  <li>Click <kbd>Finish</kbd></li>
   </li> 
 </ol>
 
 <h2>Generate Entity Classes</h2>
 <ol>
   <li>
-    Create a new package named <b>model</b> by right-clicking the <code>/src</code> folder and selecting 
-    <kbd>New</kbd> => <kbd>Package</kbd> - name it <b>model</b>
+    Create a new package named <b>model</b> by right-clicking the <code>/src</code> directory and selecting 
+    <kbd>New</kbd> => <kbd>Package</kbd> - name it <b>model</b><br>
+    <em>You\'ll probably need to <b>Refresh</b> the display as the package won\'t appear under the <code>/src</code> directory</em>
   </li>
   <li>Right-click the project and select <kbd>JPA Tools</kbd> => <kbd>Generate Entities from Tables...</kbd></li>
   <li>Make sure the right connection is selected</li>
   <li>Choose the tables you want to use to generate entity classes</li>
+  <li>Click <kbd>Next ></kbd></li>
+  <li><kbd>Table Associations</kbd> dialog - confirm the <b>Table Associations</b>, if any and click <kbd>Next ></kbd></li>
+  <li>
+    <kbd>Customize Defaults</kbd> dialog
+    <ul>
+      <li>Under <kbd>Entity Access</kbd>, select <b>Property</b></li>
+      <li>
+        Under <kbd>Domain java class</kbd>, confirm the <b>Source folder</b> and <b>Package</b>
+        that the model will be created in
+      </li>
+      Click <kbd>Next ></kbd>
+    </ul>    
+  </li>
+  <li>
+    <kbd>Customize Individual Entities</kbd> dialog
+    <ul>
+      <li>confirm the <b>Class name</b></li>
+      <li>Under <kbd>Entity Access</kbd>, select <b>Property</b></li>
+      Click <kbd>Finish</kbd>
+    </ul>
+  </li>
+  <li>Now you should have an <code>Agent.java</code> class generated in the model package</li>
+  <li>
+    Also, there will be a <code>src/META-INF/persistence.xml</code> directory and file generated.<br> 
+    We must add some properties to this file.<br>
+    <b>Under the <code>&lt;class>model.Agent&lt;/class></code> tag, insert the following:</b>
+    <pre><code>
+&lt;properties>
+  &lt;property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/travelexperts"/>
+  &lt;property name="javax.persistence.jdbc.user" value="admin"/>
+  &lt;property name="javax.persistence.jdbc.password" value="password"/>
+  &lt;property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+&lt;/properties>    
+    </code></pre>
+    
+  </li>
+</ol>
+
+<h2>Test the database connection</h2>
+<p>Let\'s get a value from the database and display it through our API</p>
+<ol>
+  <li>
+    Make sure to <b>paste the driver</b> (<code>mariadb-java-client-2.1.1.jar</code>)
+    into the <code>WebContent/WEB-INF/lib</code> directory
+   </li>
+   <li>
+    Swap out the <code>getAllAgents()</code> method
+    <pre><code>
+// http:localhost:8080/RESTApp/rs/agent/getallagents
+@GET
+@Path("/getallagents")
+@Produces(MediaType.TEXT_PLAIN)
+public String getAgents() {
+
+  return "getallagents";	
+}
+    </code></pre> 
+    with the following one:<br>
+    <em>Notice how the <code>@Produces</code></em>
+    <pre><code>
+// http:localhost:8080/RESTApp/rs/agent/getallagents
+@GET
+@Path("/getallagents")
+@Produces(MediaType.APPLICATION_JSON)
+public String getAgents() {
+  
+  EntityManagerFactory factory = Persistence.createEntityManagerFactory("RESTApp");
+  EntityManager em = factory.createEntityManager();
+  Query query = em.createQuery("SELECT a FROM Agent a");
+  List<Agent> list = query.getResultList();
+  Gson gson = new Gson();
+  Type type = new TypeToken<List<Agent>>() {}.getType();
+    
+  return gson.toJson(list, type);	
+}
+    </code></pre>
+   </li>
 </ol>
 
 ';

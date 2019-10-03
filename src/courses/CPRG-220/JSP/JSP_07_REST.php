@@ -154,7 +154,7 @@ public class SimpleRestService {
 <p>When you open the program you can test whether CRUD operations work properly</p>
 <p>
   Select the type of protocol (<code>GET</code>/<code>POST</code>/<code>PUT</code>/etc) in the <b>Request Field</b>, 
-  and type in the URI like so:
+  and type in the URL like so:
 </p>
 <pre><code>
 http://[host]/[project]/[servlet-mapping_url-pattern]/[class_path_annotation]/[method_path_annotation]
@@ -164,7 +164,26 @@ http://[host]/[project]/[servlet-mapping_url-pattern]/[class_path_annotation]/[m
 http:localhost:8080/RESTApp/rs/agent/getallagents
 </code></pre>
 <p>This URI should print the phrase <code>getallagents</code> in the output</p>
+<p>
+  To run a <code>PUT</code>, you\'ll have to do something a little different 
+  as the method signature <b>requires a jsonString</b> as an argument, but there is nothing passed within the URL:
+  <pre><code>
+@PUT
+@Path("/putagent")
+@Produces(MediaType.TEXT_PLAIN)
+@Consumes(MediaType.APPLICATION_JSON)
+public String putAgent(String jsonString) {
+  
+  return "putagent: " + jsonString;	
+}    
+  </code></pre>
+</p>
+<p>
+  ...so, in Postman,  just under the URL, select the <kbd>Body</kbd> tab, select the <kbd>raw</kbd> radio button and
+  select <b>JSON</b> from the dropdown on the right
+</p>
 <p><b>Test all the commands you plan to use - if they don\'t work, something is wrong and needs to be dealt with</b></p>
+<p>My own system would only display a <code>403 Forbidden error</code>, so <b>I had to delete and re-implement my WildFly 11.0 server</b></p>
 ';
 
       return $returnValue;

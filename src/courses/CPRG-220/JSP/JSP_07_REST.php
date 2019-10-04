@@ -67,7 +67,7 @@ MAINHEADING;
     Name the Package <b>main</b>
   </li>
   <li>The generated class<br>
-    <code>RESTfulApp/Java Resources/src/main/SimpleRestService.java</code><br>
+    <code>RESTApp/Java Resources/src/main/SimpleRestService.java</code><br>
     will have errors - delete all the references to <code>Logger</code> / <code>Log</code>
   </li>
 </ol>

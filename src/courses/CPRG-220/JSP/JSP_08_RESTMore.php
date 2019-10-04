@@ -28,10 +28,11 @@ MAINHEADING;
     public function getContent() : string
     {
       $DBProperties = [
-        ["<b>Database:</b>", "travelexperts"],
-        ["<b>URL:</b>", "jdbc:mariadb://localhost:3306/travelexperts"],
-        ["<b>User name:</b>", "admin"],
-        ["<b>Password:</b>", "password"]
+        ["<b>ConnectionURL:</b>", "jdbc:mariadb://localhost:3306/travelexperts"],
+        ["<b>Database Name:</b>", "travelexperts"],
+        ["<b>Driver CLass:</b>", "org.mariadb.jdbc.Driver"],
+        ["<b>Password:</b>", "password"],
+        ["<b>User name:</b>", "admin"]
       ];
 
       $returnValue = '
@@ -58,7 +59,15 @@ MAINHEADING;
     Make sure:
     <ul>
       <li>the <kbd>Platform</kbd> is <b>EclipseLink 2.5.x</b></li>
-      <li>the <kbd>JPA implementation Type</kbd> is <b>User Library</b></li>
+      <li>
+        the <kbd>JPA implementation Type</kbd> is <b>User Library</b><br>        
+        <ol>
+          <li>If there is no library selectable (none loaded) click the <kbd>Download Library...</kbd> button</li>
+          <li>Select <b>EclipseLink 2.5.2</b> from the list and click <kbd>Next ></kbd></li>
+          <li>Accept the EULA and click <kbd>Finish</kbd> to download the library</li>
+        </ol>
+      </li>
+      <li>that <b>EclipseLink 2.5.2</b> is selected in the list</li>
       <li>to <b>select</b> or <b>create a new</b> connection:        
         <ol>
           <li>
@@ -71,23 +80,26 @@ MAINHEADING;
             Click <kbd>Next ></kbd>
           </li>
           <li>Select the <b>Driver</b> you will be using - in our case <b>MariaDB JDBC</b></li>
-          <li>Fill in the properties for the database:</li>
+          <li>
+            Fill in the properties for the database:<br>
+            <em>Make sure you have a user set up with these credentials and the proper privileges</em>
+          </li>
           '. \WriteHTML::getTable($DBProperties, false) .'
           <li>You may want to select the <b>Save Password</b> checkbox</li>
           <li><b>Test the Connection before continuing!</b></li>
         </ol>
       </li>
-      <li>Select <b>Add driver library to build path</b></li>
+      <li>Click <kbd>Next ></kbd> and review the connection info</li>
     </ul>
-  <li>Click <kbd>Next ></kbd></li>
-  <li>Click <kbd>Finish</kbd></li>
   </li> 
+  <li>Select the <b>Add driver library to buid path</b> checkbox</li>
+  <li>Click <kbd>Finish</kbd></li>
 </ol>
 
 <h2>Generate Entity Classes</h2>
 <ol>
   <li>
-    Create a new package named <b>model</b> by right-clicking the <code>/src</code> directory and selecting 
+    Create a <b>new package</b> by right-clicking the <code>/src</code> directory and selecting 
     <kbd>New</kbd> => <kbd>Package</kbd> - name it <b>model</b><br>
     <em>You\'ll probably need to <b>Refresh</b> the display as the package won\'t appear under the <code>/src</code> directory</em>
   </li>
@@ -118,7 +130,7 @@ MAINHEADING;
   <li>Now you should have an <code>Agent.java</code> class generated in the model package</li>
   <li>
     Also, there will be a <code>src/META-INF/persistence.xml</code> directory and file generated.<br> 
-    We must add some properties to this file.<br>
+    We must add some properties to this file - edit it\'s <b>source</b> like so:<br>
     <b>Under the <code>&lt;class>model.Agent&lt;/class></code> tag, insert the following:</b>
     <pre><code>
 &lt;properties>
@@ -136,11 +148,12 @@ MAINHEADING;
 <p>Let\'s get a value from the database and display it through our API</p>
 <ol>
   <li>
-    Make sure to <b>paste the driver</b> (<code>mariadb-java-client-2.1.1.jar</code>)
+    <b>Paste the driver</b> (<code>mariadb-java-client-2.1.1.jar</code>)<br>
     into the <code>WebContent/WEB-INF/lib</code> directory
    </li>
    <li>
-    Swap out the <code>getAllAgents()</code> method
+    Swap out the <code>getAllAgents()</code> method in<br>
+    <code>src/main/SimpleRestService.java</code>...
     <pre><code>
 // http:localhost:8080/RESTApp/rs/agent/getallagents
 @GET
@@ -151,8 +164,12 @@ public String getAgents() {
   return "getallagents";	
 }
     </code></pre> 
-    with the following one:<br>
-    <em>Notice how the <code>@Produces</code></em>
+    ...with the following one:<br>
+    <em><b>Notice how</b><br>
+    <code>@Produces(MediaType.TEXT_PLAIN)</code><br>
+    is replaced with<br>
+    <code>@Produces(MediaType.APPLICATION_JSON)</code></em><br>
+    We want to return a JSON string
     <pre><code>
 // http:localhost:8080/RESTApp/rs/agent/getallagents
 @GET
@@ -160,17 +177,43 @@ public String getAgents() {
 @Produces(MediaType.APPLICATION_JSON)
 public String getAgents() {
   
-  EntityManagerFactory factory = Persistence.createEntityManagerFactory("RESTApp");
-  EntityManager em = factory.createEntityManager();
+  EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager();  
   Query query = em.createQuery("SELECT a FROM Agent a");
-  List<Agent> list = query.getResultList();
+  List &lt;Agent> list = query.getResultList();
   Gson gson = new Gson();
-  Type type = new TypeToken<List<Agent>>() {}.getType();
+  Type type = new TypeToken&lt;List&lt;Agent>>() {}.getType();
     
   return gson.toJson(list, type);	
 }
     </code></pre>
+    <em>There will be a number of errors because we\'ll need to import some libraries:</em>
    </li>
+   <li>
+    Paste the <code>GSON</code> package to the <code>/WebContent/WEB-INF/lib</code> directory:<br>
+    <a href="https://mvnrepository.com/artifact/com.google.code.gson/gson/2.8.5" target="_blank">
+      https://mvnrepository.com/artifact/com.google.code.gson/gson/2.8.5
+    </a>
+   </li>
+   <li>
+    Add the following to the imports at the top of the file:
+    <ul>
+      <li><code>import java.util.List;</code></li>
+      <li><code>import java.lang.reflect.Type;</code></li>
+
+      <li><code>import javax.persistence.EntityManager;</code></li>
+      <li><code>import javax.persistence.Persistence;</code></li>
+      <li><code>import javax.persistence.Query;</code></li>
+
+      <li><code>import com.google.gson.Gson;</code></li>
+      <li><code>import com.google.gson.reflect.TypeToken;</code></li>
+      
+      <li><code>import model.Agent;</code></li>
+    </ul>
+  </li>
+  <li>
+    <b>Stop the server</b> and restart it so that the server has all the recent code changes<br>
+    <em>You may need to <b>Clean</b> the server once it\'s stopped  - you need to from time to time</em>
+  </li>
 </ol>
 
 ';

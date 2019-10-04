@@ -88,6 +88,12 @@ MAINHEADING;
   </li>
   <li>Click <kbd>Apply and Close</kbd> to accept the changes</li>
 </ol>
+
+<p>
+  Once the server is setup, <b>Double-click</b> the server in the <b>Server</b> panel to bring up it\'s options.<br>
+  Under <b>Server Behaviour</b>, select <b>Listen on all interfaces to allow remote web connections</b> otherwise the 
+  server won\'t be available to outside connections
+</p>
 ';
 
       return $returnValue;

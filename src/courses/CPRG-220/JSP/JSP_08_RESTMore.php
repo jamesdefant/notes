@@ -126,7 +126,14 @@ MAINHEADING;
       Click <kbd>Finish</kbd>
     </ul>
   </li>
-  <li>Now you should have an <code>Agent.java</code> class generated in the model package</li>
+  <li>
+    Now you should have an <code>Agent.java</code> class generated in the model package
+    <div class="alert alert-danger">
+      If there are any <b>Nullable fields</b> in your database table, you must ensure that they are represented within
+      the object class by a variable that is nullable.<br>
+      <b>Since <code>agencyId</code> is nullable, change it\'s field, getters and setters from <code>int</code> to <code>Integer</code></b>
+    </div>
+  </li>
   <li>
     Also, there will be a <code>src/META-INF/persistence.xml</code> directory and file generated.<br> 
     We must add some properties to this file - edit it\'s <b>source</b> like so:<br>
@@ -249,7 +256,7 @@ import model.Agent;
 @Path("/agent")
 public class SimpleRestService {
 
-	// http:localhost:8080/RESTApp/rs/agent/getallagents
+	// http://localhost:8080/RESTApp/rs/agent/getallagents
 	@GET
 	@Path("/getallagents")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -259,12 +266,12 @@ public class SimpleRestService {
 		Query query = em.createQuery("SELECT a FROM Agent a");
 		List <Agent> list = query.getResultList();
 		Gson gson = new Gson();
-		Type type = new TypeToken<List<Agent>>() {}.getType();
+		Type type = new TypeToken&lt;List&lt;Agent>>() {}.getType();
     
 	  	return gson.toJson(list, type);	
 	}
   
-	// http:localhost:8080/RESTApp/rs/agent/getagent/3
+	// http://localhost:8080/RESTApp/rs/agent/getagent/3
 	@GET
 	@Path("/getagent/{agentid}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -278,12 +285,14 @@ public class SimpleRestService {
 		Agent agent = (Agent) query.getSingleResult();		
 
 		Gson gson = new Gson();
-		Type type = new TypeToken<Agent>() {}.getType();
+		Type type = new TypeToken&lt;Agent>() {}.getType();
 		return gson.toJson(agent, type);
+
 	}
 	  
-	// http:localhost:8080/RESTApp/rs/agent/postagent
-	// {"Agent": {"AgtFirstName":"Joe", "AgtLastName":"Bob"}}
+	// http://localhost:8080/RESTApp/rs/agent/postagent
+	// {"agtFirstName":"Joe", "agtMiddleInitial":"W", "agtLastName":"Bob", "agtBusPhone":"4032321234", "agtEmail":"joe@email.com", "agtPosition":"El Benefactor", "agencyId":1}
+	// INSERT
 	@POST
 	@Path("/postagent")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -294,17 +303,22 @@ public class SimpleRestService {
 		//JsonObject obj = new JsonParser().parse(jsonString).getAsJsonObject();
 		
 		Gson gson = new Gson();
-		Type type = new TypeToken<Agent>() {}.getType();
+		Type type = new TypeToken&lt;Agent>() {}.getType();
 		Agent agent = gson.fromJson(jsonString, type);
+		
+    System.out.println("INSERT: " + agent);
+		
 		em.getTransaction().begin();
 		Agent result = em.merge(agent);
 		em.getTransaction().commit();
 		em.close();
 		return "updated";
+
 	}
 	  
-	// http:localhost:8080/RESTApp/rs/agent/putagent
-	// {"Agent": {"AgtFirstName":"Joe", "AgtLastName":"Bob"}}
+	// http://localhost:8080/RESTApp/rs/agent/putagent
+	// {"agentId":12, "agtFirstName":"Joe", "agtMiddleInitial":"W", "agtLastName":"Bob", "agtBusPhone":"4032321234", "agtEmail":"joe@email.com", "agtPosition":"El Benefactor", "agencyId":1}
+	// UPDATE
 	@PUT
 	@Path("/putagent")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -314,14 +328,17 @@ public class SimpleRestService {
 		EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager(); 
 		
 		Gson gson = new Gson();
-		Agent a = gson.fromJson(jsonString, Agent.class);
+		Agent agent = gson.fromJson(jsonString, Agent.class);
+		
+    System.out.println("UPDATE: " + agent);
+		
 		em.getTransaction().begin();
-		em.persist(a);
+		em.persist(agent);
 		em.getTransaction().commit();
         return "inserted";		
 	}
 	  
-	// http:localhost:8080/RESTApp/rs/agent/deleteagent/3
+	// http://localhost:8080/RESTApp/rs/agent/deleteagent/3
 	@DELETE
 	@Path("/deleteagent/{agentid}")
 	public String deleteAgent(@PathParam("agentid") int agentId) {
@@ -329,6 +346,9 @@ public class SimpleRestService {
 		EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager(); 
 		
 		Agent foundAgent = em.find(Agent.class, agentId);
+		
+		System.out.println("Found Agent: " + foundAgent);
+		
 		em.getTransaction().begin();
 		em.remove(foundAgent);
 		if (em.contains(foundAgent))
@@ -345,8 +365,10 @@ public class SimpleRestService {
 		}
 	}
 }
-
 </code></pre>
+
+<h2>Test It</h2>
+<p><b>Clean and restart the server, then open Postman and test every function to make sure that it works!</b></p>
 
 ';
 

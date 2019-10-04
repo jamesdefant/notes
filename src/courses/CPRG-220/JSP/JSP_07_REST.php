@@ -27,6 +27,11 @@ MAINHEADING;
     /* CONTENT  <main> */
     public function getContent() : string
     {
+      $traveltokens = [
+        ["<b>Username:</b>", "<code>admin</code>"],
+        ["<b>Password:</b>", "<code>password</code>"]
+      ];
+
       $returnValue = '
 <h2>Representational State Transfer</h2>
 <p>A RESTful API is a app that serves up data from a given URI</p>
@@ -49,6 +54,14 @@ MAINHEADING;
   <ul><li>search for <b>RESTful Plugin for Eclipse</b> and install it</li></ul>
   <em>You\'ll need to restart Eclipse</em>
 </p>
+<hr>
+
+<h2>Create a RESTful Application</h2>
+<p>
+  Before we begin, we\'ll be using the <b>travelexperts</b> database:
+  '. \WriteHTML::getTable($traveltokens, false) .'
+</p>
+<hr>
 <ol>
   <li>
     Start a new <b>Dynamic Web Project</b> - we\'ll name it <b>RESTfulApp</b><br>
@@ -94,7 +107,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/agent")
 public class SimpleRestService {
 
-  // http:localhost:8080/RESTApp/rs/agent/getallagents
+  // http://localhost:8080/RESTApp/rs/agent/getallagents
   @GET
   @Path("/getallagents")
   @Produces(MediaType.TEXT_PLAIN)
@@ -103,7 +116,7 @@ public class SimpleRestService {
     return "getallagents";	
   }
   
-  // http:localhost:8080/RESTApp/rs/agent/getagent/3
+  // http://localhost:8080/RESTApp/rs/agent/getagent/3
   @GET
   @Path("/getagent/{agentid}")
   @Produces(MediaType.TEXT_PLAIN)
@@ -112,7 +125,7 @@ public class SimpleRestService {
     return "getagent " + agentId;	
   }
   
-  // http:localhost:8080/RESTApp/rs/agent/postagent
+  // http://localhost:8080/RESTApp/rs/agent/postagent
   // {"Agent": {"AgtFirstName":"Joe", "AgtLastName":"Bob"}}
   @POST
   @Path("/postagent")
@@ -123,7 +136,7 @@ public class SimpleRestService {
     return "postagent: " + jsonString;	
   }
   
-  // http:localhost:8080/RESTApp/rs/agent/putagent
+  // http://localhost:8080/RESTApp/rs/agent/putagent
   // {"Agent": {"AgtFirstName":"Joe", "AgtLastName":"Bob"}}
   @PUT
   @Path("/putagent")
@@ -134,7 +147,7 @@ public class SimpleRestService {
     return "putagent: " + jsonString;	
   }
   
-  // http:localhost:8080/RESTApp/rs/agent/deleteagent/3
+  // http://localhost:8080/RESTApp/rs/agent/deleteagent/3
   @DELETE
   @Path("/deleteagent/{agentid}")
   public String deleteAgent(@PathParam("agentid") int agentId) {

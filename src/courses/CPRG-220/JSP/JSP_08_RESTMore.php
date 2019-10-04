@@ -92,7 +92,6 @@ MAINHEADING;
       <li>Click <kbd>Next ></kbd> and review the connection info</li>
     </ul>
   </li> 
-  <li>Select the <b>Add driver library to buid path</b> checkbox</li>
   <li>Click <kbd>Finish</kbd></li>
 </ol>
 
@@ -215,6 +214,139 @@ public String getAgents() {
     <em>You may need to <b>Clean</b> the server once it\'s stopped  - you need to from time to time</em>
   </li>
 </ol>
+
+<h2>Full CRUD Functionality</h2>
+<p>The full class looks like this:</p>
+<pre><code>
+package main;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+
+import java.lang.reflect.Type;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.Produces;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.DefaultValue;
+import javax.ws.rs.core.MediaType;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import model.Agent;
+
+
+@Path("/agent")
+public class SimpleRestService {
+
+	// http:localhost:8080/RESTApp/rs/agent/getallagents
+	@GET
+	@Path("/getallagents")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getAgents() {
+	  
+		EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager();  
+		Query query = em.createQuery("SELECT a FROM Agent a");
+		List <Agent> list = query.getResultList();
+		Gson gson = new Gson();
+		Type type = new TypeToken<List<Agent>>() {}.getType();
+    
+	  	return gson.toJson(list, type);	
+	}
+  
+	// http:localhost:8080/RESTApp/rs/agent/getagent/3
+	@GET
+	@Path("/getagent/{agentid}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getAgent(@PathParam("agentid") int agentId) {
+	  
+		EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager();  
+		//an alternative to using the query to getsingleResult we can just do a find
+		
+		//Agent agent = em.find(Agent.class, agentId);
+		Query query = em.createQuery("select a from Agent a where a.agentId=" + agentId);
+		Agent agent = (Agent) query.getSingleResult();		
+
+		Gson gson = new Gson();
+		Type type = new TypeToken<Agent>() {}.getType();
+		return gson.toJson(agent, type);
+	}
+	  
+	// http:localhost:8080/RESTApp/rs/agent/postagent
+	// {"Agent": {"AgtFirstName":"Joe", "AgtLastName":"Bob"}}
+	@POST
+	@Path("/postagent")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String postAgent(String jsonString) {
+	  
+		EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager(); 
+		//JsonObject obj = new JsonParser().parse(jsonString).getAsJsonObject();
+		
+		Gson gson = new Gson();
+		Type type = new TypeToken<Agent>() {}.getType();
+		Agent agent = gson.fromJson(jsonString, type);
+		em.getTransaction().begin();
+		Agent result = em.merge(agent);
+		em.getTransaction().commit();
+		em.close();
+		return "updated";
+	}
+	  
+	// http:localhost:8080/RESTApp/rs/agent/putagent
+	// {"Agent": {"AgtFirstName":"Joe", "AgtLastName":"Bob"}}
+	@PUT
+	@Path("/putagent")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String putAgent(String jsonString) {
+	  
+		EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager(); 
+		
+		Gson gson = new Gson();
+		Agent a = gson.fromJson(jsonString, Agent.class);
+		em.getTransaction().begin();
+		em.persist(a);
+		em.getTransaction().commit();
+        return "inserted";		
+	}
+	  
+	// http:localhost:8080/RESTApp/rs/agent/deleteagent/3
+	@DELETE
+	@Path("/deleteagent/{agentid}")
+	public String deleteAgent(@PathParam("agentid") int agentId) {
+	  
+		EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager(); 
+		
+		Agent foundAgent = em.find(Agent.class, agentId);
+		em.getTransaction().begin();
+		em.remove(foundAgent);
+		if (em.contains(foundAgent))
+		{
+			em.getTransaction().rollback();
+			em.close();
+			return "Delete failed, contact tech support";
+		}
+		else
+		{
+			em.getTransaction().commit();
+			em.close();
+			return "Agent was successfully deleted";
+		}
+	}
+}
+
+</code></pre>
 
 ';
 

@@ -306,7 +306,7 @@ public class SimpleRestService {
     Type type = new TypeToken&lt;Agent>() {}.getType();
     Agent agent = gson.fromJson(jsonString, type);
     
-    System.out.println("INSERT: " + agent);
+    System.out.println("UPDATE: " + agent);
     
     em.getTransaction().begin();
     Agent result = em.merge(agent);
@@ -329,7 +329,7 @@ public class SimpleRestService {
     Gson gson = new Gson();
     Agent agent = gson.fromJson(jsonString, Agent.class);
     
-    System.out.println("UPDATE: " + agent);
+    System.out.println("INSERT: " + agent);
     
     em.getTransaction().begin();
     em.persist(agent);

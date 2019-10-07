@@ -85,10 +85,11 @@ MAINHEADING;
     <ul>
       <li>the name of the class from <code>SimpleRestService</code> into <code>AgencyRestService</code></li>
       <li>
-        all the references of<br>
+        all the references of:<br>
         <code>Agent</code> into <code>Agency</code><br>
         <code>agent</code> into <code>agency</code><br>
-        rename the methods etc...
+        rename the methods<br>
+        etc...
       
       </li>
     </ul>

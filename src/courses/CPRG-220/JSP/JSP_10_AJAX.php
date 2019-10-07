@@ -2,7 +2,7 @@
 
 namespace J\ClassNotes {
 
-  class JSP_09_AJAX extends Page
+  class JSP_10_AJAX extends Page
   {
 
     /*-----------------------------------------------------------------*/

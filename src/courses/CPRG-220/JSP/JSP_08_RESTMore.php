@@ -256,119 +256,138 @@ import model.Agent;
 @Path("/agent")
 public class SimpleRestService {
 
-	// http://localhost:8080/RESTApp/rs/agent/getallagents
-	@GET
-	@Path("/getallagents")
-	@Produces(MediaType.APPLICATION_JSON)
-	public String getAgents() {
-	  
-		EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager();  
-		Query query = em.createQuery("SELECT a FROM Agent a");
-		List <Agent> list = query.getResultList();
-		Gson gson = new Gson();
-		Type type = new TypeToken&lt;List&lt;Agent>>() {}.getType();
-    
-	  	return gson.toJson(list, type);	
-	}
+  // http://localhost:8080/RESTApp/rs/agent/getallagents
+  @GET
+  @Path("/getallagents")
+  @Produces(MediaType.APPLICATION_JSON)
+  public String getAgents() {
   
-	// http://localhost:8080/RESTApp/rs/agent/getagent/3
-	@GET
-	@Path("/getagent/{agentid}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public String getAgent(@PathParam("agentid") int agentId) {
-	  
-		EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager();  
-		//an alternative to using the query to getsingleResult we can just do a find
-		
-		//Agent agent = em.find(Agent.class, agentId);
-		Query query = em.createQuery("select a from Agent a where a.agentId=" + agentId);
-		Agent agent = (Agent) query.getSingleResult();		
-
-		Gson gson = new Gson();
-		Type type = new TypeToken&lt;Agent>() {}.getType();
-		return gson.toJson(agent, type);
-
-	}
-	  
-	// http://localhost:8080/RESTApp/rs/agent/postagent
-	// {"agtFirstName":"Joe", "agtMiddleInitial":"W", "agtLastName":"Bob", "agtBusPhone":"4032321234", "agtEmail":"joe@email.com", "agtPosition":"El Benefactor", "agencyId":1}
-	// INSERT
-	@POST
-	@Path("/postagent")
-	@Produces(MediaType.TEXT_PLAIN)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public String postAgent(String jsonString) {
-	  
-		EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager(); 
-		//JsonObject obj = new JsonParser().parse(jsonString).getAsJsonObject();
-		
-		Gson gson = new Gson();
-		Type type = new TypeToken&lt;Agent>() {}.getType();
-		Agent agent = gson.fromJson(jsonString, type);
-		
+    EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager();  
+    Query query = em.createQuery("SELECT a FROM Agent a");
+    List <Agent> list = query.getResultList();
+    Gson gson = new Gson();
+    Type type = new TypeToken&lt;List&lt;Agent>>() {}.getType();
+    
+    return gson.toJson(list, type);	
+  }
+  
+  // http://localhost:8080/RESTApp/rs/agent/getagent/3
+  @GET
+  @Path("/getagent/{agentid}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public String getAgent(@PathParam("agentid") int agentId) {
+  
+    EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager();  
+    //an alternative to using the query to getsingleResult we can just do a find
+    
+    //Agent agent = em.find(Agent.class, agentId);
+    Query query = em.createQuery("select a from Agent a where a.agentId=" + agentId);
+    Agent agent = (Agent) query.getSingleResult();		
+    
+    Gson gson = new Gson();
+    Type type = new TypeToken&lt;Agent>() {}.getType();
+    
+    return gson.toJson(agent, type);  
+  }
+  
+  // http://localhost:8080/RESTApp/rs/agent/postagent
+  // {"agentId":12, "agtFirstName":"Joe", "agtMiddleInitial":"W", "agtLastName":"Bob", "agtBusPhone":"4032321234", "agtEmail":"joe@email.com", "agtPosition":"El Benefactor", "agencyId":1}
+  // UPDATE
+  @POST
+  @Path("/postagent")
+  @Produces(MediaType.TEXT_PLAIN)
+  @Consumes(MediaType.APPLICATION_JSON)
+  public String postAgent(String jsonString) {
+  
+    EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager(); 
+    //JsonObject obj = new JsonParser().parse(jsonString).getAsJsonObject();
+    
+    Gson gson = new Gson();
+    Type type = new TypeToken&lt;Agent>() {}.getType();
+    Agent agent = gson.fromJson(jsonString, type);
+    
     System.out.println("INSERT: " + agent);
-		
-		em.getTransaction().begin();
-		Agent result = em.merge(agent);
-		em.getTransaction().commit();
-		em.close();
-		return "updated";
-
-	}
-	  
-	// http://localhost:8080/RESTApp/rs/agent/putagent
-	// {"agentId":12, "agtFirstName":"Joe", "agtMiddleInitial":"W", "agtLastName":"Bob", "agtBusPhone":"4032321234", "agtEmail":"joe@email.com", "agtPosition":"El Benefactor", "agencyId":1}
-	// UPDATE
-	@PUT
-	@Path("/putagent")
-	@Produces(MediaType.TEXT_PLAIN)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public String putAgent(String jsonString) {
-	  
-		EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager(); 
-		
-		Gson gson = new Gson();
-		Agent agent = gson.fromJson(jsonString, Agent.class);
-		
+    
+    em.getTransaction().begin();
+    Agent result = em.merge(agent);
+    em.getTransaction().commit();
+    em.close();
+    
+    return "updated";  
+  }
+  
+  // http://localhost:8080/RESTApp/rs/agent/putagent
+  // {"agtFirstName":"Joe", "agtMiddleInitial":"W", "agtLastName":"Bob", "agtBusPhone":"4032321234", "agtEmail":"joe@email.com", "agtPosition":"El Benefactor", "agencyId":1}
+  // INSERT
+  @PUT
+  @Path("/putagent")
+  @Produces(MediaType.TEXT_PLAIN)
+  @Consumes(MediaType.APPLICATION_JSON)
+  public String putAgent(String jsonString) {
+  
+    EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager();    
+    Gson gson = new Gson();
+    Agent agent = gson.fromJson(jsonString, Agent.class);
+    
     System.out.println("UPDATE: " + agent);
-		
-		em.getTransaction().begin();
-		em.persist(agent);
-		em.getTransaction().commit();
-        return "inserted";		
-	}
-	  
-	// http://localhost:8080/RESTApp/rs/agent/deleteagent/3
-	@DELETE
-	@Path("/deleteagent/{agentid}")
-	public String deleteAgent(@PathParam("agentid") int agentId) {
-	  
-		EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager(); 
-		
-		Agent foundAgent = em.find(Agent.class, agentId);
-		
-		System.out.println("Found Agent: " + foundAgent);
-		
-		em.getTransaction().begin();
-		em.remove(foundAgent);
-		if (em.contains(foundAgent))
-		{
-			em.getTransaction().rollback();
-			em.close();
-			return "Delete failed, contact tech support";
-		}
-		else
-		{
-			em.getTransaction().commit();
-			em.close();
-			return "Agent was successfully deleted";
-		}
-	}
+    
+    em.getTransaction().begin();
+    em.persist(agent);
+    em.getTransaction().commit();
+    
+    return "inserted";		
+  }
+  
+  // http://localhost:8080/RESTApp/rs/agent/deleteagent/3  -- choose a row that you created
+  @DELETE
+  @Path("/deleteagent/{agentid}")
+  public String deleteAgent(@PathParam("agentid") int agentId) {
+  
+    EntityManager em =  Persistence.createEntityManagerFactory("RESTApp").createEntityManager();     
+    Agent foundAgent = em.find(Agent.class, agentId);
+    
+    System.out.println("Found Agent: " + foundAgent);
+    
+    em.getTransaction().begin();
+    em.remove(foundAgent);
+    if (em.contains(foundAgent)) {
+      em.getTransaction().rollback();
+      em.close();
+      
+      return "Delete failed, contact tech support";
+    }
+    else {
+      em.getTransaction().commit();
+      em.close();
+      
+      return "Agent was successfully deleted";
+    }
+  }
 }
 </code></pre>
 
 <h2>Test It</h2>
 <p><b>Clean and restart the server, then open Postman and test every function to make sure that it works!</b></p>
+<p>
+  Start with <code>agent/getallagents</code> then <code>agent/getagent/3</code> (for instance).<br>
+  If these two work, take note of the JSON that was returned - 
+  <b>this is the format that it must be submitted as</b>.<br>
+  <b>The field names represent the fields in the <code>Agent</code> object
+  , not the table columns </b>(camelCase instead of PascalCase).<br>
+</p>
+<p>
+  When you write the <code>agent/postagent</code> JSON, remember that it is an <b>UPDATE query</b>, so 
+  <b>you must pass the primary key</b> along in the JSON <b>otherwise it will perform an INSERT.</b>
+</p>
+<p>
+  When you write the <code>agent/putagent</code> JSON, remember that it is an <b>INSERT query</b>, so
+  <b>it is not necessary to supply the primary key</b> along in the JSON.
+</p>
+<p>
+  When you write the <code>agent/deleteagent/12</code>, (for instance), <b>make sure that you are deleting a row
+  that you just created, otherwise it could be referenced from the <code>Customers</code> table and the DELETE will
+  fail.
+</p>
 
 ';
 

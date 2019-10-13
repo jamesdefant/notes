@@ -35,11 +35,16 @@ MAINHEADING;
   </a> 
 </p>
 <p>
-  You\'ll need <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?printOnly=1" 
+  <b>You\'ll need</b><br>
+  <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?printOnly=1" 
     target="_blank">Linux ARM 32 Hard Float ABI
   </a> <b>(32 bit JDK 8)</b><br>
-  and<br>
+  <b>and</b><br>
   <a href="https://download.jboss.org/wildfly/11.0.0.Final/wildfly-11.0.0.Final.zip" target="_blank">WildFly 11.0</a>
+</p>
+<p>
+  <b>Considering that we\'re installing the server to run with JDK 8 32-bit, you should also develop your REST API 
+  with the 32-bit JDK 8</b>
 </p>
 <ol>
   <li>Copy via FileZila the WildFly 11.0 zip and the ARM jdk 1.8.2 tar.gz to the Pi\'s desktop</li>

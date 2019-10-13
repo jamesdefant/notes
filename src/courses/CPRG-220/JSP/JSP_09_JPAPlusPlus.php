@@ -250,7 +250,7 @@ COMMIT;
 
 <h2>Generate Entities</h2>
 <p>
-  Now if we open a project and generate <b>Entities</b> from these tables, this is what we\'ll get:<br>
+  Now if we open a project and generate <b>Entities</b> with <b>JPA Tools</b> from these tables, this is what we\'ll get:<br>
   <em>I\'m ommiting <b>getters</b> and <b>setters</b> to keep things clear</em>
 </p>
 <p><code>Country.java</code></p>
@@ -465,7 +465,7 @@ public class CountryAdapter extends TypeAdapter&lt;Country> {
 <p><code>read()</code> <b>interprets a JSON string and returns an object</b></p>
 
 <h2>write()</h2>
-<p><code>write()</code> interprets an object and returns a JSON string</p>
+<p><code>write()</code> <b>interprets an object and returns a JSON string</b></p>
 ';
 
       return $returnValue;

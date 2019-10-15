@@ -19,7 +19,7 @@ TITLE;
     public function getMainHeading() : string
     {
       return <<< 'MAINHEADING'
-More Than One Model with JPA
+More Than One Entity with JPA & GSON
 MAINHEADING;
     }
 
@@ -388,6 +388,30 @@ public class Provstate implements Serializable {
   <em>It fails when trying to turn these classes into JSON</em>
 </p>
 
+<h2>Nullable Columns</h2>
+<p>We have to alter the entity class <b>Country.java</b> to allow for <code>age</code> to be <b>Nullable</b>:</p>
+';
+
+      $returnValue .= '
+<p>It is simply a matter of changing the field, getter and setter from <code>int</code> to <code>Integer</code>:</p>
+<pre><code>
+public class Country implements Serializable {
+  ...
+  
+	private Integer age;
+
+	public Integer getAge() {
+		return this.age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	
+	...
+}
+</code></pre>
+
 <h2>TypeAdapter</h2>
 <p>
   What we need to do is write an <b>explicit JSON adapter</b> to make <b>Gson</b> read and write JSON the way we want 
@@ -460,12 +484,239 @@ public class CountryAdapter extends TypeAdapter&lt;Country> {
     <li><code>endObject()</code> - Consumes the next token and asserts that it is the end of the current object</li>
   </ul>
 </p>
+<hr>
 
-<h2>read()</h2>
+<h2>CountryAdapter</h2>
 <p><code>read()</code> <b>interprets a JSON string and returns an object</b></p>
+<p><code>write()</code> <b>interprets an object and writes a JSON string</b></p>
+<p>The JSON data that would be fed to this CountryAdapter would look like this:</p>
+<pre><code>
+{
+  "countryId":1,
+  "countryName":"Canada",
+  "age":152
+}
+</code></pre>
+<p><em>Because this object only contains primitive values, we can write a fairly simple adapter class</em></p>
+<p>The implementation looks like this:</p>
+<pre><code>
+package model;
 
-<h2>write()</h2>
-<p><code>write()</code> <b>interprets an object and returns a JSON string</b></p>
+import java.io.IOException;
+
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+
+public class CountryAdapter extends TypeAdapter&lt;Country> {
+
+	@Override
+	public Country read(JsonReader in) throws IOException {
+		
+		// Create a new object
+		Country country = new Country();
+		
+		// Read the opening curly-brace
+		in.beginObject();
+		
+		// Loop through the tokens
+		while(in.hasNext()) {
+			
+			switch(in.nextName()) {
+			
+			case "countryId":
+				country.setCountryId(in.nextInt());
+				break;
+				
+			case "countryName":
+				country.setCountryName(in.nextString());
+				break;
+				
+			case "age":
+				country.setAge(in.nextInt());
+				break;
+			}
+		}
+		
+		// Read the closing curly-brace
+		in.endObject();
+		
+		// Return the object
+		return country;
+	}
+
+	@Override
+	public void write(JsonWriter out, Country country) throws IOException {
+		
+		// Write an open curly-brace to the JSON
+		out.beginObject();
+				
+		// Write the object to JSON in name:value pairs 
+		out.name("countryId").value(country.getCountryId());
+		out.name("countryName").value(country.getCountryName());
+		
+		// Check if age is null
+		if(country.getAge() != null) {
+			out.name("age").value(country.getAge());
+		}
+		
+		// Write a closed curly-brace to the JSON
+		out.endObject();
+		out.close();		
+	}
+
+}
+</code></pre>
+<hr>
+
+<h2>ProvstateAdapter</h2>
+<p>The Provstate class contains a <code>Country</code> object instead of a <code>int countryId</code></p>
+<p>
+  For the sake of keeping the JSON lightweight, we will have it read/write the <code>countryId</code>, however this 
+  will be accessed through the contained object
+</p>
+<p>Because all objects in JSON are surrounded by curly-braces, we need to check the tokens one by one:</p>
+<p>The JSON data that would be fed to this adapter would look like this:</b>
+</p>
+<pre><code>
+{
+  "provStateCode":"AK",
+  "provStateName":"Alaska",
+  "countryId":2
+}
+</code></pre>
+<p>
+  The implementation looks like this:<br>
+  <b><em>Notice the private method that checks if there is a country with that id and returns it</em></b>
+</p>
+<pre><code>
+package model;
+
+import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import com.google.gson.stream.JsonWriter;
+
+import main.CountryDB;
+
+public class ProvstateAdapter extends TypeAdapter<Provstate> {
+
+	@Override
+	public Provstate read(JsonReader in) throws IOException {
+
+		// Create a new object
+		Provstate provstate = new Provstate();
+		
+		// Read the opening curly-brace
+		in.beginObject();
+		
+		// Loop through the tokens
+		while(in.hasNext()) {
+			
+			switch(in.nextName()) {
+			
+			case "provStateCode":
+				provstate.setProvStateCode(in.nextString());
+				break;
+				
+			case "provStateName":
+				provstate.setProvStateName(in.nextString());
+				break;
+				
+			case "countryId":
+				Country country = getCountry(in.nextInt());
+				provstate.setCountry(country);
+				break;
+			}
+			
+		}
+		
+		// Read the closing curly-brace
+		in.endObject();
+		
+		// Return the object
+		return provstate;
+	}
+	
+	// Retrieve a Country object from the database
+	private Country getCountry(int countryId) {
+		
+		String jsonString = CountryDB.getCountry(countryId);
+		
+		if(jsonString != null) {
+			Gson gson = new Gson();
+			return gson.fromJson(jsonString, Country.class);
+		}
+		
+		return null;
+	}
+
+	@Override
+	public void write(JsonWriter out, Provstate provstate) throws IOException {
+
+		// Write an open curly-brace to the JSON
+		out.beginObject();
+				
+		// Write the object to JSON in name:value pairs 
+		out.name("provStateCode").value(provstate.getProvStateCode());
+		out.name("provStateName").value(provstate.getProvStateName());
+		
+		// Check if country is null
+		if(provstate.getCountry() != null) {
+			
+			// Set the JSON value to the nested Country\'s ID
+			out.name("countryId").value(provstate.getCountry().getCountryId());
+		}
+		
+		// Write a closed curly-brace to the JSON
+		out.endObject();
+		out.close();		
+	}
+}
+</code></pre>
+<hr>
+
+<h2>Annotation</h2>
+<h5>Very Important!</h5>
+<p>
+  The adapter <b>will not work</b> without adding an annotation that defines the adapter to the object model classes:<br>
+  <em>You\'ll need to import <code>com.google.gson.annotations.JsonAdapter</code> into the model class</em>
+</p>
+
+<p><code>Country.java</code></p>
+<pre><code>
+import com.google.gson.annotations.JsonAdapter;
+
+@JsonAdapter(CountryAdapter.class)
+@Entity
+@Table(name="countries")
+@NamedQuery(name="Country.findAll", query="SELECT c FROM Country c")
+public class Country implements Serializable {
+	...
+}
+</code></pre>
+<p><code>Provstate.java</code></p>
+<pre><code>
+import com.google.gson.annotations.JsonAdapter;
+
+@JsonAdapter(ProvstateAdapter.class)
+@Entity
+@Table(name="provstates")
+@NamedQuery(name="Provstate.findAll", query="SELECT p FROM Provstate p")
+public class Provstate implements Serializable {
+	...
+}
+</code></pre>
+
+<h2>Source Code</h2>
+<p>
+  The source code for this is on GitHub @ <a href="https://github.com/jamesdefant/Register" target="_blank">
+    https://github.com/jamesdefant/Register
+  </a> 
+</p>
 ';
 
       return $returnValue;

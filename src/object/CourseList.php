@@ -38,7 +38,8 @@ class CourseList
     "INSTRUCTORS" => ["Notes", "c48000"],
     "CPLN-240" => ["Career Planning", "5ca188"],
     "CMPS-200" => ["Operating Systems","630057"],
-    "CPRG-220" => ["Open-Source Dev", "ff8282"]
+    "CPRG-220" => ["Open-Source Dev", "ff8282"],
+    "CPRG-208" => ["IBM Security", "eb8c59"]
 
   ];
 

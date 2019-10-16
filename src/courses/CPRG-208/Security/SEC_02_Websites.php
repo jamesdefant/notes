@@ -147,6 +147,7 @@ query = "SELECT * FROM tUsers
   <li>Assign a new Session ID when switching to SSL or authenticating</li>
   <li>Replace the Session ID after logging in</li>
 </ul>
+
 <h2>Have I Been Pwned?</h2>
 <p><a href="https://haveibeenpwned.com/" target="_blank">https://haveibeenpwned.com/</a> </p>
 

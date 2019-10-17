@@ -27,6 +27,24 @@ MAINHEADING;
     /* CONTENT  <main> */
     public function getContent() : string
     {
+      $knowForTest = [
+        ["PAGES", "WHAT TO KNOW"],
+        ["1-18", "Grouping of Results"],
+        ["1-19", "Tab Purposes"],
+        ["2-11", "License Types"],
+        ["3-18", "Manual vs Automatic Exposure"],
+        ["4-5", "Scan Types"],
+        ["4-5", "Incomplete Result Reasons"],
+        ["5-34", "Re-Scan Types"],
+        ["8-12", "JavaScript Types"],
+        ["8-16", "Flash Vulnerabilities"],
+        ["8-17", "Where Unsupported Flash Movies Can Be Seen"],
+        ["9-5", "Metric Groups For Vulnerability Scoring"],
+        ["9-8", "Differences Between Exceptions and Exclusions"],
+        ["13-5", "Vulnerabilities of Web Services"],
+        ["15-18", "Reasons For Communication Errors"]
+      ];
+
       $returnValue = '
 <h2>WASC Classification</h2>
 <ol>
@@ -138,6 +156,28 @@ MAINHEADING;
   <b>Noise</b> - Never a Problem<br>
   <b>Non-Vulnerable</b> - Problem but not on your website
 </p>
+
+<h2>Test - Must Know</h2>
+' . \WriteHTML::getTable($knowForTest) . '
+
+<h2>Definitions</h2>
+<ul>
+  <li><b>Federation</b> - Central ID Management</li>
+  <li><b>IAM</b> - ID Access Management</li>
+  <li><b>UTM</b> - Unified Threat Management</li>
+  <li><b>DLP</b> - Data Loss Prevention</li>
+  <li><b>MSS</b> - Managed Security Services</li>
+  <li><b>ISS</b> - Internet Security Services</li>
+  <li><b>XSS</b> - Cross-Site Script (Phishing Attack)</li>
+  <li><b>HASM</b> - Hosted Application Security Management</li>
+  <li><b>VMS</b> - Vulnerability Management Services</li>
+  <li><b>IDS</b> - Intrusion Detection System</li>
+  <li><b>IPS</b> - Intrusion Prevention System</li>
+  <li><b>SSO</b> - Single Sign-On</li>
+  <li><b>CWE</b> - Common Weakness Evaluation</li>
+</ul>
+
+
 ';
 
       return $returnValue;

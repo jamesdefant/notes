@@ -45,7 +45,7 @@ MAINHEADING;
       session.getAttribute("message").equals("")) {
     
     // Display a message
-    out.print("<h3>" + session.getAttribute("message") + "</h3>");
+    out.print("&lt;h3>" + session.getAttribute("message") + "&lt;/h3>");
   }
 %>    
     

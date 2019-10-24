@@ -45,18 +45,76 @@ MAINHEADING;
   </li>
 </ul>
 
-<h2>Our Example</h2>
+<h2>An Example</h2>
+<p>This is the basic layout of an AJAX call:</p>
+<pre><code>
+function getAllAgents() {
+	
+	console.log("getAgentsData()");	
+	
+	// Create a request object
+	const req = new XMLHttpRequest();
+		
+	req.onreadystatechange = function() {
+		if (req.readyState == 4 && req.status == 200) {
+			
+			console.log("readystate == 4 && req.status == 200");
+			
+			let agentsArray = JSON.parse(req.responseText);			
+		}	
+	};
+	req.open("GET", HOST + "/TravelExperts/rs/agent/getallagents");
+	req.send();
+}
+</code></pre>
+
 <p>
-  Building on the previous page\'s example where we created a REST API to serve database data as
-  JSON data, we\'ll create a frontend webpage to display that data with AJAX 
+  This is a simple way to grab some data and do something with it, but if you simply want to return it to do more, it
+  leaves you hanging.
 </p>
-<ol>
-  <li>Create a new <b>Dynamic Web Project</b></li>
-  <li>
-    Create a new <code>.html</code> file by right-clicking the <code>WebContent</code> directory and select<br>
-    <kbd>New</kbd> => <kbd>HTML File</kbd><br>       
-  </li>
-</ol>
+
+<h2>jQuery</h2>
+<p>JQuery is a JavaScript library that makes common js calls a lot simpler</p>
+<p><b>You will need to either download <a href="https://jquery.com/" target="_blank">jQuery</a> and provide a link to it in your code:</b></p>
+<pre><code>
+&lt;script src="jquery-3.4.1.min.js">&lt;/script>
+</code></pre>
+<p><b>...or just embed them from the CDN (like Bootstrap does)...</b></p>
+<pre><code>
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">&lt;/script>
+</code></pre>
+
+<p>A similar AJAX call in JQuery looks like this:</p>
+<pre><code>
+$.ajax({
+  url: HOST + "/TravelExperts/rs/agent/getallagents",
+  dataType: "json",
+  type: "GET",
+  success: function(data) {
+    agents = data;
+  }
+});
+</code></pre>
+<p>This accomplishes the same thing, though you can wrap it in a function to get it to return a value:</p>
+<pre><code>
+function getAgentData() {
+
+	let agents;
+	
+	$.ajax({
+		url: HOST + "/TravelExperts/rs/agent/getallagents",
+		dataType: "json",
+		type: "GET",
+		async: false,
+		success: function(data) {
+			agents = data;
+		}
+	});
+	
+	return agents;
+}
+</code></pre>
+
 
 ';
 

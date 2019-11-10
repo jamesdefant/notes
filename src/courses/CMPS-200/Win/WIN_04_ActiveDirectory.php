@@ -80,7 +80,7 @@ MAINHEADING;
     says <b>Promote this server to a domain controller</b> 
   </li>
   <li>For the <kbd>Deployment Configuration</kbd> select <b>Add a new forest</b> from the radio buttons</li>
-  <li>Enter a <kbd>Root domain name</kbd> - in our case <b>Test.Tek</b> and click <b>Next ></b></li>
+  <li>Enter a <kbd>Root domain name</kbd> - in our case <code>Test.Tek</code> and click <b>Next ></b></li>
   <li>For the <kbd>Domain Controller Options</kbd> enter and confirm a password and click <b>Next ></b></li>
   <li>For the <kbd>DNS Options</kbd> click <b>Next ></b></li>
   <li>

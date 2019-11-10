@@ -29,10 +29,10 @@ MAINHEADING;
     {
       $ipTable = [
         ['FIELD', 'VALUE'],
-        ['IP address:', '192.168.138.253'],
+        ['IP address:', '192.168.1.253'],
         ['Subnet mask:', '255.255.255.0'],
-        ['Default gateway:', '192.168.138.2'],
-        ['Prefered DNS server:', '192.168.138.253']
+        ['Default gateway:', '192.168.1.2'],
+        ['Prefered DNS server:', '192.168.1.253']
       ];
       $newUser = [
         ['FIELD', 'VALUE'],
@@ -51,7 +51,16 @@ MAINHEADING;
 
 <h2>Create Partitions</h2>
 <ol>
-  <li></li>
+  <li>Open <kbd>Computer Management</kbd> and choose <kbd>Disk Management</kbd></li>
+  <li>Select the drive you\'d like to partition, right-click it and choose </li>
+  <li>
+    Create the following partitions:
+    <ul>
+      <li>Active Directory</li>
+      <li>Network Drives</li>
+      <li>Computer Images</li>
+    </ul>
+  </li>
 </ol>
 
 <h2>Set a static IP</h2>

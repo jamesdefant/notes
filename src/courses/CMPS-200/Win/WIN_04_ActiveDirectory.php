@@ -119,7 +119,7 @@ MAINHEADING;
     Click <b>Next ></b>
   </li>
   <li>Select <b>IPv4 Reverse Lookup Zone</b> and click <b>Next ></b></li>
-  <li>Type in the IP we used for the static IP (192.168.138.) into the <kbd>Network ID:</kbd> and click <b>Next ></b></li>
+  <li>Type in the IP we used for the static IP (192.168.1.) into the <kbd>Network ID:</kbd> and click <b>Next ></b></li>
   <li>
     For ease of use <b>- NOT FOR PRODUCTION</b> - select <b>Allow both nonsecure and secure dynamic updates</b> 
     and click <b>Next ></b>

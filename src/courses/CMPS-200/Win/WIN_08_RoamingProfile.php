@@ -37,8 +37,33 @@ MAINHEADING;
     Set their <kbd>Permission Level</kbd> to <b>Read/Write</b><br>    
   </li>
   <li>Repeat as necessary and click <kbd>Share</kbd></li>
-</ol>
+  <li>Note that the correct folder was shared and click <kbd>Done</kbd></li>
+  <li>Navigate to the folder and right-click it and choose <kbd>Properties</kbd> from the context menu</li>
 
+</ol>
+<hr>
+
+<h2>Grant Access to Directory</h2>
+<ol>
+  <li>Navigate to the <kbd>Sharing</kbd> tab and select and <b>copy</b> the <b>Network Path</b> of the folder</li>
+  <li>Click <kbd>Cancel</kbd> to exit the Properties window</li>
+  <li>Open the app <kbd>Acitve Directory User and ...</kbd></li>
+  <li>
+    Navigate to the user or group that you would like to give access to, right-click them, and choose 
+    <kbd>Properties</kbd> from the context menu
+  </li>
+  <li>
+    Navigate to the <kbd>Profile</kbd> tab and <b>copy the Network Path</b> into the <kbd>Profile path</kbd> 
+    textbox and append it with <code>\%username%</code><br>
+    ie. <code>\\James_Win10\Roaming\%username%</code>
+  </li>
+  <li>
+    Choose <b>Connect</b> for the <kbd>Home Folder</kbd>, select a <b>drive letter</b> to represent the home drive, 
+    and copy the <kbd>Profile Path</kbd> into the <kbd>To</kbd> textbox
+  </li>
+  <li>Click <kbd>Apply</kbd> - the <code>%username%</code> placeholder should resolve to the current user/group name</li>
+  <li>Click <kbd>OK</kbd> to close the wizard</li>
+</ol>
 
 ';
 
